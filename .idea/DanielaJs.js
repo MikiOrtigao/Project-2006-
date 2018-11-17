@@ -27,6 +27,18 @@ document.getElementById("kelvin").onchange = function () {
 document.getElementById("kilos").onchange = function () {
     lastEditedWeight = "kilos";
 };
+document.getElementById("grams").onchange = function () {
+    lastEditedWeight = "grams";
+};
+document.getElementById("pounds").onchange = function () {
+    lastEditedWeight = "pounds";
+};
+document.getElementById("ounces").onchange = function () {
+    lastEditedWeight = "ounces";
+};
+document.getElementById("stones").onchange = function () {
+    lastEditedWeight = "stones";
+};
 
 /**
  * Converts Temperature - Unit values used: Celsius, Fahrenheit and Kelvin
@@ -89,6 +101,7 @@ function convertTemperature() {
 function convertWeight(){
 
     //initialize local variables
+    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
     var kilos = document.getElementById("kilos").value;
     kilos = parseFloat(kilos);
 
@@ -117,30 +130,36 @@ function convertWeight(){
         conversionPounds = kilos * 2.2046;
         conversionOunces = kilos * 35.274;
         conversionStones = kilos * 0.15747;
-        //round the converted fahrenheit and kelvin values
+        //round the converted weight values
         document.getElementById("grams").value = Math.round(conversionGrams);
         document.getElementById("Pounds").value = Math.round(conversionPounds);
         document.getElementById("Ounces").value = Math.round(conversionOunces);
         document.getElementById("Stones").value = Math.round(conversionOunces);
-
     }
-    //ESTES AINDA NAO ESTAO. È PARA FAZER COM OS RESTANTES
-/*    //if the grams field changes, convert the kilos, pounds, ouces and stone values;
-    else if (lastEditedWeight === "fahrenheit") {
-        conversionC = (fahrenheit - 32) * 5 / 9;
-        conversionK = conversionC + 273;
-        //round the converted celsius and kelvin values
-        document.getElementById("celsius").value = Math.round(conversionC);
-        document.getElementById("kelvin").value = Math.round(conversionK);
+//if the grams field changes, convert the kilos, pounds, ouces and stone values;
+    else if (lastEditedWeight === "grams") {
+        conversionKilos = grams / 1000;
+        conversionPounds = grams / 453.59237;
+        conversionOunces = grams / 28.34952;
+        conversionStones = grams * 0.00015747;
+        //round the converted weight values
+        document.getElementById("kilos").value = Math.round(conversionKilos);
+        document.getElementById("Pounds").value = Math.round(conversionPounds);
+        document.getElementById("Ounces").value = Math.round(conversionOunces);
+        document.getElementById("Stones").value = Math.round(conversionOunces);
     }
-    //if the kelvin field changes, convert the celsius and fahrenheit values
-    else if (lastEditedWeight === "kelvin") {
-        conversionC = kelvin - 273;
-        conversionF = conversionC * 9 / 5 + 32;
-        //round the converted celsius and fahrenheit values
-        document.getElementById("celsius").value = Math.round(conversionC);
-        document.getElementById("fahrenheit").value = Math.round(conversionF);
-    }*/
+//if the pounds field changes, convert the kilos, grams, ouces and stone values;
+    else if (lastEditedWeight === "pounds") {
+        conversionKilos = pounds / 2.2046;
+        conversionGrams = pounds * 453.59237;
+        conversionOunces = pounds * 16;
+        conversionStones = pounds * 0.071429;
+        //round the converted weight values
+        document.getElementById("kilos").value = Math.round(conversionKilos);
+        document.getElementById("grams").value = Math.round(conversionGrams);
+        document.getElementById("Ounces").value = Math.round(conversionOunces);
+        document.getElementById("Stones").value = Math.round(conversionOunces);
+    }
 
 /**
 * get the current conversion weight values and store them in the input fields
