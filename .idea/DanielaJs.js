@@ -1,9 +1,10 @@
 // TEMPERATURA
 
 /**
- * @type {string} - initializes de lastEdited flag to any of the input fields, by  default I choosed the celsius unit.
+ * @type {string} - initializes de lastEdited flag to any of the input fields, by  default I choosed one of the unit types for each diferent unit..
  */
-var lastEdited = "celsius";  // initialize the lastEdited flag to any of the three input fields.
+var lastEditedTemp = "celsius";  // initialize the lastEdited flag to any of the input fields.
+var lastEditedWeight = "kilos";
 
 /**
  * Button listeners - what will happen when the user clicks on page buttons
@@ -15,24 +16,26 @@ document.getElementById("reset").onclick = reset;
 
 //picks up on if and when an input field changes, then sets the lastEdited flag to the input field that was changed.
 document.getElementById("celsius").onchange = function () {
-    lastEdited = "celsius";
+    lastEditedTemp = "celsius";
 };
 document.getElementById("fahrenheit").onchange = function () {
-    lastEdited = "fahrenheit";
+    lastEditedTemp = "fahrenheit";
 };
 document.getElementById("kelvin").onchange = function () {
-    lastEdited = "kelvin";
+    lastEditedTemp = "kelvin";
 };
 document.getElementById("kilos").onchange = function () {
-    lastEdited = "kilos";
+    lastEditedWeight = "kilos";
 };
 
-
-
-
+/**
+ * Converts Temperature - Unit values used: Celsius, Fahrenheit and Kelvin
+ */
 function convertTemperature() {
 
     //initialize local variables
+    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+
     var celsius = document.getElementById("celsius").value;
     celsius = parseFloat(celsius);
 
@@ -42,13 +45,13 @@ function convertTemperature() {
     var kelvin = document.getElementById("kelvin").value;
     kelvin = parseFloat(kelvin);
 
-    //temp values
+    //temperature values, will be our "return" value after the method
     var conversionC;
     var conversionF;
     var conversionK;
 
     //if the celsius field changes, convert the fahrenheit and kelvin values
-    if (lastEdited === "celsius") {
+    if (lastEditedTemp === "celsius") {
         conversionF = celsius * 9 / 5 + 32;
         conversionK = celsius + 273;
         //round the converted fahrenheit and kelvin values
@@ -56,7 +59,7 @@ function convertTemperature() {
         document.getElementById("kelvin").value = Math.round(conversionK);
     }
     //if the fahrenheit field changes, convert the celsius and kelvin values
-    else if (lastEdited === "fahrenheit") {
+    else if (lastEditedTemp === "fahrenheit") {
         conversionC = (fahrenheit - 32) * 5 / 9;
         conversionK = conversionC + 273;
         //round the converted celsius and kelvin values
@@ -64,7 +67,7 @@ function convertTemperature() {
         document.getElementById("kelvin").value = Math.round(conversionK);
     }
     //if the kelvin field changes, convert the celsius and fahrenheit values
-    else if (lastEdited === "kelvin") {
+    else if (lastEditedTemp === "kelvin") {
         conversionC = kelvin - 273;
         conversionF = conversionC * 9 / 5 + 32;
         //round the converted celsius and fahrenheit values
@@ -73,30 +76,81 @@ function convertTemperature() {
     }
 
 /**
-* get the current conversion temp values and store them in the input fields
+* get the current conversion temperature values and store them in the input fields
 */
     document.getElementById("celsius").innerHTML = conversionC;
     document.getElementById("fahrenheit").innerHTML = conversionF;
     document.getElementById("kelvin").innerHTML = conversionK;
 }
 
-
+/**
+ * Converts Weight - Unit values used: Kilograms, Grams, Pounds, Ounces and Stones
+ */
 function convertWeight(){
 
     //initialize local variables
     var kilos = document.getElementById("kilos").value;
     kilos = parseFloat(kilos);
 
-    var fahrenheit = document.getElementById("fahrenheit").value;
-    fahrenheit = parseFloat(fahrenheit);
+    var grams = document.getElementById("grams").value;
+    grams = parseFloat(grams);
 
-    var kelvin = document.getElementById("kelvin").value;
-    kelvin = parseFloat(kelvin);
+    var pounds = document.getElementById("pounds").value;
+    pounds = parseFloat(pounds);
 
-    //temp values
-    var conversionC;
-    var conversionF;
-    var conversionK;
+    var ounces = document.getElementById("ounces").value;
+    ounces = parseFloat(ounces);
+
+    var stones = document.getElementById("stones").value;
+   stones = parseFloat(stones);
+
+  //weight values
+    var conversionKilos;
+    var conversionGrams;
+    var conversionPounds;
+    var conversionOunces;
+    var conversionStones;
+
+    //if the kilos field changes, convert the grams, pounds, ouces and stone values;
+    if (lastEditedWeight === "kilos") {
+        conversionGrams = kilos * 1000;
+        conversionPounds = kilos * 2.2046;
+        conversionOunces = kilos * 35.274;
+        conversionStones = kilos * 0.15747;
+        //round the converted fahrenheit and kelvin values
+        document.getElementById("grams").value = Math.round(conversionGrams);
+        document.getElementById("Pounds").value = Math.round(conversionPounds);
+        document.getElementById("Ounces").value = Math.round(conversionOunces);
+        document.getElementById("Stones").value = Math.round(conversionOunces);
+
+    }
+    //ESTES AINDA NAO ESTAO. È PARA FAZER COM OS RESTANTES
+/*    //if the grams field changes, convert the kilos, pounds, ouces and stone values;
+    else if (lastEditedWeight === "fahrenheit") {
+        conversionC = (fahrenheit - 32) * 5 / 9;
+        conversionK = conversionC + 273;
+        //round the converted celsius and kelvin values
+        document.getElementById("celsius").value = Math.round(conversionC);
+        document.getElementById("kelvin").value = Math.round(conversionK);
+    }
+    //if the kelvin field changes, convert the celsius and fahrenheit values
+    else if (lastEditedWeight === "kelvin") {
+        conversionC = kelvin - 273;
+        conversionF = conversionC * 9 / 5 + 32;
+        //round the converted celsius and fahrenheit values
+        document.getElementById("celsius").value = Math.round(conversionC);
+        document.getElementById("fahrenheit").value = Math.round(conversionF);
+    }*/
+
+/**
+* get the current conversion weight values and store them in the input fields
+*/
+    document.getElementById("kilos").innerHTML = conversionKilos;
+    document.getElementById("grams").innerHTML = conversionGrams;
+    document.getElementById("pounds").innerHTML = conversionPounds;
+    document.getElementById("ounces").innerHTML = conversionOunces;
+    document.getElementById("stones").innerHTML = conversionStones;
+
 
 }
 
@@ -126,5 +180,9 @@ function resetTemp() {
  * reset weight values
  */
 function resetWeight() {
-    document.getElementById("gramas").value = 0;
+    document.getElementById("kilos").value = 0;
+    document.getElementById("grams").value = 0;
+    document.getElementById("pounds").value = 0;
+    document.getElementById("ounces").value = 0;
+    document.getElementById("stones").value = 0;
 }
