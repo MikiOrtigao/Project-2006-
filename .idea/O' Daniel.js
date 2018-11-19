@@ -1,4 +1,24 @@
 //length - metro, cm, feet, inches, milhas, kilometros, yards
+/**
+ * initializes de lastEdited flag to anything that the user inputs.
+ * The default type is chosen by the programmer.
+ */
+var lastEditedLength = "meters";
+
+document.getElementById("submit").onclick = convert;
+document.getElementById("reset").onclick = reset;
+
+
+/**
+ * Certifies when and where the input field is changed to, then it sets de lastEdited flad to whatever it is.
+ */
+document.getElementById("meters").onchange = function () {lastEditedTemp = "meters";};
+document.getElementById("kilometers").onchange = function () {lastEditedTemp = "kilometers";};
+document.getElementById("centimeters").onchange = function () {lastEditedTemp = "centimeters";};
+document.getElementById("feet").onchange = function () {lastEditedTemp = "feet";};
+document.getElementById("inches").onchange = function () {lastEditedTemp = "inches";};
+document.getElementById("miles").onchange = function () {lastEditedTemp = "miles";};
+document.getElementById("yards").onchange = function () {lastEditedTemp = "yards";};
 
 function ConvertToMeter(){
     var inputValue = document.getElementById(/Inserir caminho do input do formulário/);
