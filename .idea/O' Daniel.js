@@ -1,9 +1,8 @@
-//length - metro, cm, feet, inches, milhas, kilometros, yards
 /**
  * initializes de lastEdited flag to anything that the user inputs.
  * The default type is chosen by the programmer.
  */
-var lastEditedLength = "meters";
+var lastEditedArea = "squaremeters";
 
 document.getElementById("submit").onclick = convert;
 document.getElementById("reset").onclick = reset;
@@ -12,176 +11,209 @@ document.getElementById("reset").onclick = reset;
 /**
  * Certifies when and where the input field is changed to, then it sets de lastEdited flad to whatever it is.
  */
-document.getElementById("meters").onchange = function () {lastEditedTemp = "meters";};
-document.getElementById("kilometers").onchange = function () {lastEditedTemp = "kilometers";};
-document.getElementById("centimeters").onchange = function () {lastEditedTemp = "centimeters";};
-document.getElementById("feet").onchange = function () {lastEditedTemp = "feet";};
-document.getElementById("inches").onchange = function () {lastEditedTemp = "inches";};
-document.getElementById("miles").onchange = function () {lastEditedTemp = "miles";};
-document.getElementById("yards").onchange = function () {lastEditedTemp = "yards";};
+document.getElementById("squaremeters").onchange = function () {lastEditedArea = "meters";};
+document.getElementById("squarekilometers").onchange = function () {lastEditedArea = "kilometers";};
+document.getElementById("squarecentimeters").onchange = function () {lastEditedArea = "centimeters";};
+document.getElementById("squarefeet").onchange = function () {lastEditedArea = "feet";};
+document.getElementById("squareinches").onchange = function () {lastEditedArea = "inches";};
+document.getElementById("squaremiles").onchange = function () {lastEditedArea = "miles";};
+document.getElementById("squareyards").onchange = function () {lastEditedArea = "yards";};
+document.getElementById("hectare").onchange = function () {lastEditedArea = "hectare";};
 
 /**
  * Converts Length - Unit values used: Meters, Kilometers, Centimeters, Feet, Inches, Miles, Yards
  */
 
 
-function ConvertLength() {
+function ConvertArea() {
 
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
 
-    var meters = document.getElementById("meters").value;
-    meters = parseFloat(meters);
-    var kilometers = document.getElementById("kilometers").value;
-    kilometers = parseFloat(kilometers);
-    var centimeters = document.getElementById("centimeters").value;
-    centimeters = parseFloat(centimeters);
-    var feet = document.getElementById("feet").value;
-    feet = parseFloat(feet);
-    var inches = document.getElementById("inches").value;
-    inches = parseFloat(inches);
-    var miles = document.getElementById("miles").value;
-    miles = parseFloat(miles);
-    var yards = document.getElementById("yards").value;
-    yards = parseFloat(yards);
+    var squaremeters = document.getElementById("squaremeters").value;
+    squaremeters = parseFloat(squaremeters);
+    var squarekilometers = document.getElementById("squarekilometers").value;
+    squarekilometers = parseFloat(squarekilometers);
+    var squarecentimeters = document.getElementById("squarecentimeters").value;
+    squarecentimeters = parseFloat(squarecentimeters);
+    var squarefeet = document.getElementById("squarefeet").value;
+    squarefeet = parseFloat(squarefeet);
+    var squareinches = document.getElementById("squareinches").value;
+    squareinches = parseFloat(squareinches);
+    var squaremiles = document.getElementById("squaremiles").value;
+    squaremiles = parseFloat(squaremiles);
+    var squareyards = document.getElementById("squareyards").value;
+    squareyards = parseFloat(squareyards);
+    var hectare = document.getElementById("hectare").value;
+    hectare = parseFloat(hectare);
 
     //length values, will be our "return" value after the method
-    var conversionM;
-    var conversionK;
-    var conversionC;
-    var conversionF;
-    var conversionI;
-    var conversionMi;
-    var conversionY;
+    var conversionM2;
+    var conversionK2;
+    var conversionC2;
+    var conversionF2;
+    var conversionI2;
+    var conversionMi2;
+    var conversionY2;
+    var conversionH;
 
-    if (lastEditedLength === "meters") {
-        conversionK = meters * 1000;
-        conversionC = meters / 100;
-        conversionF = meters * 0.3048;
-        conversionI = meters * 0.0254;
-        conversionMi = meters * 1609.344;
-        conversionY = meters * 0.9144;
+    if (lastEditedArea === "squaremeters") {
+        conversionK2 = squaremeters * 0.000001;
+        conversionC2 = squaremeters * 10000;
+        conversionF2 = squaremeters * 10.763910417;
+        conversionI2 = squaremeters * 1550.0031;
+        conversionMi2 = squaremeters * 0.0000003861018768;
+        conversionY2 = squaremeters * 1.1959900463;
+        conversionH = squaremeters * 0.0001;
 
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+        document.getElementById("squarekilometers").value = conversionK2;
+        document.getElementById("squarecentimeters").value = conversionC2;
+        document.getElementById("squarefeet").value = conversionF2;
+        document.getElementById("squareinches").value = conversionI2;
+        document.getElementById("squaremiles").value = conversionMi2;
+        document.getElementById("squareyards").value = conversionY2;
+        document.getElementById("hectare").value = conversionH;
     }
-    else if (lastEditedLength === "centimeters") {
-        conversionM = centimeters * 100;
-        conversionK = centimeters * 100000;
-        conversionF = centimeters * 30.48;
-        conversionI = centimeters * 2.54;
-        conversionMi = centimeters * 160934.4;
-        conversionY = centimeters * 91.44;
+    else if (lastEditedArea === "squarecentimeters") {
+        conversionK2 = squarecentimeters * 0.0000000001;
+        conversionM2 = squarecentimeters * 0.0001;
+        conversionF2 = squarecentimeters * 0.001076391;
+        conversionI2 = squarecentimeters * 0.15500031;
+        conversionMi2 = squarecentimeters * 0.00000000003861018768;
+        conversionY2 = squarecentimeters * 0.000119599;
+        conversionH = squarecentimeters * 0.00000001;
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+        document.getElementById("squarekilometers").value = conversionK2;
+        document.getElementById("squaremeters").value = conversionM2;
+        document.getElementById("squarefeet").value = conversionF2;
+        document.getElementById("squareinches").value = conversionI2;
+        document.getElementById("squaremiles").value = conversionMi2;
+        document.getElementById("squareyards").value = conversionY2;
+        document.getElementById("hectare").value = conversionH;
     }
-    else if (lastEditedLength === "feet") {
-        conversionM = feet * 3.280839895;
-        conversionK = feet * 3280.839895;
-        conversionC = feet * 0.032808399;
-        conversionI = feet * 0.0833333333;
-        conversionMi = feet * 5280;
-        conversionY = feet * 3;
+    else if (lastEditedArea === "squarefeet") {
+        conversionM2 = squarefeet * 0.09290304;
+        conversionK2 = squarefeet * 0.00000009290304;
+        conversionC2 = squarefeet * 929.0304;
+        conversionI2 = squarefeet * 144;
+        conversionMi2 = squarefeet * 0.0000000358700381;
+        conversionY2 = squarefeet * 0.1111111111;
+        conversionH = squarefeet * 0.0000092903;
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+        document.getElementById("squaremeters").value = conversionM2;
+        document.getElementById("squarekilometers").value = conversionK2;
+        document.getElementById("squarecentimeters").value = conversionC2;
+        document.getElementById("squareinches").value = conversionI2;
+        document.getElementById("squaremiles").value = conversionMi2;
+        document.getElementById("squareyards").value = conversionY2;
+        document.getElementById("hectare").value = conversionH;
     }
-    else if (lastEditedLength === "inches") {
-        conversionM = inches * 39.37007874;
-        conversionK = inches * 39370.07874;
-        conversionC = inches * 0.3937007874;
-        conversionF = inches * 12;
-        conversionMi = inches * 63360;
-        conversionY = inches * 36;
+    else if (lastEditedArea === "squareinches") {
+        conversionM2 = squareinches * 0.00064516;
+        conversionK2 = squareinches * 0.00000000064516;
+        conversionC2 = squareinches * 6.4516;
+        conversionF2 = squareinches * 0.0069444444;
+        conversionMi2 = squareinches * 0.0000000002490974868;
+        conversionY2 = squareinches * 0.0007716049;
+        conversionH = squareinches * 0.000000064516;
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+        document.getElementById("squaremeters").value = conversionM2;
+        document.getElementById("squarekilometers").value = conversionK2;
+        document.getElementById("squarecentimeters").value = conversionC2;
+        document.getElementById("squarefeet").value = conversionF2;
+        document.getElementById("squaremiles").value = conversionMi2;
+        document.getElementById("squareyards").value = conversionY2;
+        document.getElementById("hectare").value = conversionH;
     }
-    else if (lastEditedLength === "miles") {
-        conversionM = miles * 1609.344;
-        conversionK = miles * 1.609344;
-        conversionC = miles * 160934.4;
-        conversionF = miles * 5280;
-        conversionI = miles * 63360;
-        conversionY = miles * 1760;
+    else if (lastEditedArea === "squaremiles") {
+        conversionM2 = squaremiles * 2589990;
+        conversionK2 = squaremiles * 2.58999;
+        conversionC2 = squaremiles * 25899900000;
+        conversionF2 = squaremiles * 27878420.34;
+        conversionI2 = squaremiles * 4014492529;
+        conversionY2 = squaremiles * 3097602.26;
+        conversionH = squaremiles * 258.999;
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("yards").value = conversionY;
+        document.getElementById("squaremeters").value = conversionM2;
+        document.getElementById("squarekilometers").value = conversionK2;
+        document.getElementById("squarecentimeters").value = conversionC2;
+        document.getElementById("squarefeet").value = conversionF2;
+        document.getElementById("squareinches").value = conversionI2;
+        document.getElementById("squareyards").value = conversionY2;
+        document.getElementById("hectare").value = conversionH;
     }
-    else if (lastEditedLength === "kilometers") {
-        conversionM = kilometers * 1000;
-        conversionMi = kilometers * 0.6213711922;
-        conversionC = kilometers * 100000;
-        conversionF = kilometers * 3280.839895;
-        conversionI = kilometers * 39370.07874;
-        conversionY = kilometers * 1093.6132983;
+    else if (lastEditedArea === "squarekilometers") {
+        conversionM2 = squarekilometers * 1000000;
+        conversionMi2 = squarekilometers * 0.3861018768;
+        conversionC2 = squarekilometers * 10000000000;
+        conversionF2 = squarekilometers * 10763910.417;
+        conversionI2 = squarekilometers * 1550003100;
+        conversionY2 = squarekilometers * 1195990.0463;
+        conversionH = squarekilometers * 100;
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("yards").value = conversionY;
+        document.getElementById("squaremeters").value = conversionM2;
+        document.getElementById("squaremiles").value = conversionMi2;
+        document.getElementById("squarecentimeters").value = conversionC2;
+        document.getElementById("squarefeet").value = conversionF2;
+        document.getElementById("squareinches").value = conversionI2;
+        document.getElementById("squareyards").value = conversionY2;
+        document.getElementById("hectare").value = conversionH;
     }
-    else if (lastEditedLength === "yards") {
-        conversionM = yards * 0.9144;
-        conversionMi = yards * 0.0005681818;
-        conversionC = yards * 91.44;
-        conversionF = yards * 3;
-        conversionI = yards * 36;
-        conversionK = yards * 0.0009144;
+    else if (lastEditedArea === "squareyards") {
+        conversionM2 = squareyards * 0.83612736;
+        conversionMi2 = squareyards * 0.0000003228303429;
+        conversionC2 = squareyards * 8361.2736;
+        conversionF2 = squareyards * 9;
+        conversionI2 = squareyards * 1296;
+        conversionK2 = squareyards * 0.00000083612736;
+        conversionH = squareyards * 0.0000836127;
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("kilometers").value = conversionK;
+        document.getElementById("squaremeters").value = conversionM2;
+        document.getElementById("squaremiles").value = conversionMi2;
+        document.getElementById("squarecentimeters").value = conversionC2;
+        document.getElementById("squarefeet").value = conversionF2;
+        document.getElementById("squareinches").value = conversionI2;
+        document.getElementById("squarekilometers").value = conversionK2;
+        document.getElementById("hectare").value = conversionH;
+    }
+    else if (lastEditedArea === "hectare") {
+        conversionM2 = hectare * 10000;
+        conversionMi2 = hectare * 0.0038610188;
+        conversionC2 = hectare * 100000000;
+        conversionF2 = hectare * 107639.10417;
+        conversionI2 = hectare * 15500031;
+        conversionK2 = hectare * 0.01;
+        conversionY2 = hectare * 11959.900463;
+
+        document.getElementById("squaremeters").value = conversionM2;
+        document.getElementById("squaremiles").value = conversionMi2;
+        document.getElementById("squarecentimeters").value = conversionC2;
+        document.getElementById("squarefeet").value = conversionF2;
+        document.getElementById("squareinches").value = conversionI2;
+        document.getElementById("squarekilometers").value = conversionK2;
+        document.getElementById("squareyards").value = conversionY2;
     }
 
-    document.getElementById("meters").innerHTML = conversionM;
-    document.getElementById("kilometers").innerHTML = conversionK;
-    document.getElementById("centimeters").innerHTML = conversionC;
-    document.getElementById("miles").innerHTML = conversionMi;
-    document.getElementById("yards").innerHTML = conversionY;
-    document.getElementById("inches").innerHTML = conversionI;
-    document.getElementById("feet").innerHTML = conversionF;
-
+    document.getElementById("squaremeters").innerHTML = conversionM2;
+    document.getElementById("squarekilometers").innerHTML = conversionK2;
+    document.getElementById("squarecentimeters").innerHTML = conversionC2;
+    document.getElementById("squaremiles").innerHTML = conversionMi2;
+    document.getElementById("squareyards").innerHTML = conversionY2;
+    document.getElementById("squareinches").innerHTML = conversionI2;
+    document.getElementById("squarefeet").innerHTML = conversionF2;
+    document.getElementById("hectare").value = conversionH;
 }
 
 function reset() {
-    resetLength();
+    resetArea();
 }
 
-function resetLength() {
-    document.getElementById("meters").value = 0;
-    document.getElementById("kilometers").value = 0;
-    document.getElementById("centimeters").value = 0;
-    document.getElementById("miles").value = 0;
-    document.getElementById("yards").value = 0;
-    document.getElementById("inches").value = 0;
-    document.getElementById("feet").value = 0;
+function resetArea() {
+    document.getElementById("squaremeters").value = 0;
+    document.getElementById("squarekilometers").value = 0;
+    document.getElementById("squarecentimeters").value = 0;
+    document.getElementById("squaremiles").value = 0;
+    document.getElementById("squareyards").value = 0;
+    document.getElementById("squareinches").value = 0;
+    document.getElementById("squarefeet").value = 0;
+    document.getElementById("hectare").value = 0
 }
-
-
-//a fazer: área
