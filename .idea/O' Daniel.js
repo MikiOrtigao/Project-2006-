@@ -143,7 +143,7 @@ function ConvertLength() {
         document.getElementById("inches").value = conversionI;
         document.getElementById("yards").value = conversionY;
     }
-    lse if (lastEditedLength === "yards") {
+    else if (lastEditedLength === "yards") {
         conversionM = yards * 0.9144;
         conversionMi = yards * 0.0005681818;
         conversionC = yards * 91.44;
