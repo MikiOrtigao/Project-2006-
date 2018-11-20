@@ -87,9 +87,9 @@ function convertTemperature() {
         document.getElementById("fahrenheit").value = Math.round(conversionF);
     }
 
-/**
-* get the current conversion temperature values and store them in the input fields
-*/
+    /**
+     * get the current conversion temperature values and store them in the input fields
+     */
     document.getElementById("celsius").innerHTML = conversionC;
     document.getElementById("fahrenheit").innerHTML = conversionF;
     document.getElementById("kelvin").innerHTML = conversionK;
@@ -98,7 +98,7 @@ function convertTemperature() {
 /**
  * Converts Weight - Unit values used: Kilograms, Grams, Pounds, Ounces and Stones
  */
-function convertWeight(){
+function convertWeight() {
 
     //initialize local variables
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
@@ -115,9 +115,9 @@ function convertWeight(){
     ounces = parseFloat(ounces);
 
     var stones = document.getElementById("stones").value;
-   stones = parseFloat(stones);
+    stones = parseFloat(stones);
 
-  //weight values
+    //weight values
     var conversionKilos;
     var conversionGrams;
     var conversionPounds;
@@ -160,17 +160,22 @@ function convertWeight(){
         document.getElementById("Ounces").value = Math.round(conversionOunces);
         document.getElementById("Stones").value = Math.round(conversionOunces);
     }
-
-/**
-* get the current conversion weight values and store them in the input fields
-*/
+//if the ounces field changes, convert the kilos, grams, pounds and stone values;
+    else if (lastEditedWeight === "ounces") {
+        conversionKilos = ounces * 0.02834952;
+        conversionGrams = ounces * 28.34952;
+        conversionPounds = ounces / 16;
+        conversionStones = ounces* 0.0044643;
+        //round the converted weight values
+    }
+    /**
+     * get the current conversion weight values and store them in the input fields
+     */
     document.getElementById("kilos").innerHTML = conversionKilos;
     document.getElementById("grams").innerHTML = conversionGrams;
     document.getElementById("pounds").innerHTML = conversionPounds;
     document.getElementById("ounces").innerHTML = conversionOunces;
     document.getElementById("stones").innerHTML = conversionStones;
-
-
 }
 
 /**
