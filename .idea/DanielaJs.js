@@ -40,13 +40,13 @@ document.getElementById("ounces").onchange = function () {
 document.getElementById("stones").onchange = function () {
     lastEditedWeight = "stones";
 };
-document.getElementById("meters").onchange = function () {lastEditedTemp = "meters";};
-document.getElementById("kilometers").onchange = function () {lastEditedTemp = "kilometers";};
-document.getElementById("centimeters").onchange = function () {lastEditedTemp = "centimeters";};
-document.getElementById("feet").onchange = function () {lastEditedTemp = "feet";};
-document.getElementById("inches").onchange = function () {lastEditedTemp = "inches";};
-document.getElementById("miles").onchange = function () {lastEditedTemp = "miles";};
-document.getElementById("yards").onchange = function () {lastEditedTemp = "yards";};
+document.getElementById("meters").onchange = function () {lastEditedLength = "meters";};
+document.getElementById("kilometers").onchange = function () {lastEditedLength = "kilometers";};
+document.getElementById("centimeters").onchange = function () {lastEditedLength = "centimeters";};
+document.getElementById("feet").onchange = function () {lastEditedLength = "feet";};
+document.getElementById("inches").onchange = function () {lastEditedLength = "inches";};
+document.getElementById("miles").onchange = function () {lastEditedLength = "miles";};
+document.getElementById("yards").onchange = function () {lastEditedLength = "yards";};
 
 /**
  * Converts Temperature - Unit values used: Celsius, Fahrenheit and Kelvin
