@@ -3,17 +3,31 @@
     <title><p>Temperature Converter</p></title>
     <meta charset="utf-8">
     <link rel='stylesheet_Ladies' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        function myFunction() {
+            document.getElementById("Weight").innerHTML = "YOU CLICKED ME!";}
+
+    </script>
 </head>
 <body>
-<script>
-function myFunction() {
-document.getElementById("Weight").innerHTML = "YOU CLICKED ME!";
-}</script>
-<header>SCOMRED Team project, 2018</header>
+
+
+<header>SCOMRED Team project, 2018
+    <button id="myButton" class="homebutton"><i class="fa fa-home"> Home</i></button>
+
+    <script type="text/javascript">
+        document.getElementById("myButton").onclick = function () {
+            location.href = "www.yoursite.com";
+        };
+    </script></header>
 <br>
 <br>
 <h3 class= "header3"> Measurement Converter </h3>
-<div>
+<div id="categoriaS">
     <button id="Temperature" class="categorie" type="Temperature" value="Temperature">Temperature</button>
     <button id="Weight" onclick="myFunction()" class="categorie" type="Weight" value="Weight">Weight</button>
     <button id="Length" class="categorie" type="Length" value="Length">Length</button>
