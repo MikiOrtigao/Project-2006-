@@ -3,33 +3,15 @@
     <title><p>Temperature Converter</p></title>
     <meta charset="utf-8">
     <link rel='stylesheet_Ladies' type='text/css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script>
-        function myFunction() {
-            document.getElementById("Weight").innerHTML = "YOU CLICKED ME!";}
-
-    </script>
 </head>
 <body>
-
-
-<header>SCOMRED Team project, 2018
-    <button id="myButton" class="homebutton"><i class="fa fa-home"> Home</i></button>
-
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
-            location.href = "www.yoursite.com";
-        };
-    </script></header>
+<header>SCOMRED Team project, 2018</header>
 <br>
 <br>
 <h3 class= "header3"> Measurement Converter </h3>
-<div id="categoriaS">
-    <button id="Temperature" class="categorie" type="Temperature" value="Temperature">Temperature</button>
-    <button id="Weight" onclick="myFunction()" class="categorie" type="Weight" value="Weight">Weight</button>
+<div>
+    <button id="Temperature" class="categorie" type="Temperature" value="Temperature"> <a href="#temperature">Temperature</button>
+    <button id="Weight" class="categorie" type="Weight" value="Weight">Weight</button>
     <button id="Length" class="categorie" type="Length" value="Length">Length</button>
     <button id="Area" class="categorie" type="Area" value="Area">Area</button>
     <button id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
@@ -40,7 +22,7 @@
     <div class="wrapper">
         <div class="card">
 
-            <div>
+            <div  id="temperature" >
 
                 <div class="temp-fields">
                     <h3 class="spacing">Celsius</h3>
@@ -63,7 +45,7 @@
         </div>
     </div>
 </div>
-<div style="display:inline-block;">
+<div style="display:inline-block;vertical-align:top;">
     <img src="https://media1.tenor.com/images/3d825d31a5c3bbd2a7268549d49c4aca/tenor.gif?itemid=3574049" alt="img"/>
     <p> It's so cold </p>
 </div>
@@ -73,9 +55,7 @@
 <br>
 <footer><ul style="list-style-type:none" style= "font-size:80%;">
     <li>Work developed by: Cárina Alas (1181695)</li>
-    <li> Daniel Oliveira (1181699) , Daniela Carvalho (1181701)
-    <li>João Silva (1181711) , Maria Meireles (1181716)
-    <li> Miguel Oliveira (1181718) , Nuno Azevedo (1181722)</li>
+    <li> Daniel Oliveira (1181699) , Daniela Carvalho (1181701) <li> João Silva (1181711) , Maria Meireles (1181716) <li> Miguel Oliveira (1181718) , Nuno Azevedo (1181722)</li>
 
 </ul>
 </footer>
