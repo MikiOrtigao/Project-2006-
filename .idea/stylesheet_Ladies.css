@@ -20,6 +20,15 @@ button:hover {
     cursor: pointer;
 }
 
+.categorie{
+    background: #CCC;
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 0 15px 10px;
+    transition: 0.3s;
+}
 .categorie:hover{
     background: #6bb5a0;
     cursor: pointer;
