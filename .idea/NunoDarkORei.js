@@ -89,9 +89,9 @@ function ConvertVolume() {
     }
     else if (lastEditedArea === "cubicCentimeterAndMilliliter") {
         conversionD3AndL = cubicCentimeterAndMilliliter * 0.001;
-        conversionM3 = cubicCentimeterAndMilliliter * (10 ^ 6);
+        conversionM3 = cubicCentimeterAndMilliliter * 0.000001;
         conversionGl = cubicCentimeterAndMilliliter * 0.000264172052;
-        conversionMgL = cubicCentimeterAndMilliliter * (10 ^ 9);
+        conversionMgL = cubicCentimeterAndMilliliter * 0.000000001;
         conversionIN3 = cubicCentimeterAndMilliliter * 0.0610237441;
         conversionTbS = cubicCentimeterAndMilliliter * 0.0676280454;
         conversionTeaS = cubicCentimeterAndMilliliter * 0.202884136;
@@ -108,7 +108,7 @@ function ConvertVolume() {
         conversionM3 = gallon * 0.00378541178;
         conversionD3AndL = gallon * 3.78541178;
         conversionC3AndMl = gallon * 3785.41178;
-        conversionMgL = gallon * (3.78541178 * (10 ^ 6));
+        conversionMgL = gallon * (3.78541178 * 0.000001);
         conversionIN3 = gallon * 231;
         conversionTbS = gallon * 256;
         conversionTeaS = gallon * 768;
