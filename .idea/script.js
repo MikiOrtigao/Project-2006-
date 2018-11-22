@@ -518,13 +518,6 @@ function convertArea() {
     document.getElementById("squarefeet").innerHTML = conversionF2;
     document.getElementById("hectare").value = conversionH;
 }
-
-function convert(){
-    convertTemperature();
-    convertWeight();
-    convertLength();
-    convertArea();
-}
 /**
  * reset function for the reset button - will reset all current values by calling specific reset functions
  */
