@@ -198,7 +198,7 @@ function convertWeight() {
     document.getElementById("stones").innerHTML = conversionStones;
 }
 
-function ConvertLength() {
+function convertLength() {
 
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
 
@@ -341,7 +341,7 @@ function ConvertLength() {
     document.getElementById("feet").innerHTML = conversionF;
 }
 
-function ConvertArea() {
+function convertArea() {
 
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
 
@@ -519,6 +519,12 @@ function ConvertArea() {
     document.getElementById("hectare").value = conversionH;
 }
 
+function convert(){
+    convertTemperature();
+    convertWeight();
+    convertLength();
+    convertArea();
+}
 /**
  * reset function for the reset button - will reset all current values by calling specific reset functions
  */
