@@ -124,6 +124,7 @@ input {
     </script>
 </head>
 <body>
+<div>
 
 
 <header><div> SCOMRED Team project, 2018</div>
@@ -133,18 +134,23 @@ input {
         document.getElementById("myButton").onclick = function () {
             location.href = "www.yoursite.com";
         };
+  function show(param_div_id) {
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+  }
     </script></header>
 <br>
 <br>
 <h3 class= "header3"> Measurement Converter </h3>
 <div id="categoriaS">
-    <button id="Temperature" class="categorie" type="Temperature" value="Temperature">Temperature</button>
-    <button id="Weight" onclick="myFunction()" class="categorie" type="Weight" value="Weight">Weight</button>
-    <button id="Length" class="categorie" type="Length" value="Length">Length</button>
-    <button id="Area" class="categorie" type="Area" value="Area">Area</button>
-    <button id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
-    <button id="Number" class="categorie" type="Number" value="Volume">Number</button>
+    <button onclick="show('operation1')" id="Temperature" class="categorie" type="Temperature" value="Temperature">Temperature</button>
+    <button onclick="show('operation2')" id="Weight" onclick="myFunction()" class="categorie" type="Weight" value="Weight">Weight</button>
+    <button onclick="show('operation3')" id="Length" class="categorie" type="Length" value="Length">Length</button>
+    <button onclick="show('operation4')" id="Area" class="categorie" type="Area" value="Area">Area</button>
+    <button onclick="show('operation5')" id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
+    <button onclick="show('operation6')" id="Number" class="categorie" type="Number" value="Volume">Number</button>
 </div>
+<div id="main_place">Home</div>
+<div id=operation1 style="display: none;">
 <h5 class= "header5"> Temperature </h5>
 <div style="display:inline-block;">
     <div class="wrapper">
@@ -177,7 +183,7 @@ input {
     <img src="https://media1.tenor.com/images/3d825d31a5c3bbd2a7268549d49c4aca/tenor.gif?itemid=3574049" alt="img"/>
     <p> It's so cold </p>
 </div>
-
+</div>
 <br>
 <br>
 <br>
