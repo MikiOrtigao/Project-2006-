@@ -3,6 +3,9 @@
  * The default type is chosen by the programmer.
  */
 var lastEditedArea = "cubicmetre";
+/*
+var lastEditedWeight = "kilos";
+ */
 
 document.getElementById("submit").onclick = convert;
 document.getElementById("reset").onclick = reset;
@@ -10,6 +13,7 @@ document.getElementById("reset").onclick = reset;
 /**
  * Certifies when and where the input field is changed to, then it sets de lastEdited flad to whatever it is.
  */
+//Volume
 document.getElementById("cubicMeter").onchange = function () {
     lastEditedArea = "meter";
 };
@@ -34,12 +38,19 @@ document.getElementById("tablespoon").onchange = function () {
 document.getElementById("teaspoon").onchange = function () {
     lastEditedArea = "teaspoon";
 };
+//Numeros
+document.getElementById("decimal").onchange = function () {
+    lastEditedWeight = "decimal";
+};
+document.getElementById("binary").onchange = function () {
+    lastEditedWeight = "binary";
+};
 
 /**
  * Converts Volume - Unit values used: Cubic Meters, Cubic Decimetre/Litre, Cubic Centimeters, Millilitre, Megalitre,
  * Cubic Inch, Tablespoon, Teaspoon.
  */
-function ConvertVolume() {
+function convertVolume() {
 
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
 
@@ -217,6 +228,46 @@ function ConvertVolume() {
     document.getElementById("teaspoon").value = conversionTeaS;
 }
 
+function convertNumber() {
+
+    //initialize local variables
+    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+
+    var decimal = document.getElementById("decimal").value;
+    decimal = parseFloat(decimal);
+
+    var binary = document.getElementById("binary").value;
+    binary = parseFloat(binary);
+
+    //number values, will be our "return" value after the method
+    var conversionDc;
+    var conversionBn;
+//Pessoal, não faço ideia se isto está funcionando
+    if (lastEditedTemp === "decimal") {
+        var str = "decimal";
+        var bin = (+str).toString(2);
+        conversionBn = console.log(bin);
+    }
+//Idem idem aspas aspas
+    else if (lastEditedTemp === "binary") {
+        p = 0;
+        while (binary > 0) {
+            ultimoDigito = binary % 10;
+            conversionDc += ultimoDigito * Math.pow(2, p);
+            binary = binary / 10;
+            p++;
+        }
+        return conversionDc;
+    }
+
+    /**
+     * get the current conversion number values and store them in the input fields
+     */
+
+    document.getElementById("decimal").innerHTML = conversionDc;
+    document.getElementById("binary").innerHTML = conversionBn;
+}
+
 function reset() {
     resetArea();
 }
@@ -230,4 +281,9 @@ function resetVolume() {
     document.getElementById("cubicInch").value = 0;
     document.getElementById("tablespoon").value = 0;
     document.getElementById("teaspoon").value = 0
+}
+
+function resetNumber() {
+    document.getElementById("decimal").value = 0;
+    document.getElementById("binary").value = 0;
 }
