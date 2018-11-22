@@ -137,15 +137,15 @@ function ConvertVolume() {
         document.getElementById("cubicInch").value = conversionIN3;
         document.getElementById("tablespoon").value = conversionTbS;
         document.getElementById("teaspoon").value = conversionTeaS;
-    } //VOU AQUI CARALHO. PARA BAIXO AINDA É TUDO COPIADO CARALHO
+    }
     else if (lastEditedArea === "cubicInch") {
-        conversionM3 = cubicInch * 2589990;
+        conversionM3 = cubicInch * 1.6387064 * 0.00002;
         conversionD3AndL = cubicInch * 2.58999;
-        conversionC3AndMl = cubicInch * 25899900000;
-        conversionGl = cubicInch * 27878420.34;
-        conversionMgL = cubicInch * 4014492529;
-        conversionTbS = cubicInch * 3097602.26;
-        conversionTeaS = cubicInch * 258.999;
+        conversionC3AndMl = cubicInch * 0.016387064;
+        conversionGl = cubicInch * 0.00432900433;
+        conversionMgL = cubicInch * 1.6387064 * 0.00000001;
+        conversionTbS = cubicInch * 1.10822511;
+        conversionTeaS = cubicInch * 3.32467532;
 
         document.getElementById("cubicMeter").value = conversionM3;
         document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
@@ -156,13 +156,13 @@ function ConvertVolume() {
         document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedArea === "cubicDecimeterAndLiter") {
-        conversionM3 = cubicDecimeterAndLiter * 1000000;
-        conversionIN3 = cubicDecimeterAndLiter * 0.3861018768;
-        conversionC3AndMl = cubicDecimeterAndLiter * 10000000000;
-        conversionGl = cubicDecimeterAndLiter * 10763910.417;
-        conversionMgL = cubicDecimeterAndLiter * 1550003100;
-        conversionTbS = cubicDecimeterAndLiter * 1195990.0463;
-        conversionTeaS = cubicDecimeterAndLiter * 100;
+        conversionM3 = cubicDecimeterAndLiter * 0.001;
+        conversionIN3 = cubicDecimeterAndLiter * 61.0237441;
+        conversionC3AndMl = cubicDecimeterAndLiter * 1000;
+        conversionGl = cubicDecimeterAndLiter * 0.264172052;
+        conversionMgL = cubicDecimeterAndLiter * 0.000001;
+        conversionTbS = cubicDecimeterAndLiter * 67.6280454;
+        conversionTeaS = cubicDecimeterAndLiter * 202.884136;
 
         document.getElementById("cubicMeter").value = conversionM3;
         document.getElementById("cubicInch").value = conversionIN3;
@@ -173,13 +173,13 @@ function ConvertVolume() {
         document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedArea === "tablespoon") {
-        conversionM3 = tablespoon * 0.83612736;
-        conversionIN3 = tablespoon * 0.0000003228303429;
-        conversionC3AndMl = tablespoon * 8361.2736;
-        conversionGl = tablespoon * 9;
-        conversionMgL = tablespoon * 1296;
-        conversionD3AndL = tablespoon * 0.00000083612736;
-        conversionTeaS = tablespoon * 0.0000836127;
+        conversionM3 = tablespoon * 1.47867648 * 0.00001;
+        conversionIN3 = tablespoon * 0.90234375;
+        conversionC3AndMl = tablespoon * 14.7867648;
+        conversionGl = tablespoon * 0.00390625;
+        conversionMgL = tablespoon * 1.47867648 * 0.00000001;
+        conversionD3AndL = tablespoon * 0.014786764;
+        conversionTeaS = tablespoon * 3;
 
         document.getElementById("cubicMeter").value = conversionM3;
         document.getElementById("cubicInch").value = conversionIN3;
@@ -190,13 +190,13 @@ function ConvertVolume() {
         document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedArea === "teaspoon") {
-        conversionM3 = teaspoon * 10000;
-        conversionIN3 = teaspoon * 0.0038610188;
-        conversionC3AndMl = teaspoon * 100000000;
-        conversionGl = teaspoon * 107639.10417;
-        conversionMgL = teaspoon * 15500031;
-        conversionD3AndL = teaspoon * 0.01;
-        conversionTbS = teaspoon * 11959.900463;
+        conversionM3 = teaspoon * 4.92892159 * 0.000001;
+        conversionIN3 = teaspoon * 0.30078125;
+        conversionC3AndMl = teaspoon * 4.92892159;
+        conversionGl = teaspoon * 0.00130208333;
+        conversionMgL = teaspoon * 4.92892159 * 0.000000001;
+        conversionD3AndL = teaspoon * 0.00492892159;
+        conversionTbS = teaspoon * 0.333333333;
 
         document.getElementById("cubicMeter").value = conversionM3;
         document.getElementById("cubicInch").value = conversionIN3;
@@ -221,13 +221,13 @@ function reset() {
     resetArea();
 }
 
-function resetArea() {
-    document.getElementById("squaremeters").value = 0;
-    document.getElementById("squarekilometers").value = 0;
-    document.getElementById("squarecentimeters").value = 0;
-    document.getElementById("squaremiles").value = 0;
-    document.getElementById("squareyards").value = 0;
-    document.getElementById("squareinches").value = 0;
-    document.getElementById("squarefeet").value = 0;
-    document.getElementById("hectare").value = 0
+function resetVolume() {
+    document.getElementById("cubicMeter").value = 0;
+    document.getElementById("cubicDecimeterAndLiter").value = 0;
+    document.getElementById("cubicCentimeter").value = 0;
+    document.getElementById("milliliter").value = 0;
+    document.getElementById("megaliter").value = 0;
+    document.getElementById("cubicInch").value = 0;
+    document.getElementById("tablespoon").value = 0;
+    document.getElementById("teaspoon").value = 0
 }
