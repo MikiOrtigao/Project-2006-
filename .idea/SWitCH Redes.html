@@ -32,7 +32,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background: black;
+    background: #fcd87e;
     cursor: pointer;
 }
 .categorie{
@@ -110,9 +110,14 @@ input {
     display: inline-block;
 }
 
-.wrapper{
-    max-width: 1050px;
-    margin: auto;</style>
+    .wrapper {
+        max-width: 1050px;
+        margin: auto;
+
+    }
+
+
+    </style>
     <script>
         function myFunction() {
             document.getElementById("Weight").innerHTML = "YOU CLICKED ME!";}
@@ -146,29 +151,29 @@ input {
         <div class="card">
 
             <div>
-
                 <div class="temp-fields">
-                    <h3 class="spacing">Celsius</h3>
+                    <h3 class="spacing" title="This temperature scale is used by almost all countries.">Celsius</h3>
                     <input id="celsius" value="0"/>
-                </div>
+                    </div>
                 <div class="temp-fields">
-                    <h3 class="spacing">Fahrenheit</h3>
+                        <h3 class="spacing" title="Is an official temperature scale only in the United States.">Fahrenheit</h3>
                     <input id="fahrenheit" value="0"/>
                 </div>
                 <div class="temp-fields">
-                    <h3 class="spacing">Kelvin</h3>
+                        <h3 class="spacing" title="Is the primary unit of temperature measurement in the physical sciences.">Kelvin</h3>
                     <input id="kelvin" value="0"/>
                 </div>
-            </div>
+
             <div>
                 <button id="submit" class="spacing" type="submit" value="submit">Convert</button>
                 <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
             </div>
-
         </div>
+
     </div>
 </div>
-<div style="display:inline-block;">
+</div>
+        <div style="display:inline-block;vertical-align:center;">
     <img src="https://media1.tenor.com/images/3d825d31a5c3bbd2a7268549d49c4aca/tenor.gif?itemid=3574049" alt="img"/>
     <p> It's so cold </p>
 </div>
