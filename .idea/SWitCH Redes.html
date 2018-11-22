@@ -3,16 +3,128 @@
     <title><p>Temperature Converter</p></title>
     <meta charset="utf-8">
     <link rel='stylesheet_Ladies' type='text/css'>
+    <style> stylesheet_Ladies.css</style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body, input, button {
+    font-family: Helvetica, Georgia;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(246, 237, 226);
+    background-position: center;
+}
 
+button {
+    background: #CCC;
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 0 15px 10px;
+}
+.homebutton {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background: #fcd87e;
+    cursor: pointer;
+}
+.categorie{
+    background: #CCC;
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 15px 0 15px 10px;
+    transition: 0.3s;
+}
+.categorie:hover{
+    background: #6bb5a0;
+    cursor: pointer;
+}
+
+button:active {
+    background: #BBB;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+header {
+    background-color: #009588;
+    padding: 30px;
+    text-align: left;
+    font-size: 20px;
+    color: white;
+}
+
+footer {
+    background-color: #dfd4c1;
+    padding: 30px;
+    text-align: right;
+    font-size: 20px;
+    color: grey;
+}
+
+
+.header3{
+    color: #009588;
+    font-size: 2em;
+    margin: 10px 0 10px 0;
+}
+
+.header5{
+    color: #009588;
+    font-size: 1.5em;
+    margin: 10px 0 10px 0;
+}
+
+input {
+    background: #F8F8F8;
+    width: 70px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    border: 1px solid #fcd87e;
+}
+
+.card{
+    background-color: white;
+    max-width: 60%;
+    min-width: 300px;
+    margin: auto;
+    padding: 25px;
+    margin-top: 12vh;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+}
+
+.spacing{
+    margin: 20px;
+}
+
+.temp-fields{
+    display: inline-block;
+}
+
+    .wrapper {
+        max-width: 1050px;
+        margin: auto;
+
+    }
+
+
+    </style>
     <script>
         function myFunction() {
             document.getElementById("Weight").innerHTML = "YOU CLICKED ME!";}
     </script>
 </head>
 <body>
+<div>
 
 
 <header><div> SCOMRED Team project, 2018</div>
@@ -22,51 +134,177 @@
         document.getElementById("myButton").onclick = function () {
             location.href = "www.yoursite.com";
         };
+  function show(param_div_id) {
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+  }
     </script></header>
 <br>
 <br>
 <h3 class= "header3"> Measurement Converter </h3>
 <div id="categoriaS">
-    <button id="Temperature" class="categorie" type="Temperature" value="Temperature">Temperature</button>
-    <button id="Weight" onclick="myFunction()" class="categorie" type="Weight" value="Weight">Weight</button>
-    <button id="Length" class="categorie" type="Length" value="Length">Length</button>
-    <button id="Area" class="categorie" type="Area" value="Area">Area</button>
-    <button id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
-    <button id="Number" class="categorie" type="Number" value="Volume">Number</button>
+    <button onclick="show('operation1')" id="Temperature" class="categorie" type="Temperature" value="Temperature">Temperature</button>
+    <button onclick="show('operation2')" id="Weight" onclick="myFunction()" class="categorie" type="Weight" value="Weight">Weight</button>
+    <button onclick="show('operation3')" id="Length" class="categorie" type="Length" value="Length">Length</button>
+    <button onclick="show('operation4')" id="Area" class="categorie" type="Area" value="Area">Area</button>
+    <button onclick="show('operation5')" id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
+    <button onclick="show('operation6')" id="Number" class="categorie" type="Number" value="Volume">Number</button>
 </div>
+<div id="main_place">Home</div>
+<div id=operation1 style="display: none;">
 <h5 class= "header5"> Temperature </h5>
 <div style="display:inline-block;">
     <div class="wrapper">
         <div class="card">
 
             <div>
-
                 <div class="temp-fields">
-                    <h3 class="spacing">Celsius</h3>
+                    <h3 class="spacing" title="This temperature scale is used by almost all countries.">Celsius</h3>
                     <input id="celsius" value="0"/>
-                </div>
+                    </div>
                 <div class="temp-fields">
-                    <h3 class="spacing">Fahrenheit</h3>
+                        <h3 class="spacing" title="Is an official temperature scale only in the United States.">Fahrenheit</h3>
                     <input id="fahrenheit" value="0"/>
                 </div>
                 <div class="temp-fields">
-                    <h3 class="spacing">Kelvin</h3>
+                        <h3 class="spacing" title="Is the primary unit of temperature measurement in the physical sciences.">Kelvin</h3>
                     <input id="kelvin" value="0"/>
                 </div>
-            </div>
+
             <div>
                 <button id="submit" class="spacing" type="submit" value="submit">Convert</button>
                 <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
             </div>
-
         </div>
+
     </div>
 </div>
-<div style="display:inline-block;">
+</div>
+        <div style="display:inline-block;vertical-align:center;">
     <img src="https://media1.tenor.com/images/3d825d31a5c3bbd2a7268549d49c4aca/tenor.gif?itemid=3574049" alt="img"/>
     <p> It's so cold </p>
 </div>
-<br>
+</div>
+    <div id=operation2 style="display: none;">
+        <h5 class= "header5"> Weight </h5>
+        <div style="display:inline-block;">
+            <div class="wrapper">
+                <div class="card">
+
+                    <div>
+
+                        <div class="temp-fields">
+                            <h3 class="spacing">Kilo</h3>
+                            <input id="kilos" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Grams</h3>
+                            <input id="grams" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Pounds</h3>
+                            <input id="pounds" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Ounces</h3>
+                            <input id="ounces" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Stones</h3>
+                            <input id="stones" value="0"/>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="submit" class="spacing" type="submit" value="submit">Convert</button>
+                        <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
+                    </div>
+
+                </div>
+            </div>
+        </div></div></div>
+<div id=operation3 style="display: none;">
+        <h5 class= "header5"> Length </h5>
+        <div style="display:inline-block;">
+            <div class="wrapper">
+                <div class="card">
+
+                    <div>
+
+                        <div class="temp-fields">
+                            <h3 class="spacing">Liter & Dm³</h3>
+                            <input id="cubicDecimeterAndLiter" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Meter³</h3>
+                            <input id="cubicMeter" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Milliliter & Cm³</h3>
+                            <input id="centimeterAndMilliliter" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Gallon</h3>
+                            <input id="gallon" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Megaliter</h3>
+                            <input id="megaliter" value="0"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing">Inches³</h3>
+                            <input id="cubicInch" value="0"/>
+                        </div>
+                    </div>
+                </div></div>
+        </div>
+</div>
+<div id=operation4 style="display: none;">
+                    <h5 class= "header5"> Area </h5>
+                    <div style="display:inline-block;">
+                        <div class="wrapper">
+                            <div class="card">
+                                <div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Meters²</h3>
+                                        <input id="squaremeters" value="0"/>
+                                    </div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Km²</h3>
+                                        <input id="squarekilometers" value="0"/>
+                                    </div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Cm²</h3>
+                                        <input id="squarecentimeters" value="0"/>
+                                    </div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Feet²</h3>
+                                        <input id="squarefeet" value="0"/>
+                                    </div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Inches²</h3>
+                                        <input id="squareinches" value="0"/>
+                                    </div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Miles²</h3>
+                                        <input id="squaremiles" value="0"/>
+                                    </div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Yards²</h3>
+                                        <input id="squareyards" value="0"/>
+                                    </div>
+                                    <div class="temp-fields">
+                                        <h3 class="spacing">Hectare</h3>
+                                        <input id="hectare" value="0"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button id="submit" class="spacing" type="submit" value="submit">Convert</button>
+                                    <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+                <br>
 <br>
 <br>
 <br>

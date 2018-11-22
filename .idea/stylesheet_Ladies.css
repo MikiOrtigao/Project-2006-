@@ -23,7 +23,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background: black;
+    background: #fcd87e;
     cursor: pointer;
 }
 .categorie{
@@ -76,8 +76,8 @@ footer {
 
 input {
     background: #F8F8F8;
-    width: 50px;
-    padding: 10px 20px;
+    width: 70px;
+    padding: 10px 10px;
     border-radius: 6px;
     border: 1px solid #fcd87e;
 }
@@ -101,7 +101,9 @@ input {
     display: inline-block;
 }
 
-.wrapper{
+.wrapper {
     max-width: 1050px;
     margin: auto;
+
 }
+
