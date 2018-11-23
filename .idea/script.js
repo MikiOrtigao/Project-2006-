@@ -93,6 +93,8 @@ lastEditedArea = "squareyards";
 function hectareChanged() {
     lastEditedArea = "hectare";
 }
+//
+
 
 /**
  * Converts Temperature - Unit values used: Celsius, Fahrenheit and Kelvin
