@@ -5,118 +5,9 @@
     <link rel="stylesheet" href="stylessheetLadies.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-    body, input, button {
-    font-family: Helvetica, Georgia;
-    font-size: 20px;
-    text-align: center;
-    background-color: rgb(246, 237, 226);
-    background-position: center;
-}
 
-button {
-    background: #CCC;
-    border: 1px solid rgba(0,0,0,.2);
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 15px 0 15px 10px;
-}
-.homebutton {
-    background-color: grey;
-    border: none;
-    color: white;
-    padding: 12px 16px;
-    font-size: 16px;
-    cursor: pointer;
-}
-button:hover {
-    background: #fcd87e;
-    cursor: pointer;
-}
-.categorie{
-    background: #CCC;
-    border: 1px solid rgba(0,0,0,.2);
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 15px 0 15px 10px;
-    transition: 0.3s;
-}
-.categorie:hover{
-    background: #6bb5a0;
-    cursor: pointer;
-}
+    <link rel="stylesheet" type="text/css" href="stylesheetLadies.css">
 
-button:active {
-    background: #BBB;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
-}
-
-header {
-    background-color: #009588;
-    padding: 30px;
-    text-align: left;
-    font-size: 20px;
-    color: white;
-}
-
-footer {
-    background-color: #dfd4c1;
-    padding: 30px;
-    text-align: right;
-    font-size: 20px;
-    color: grey;
-}
-
-
-.header3{
-    color: #009588;
-    font-size: 2em;
-    margin: 10px 0 10px 0;
-}
-
-.header5{
-    color: #009588;
-    font-size: 1.5em;
-    margin: 10px 0 10px 0;
-}
-
-input {
-    background: #F8F8F8;
-    width: 70px;
-    padding: 10px 10px;
-    border-radius: 6px;
-    border: 1px solid #fcd87e;
-}
-
-.card{
-    background-color: white;
-    max-width: 60%;
-    min-width: 300px;
-    margin: auto;
-    padding: 25px;
-    margin-top: 5vh;
-    border-radius: 10px;
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
-}
-
-.spacing{
-    margin: 20px;
-}
-
-.temp-fields{
-    display: inline-block;
-}
-
-    .wrapper {
-        max-width: 1050px;
-        margin: auto;
-
-    }
-
-
-    </style>
 </head>
 <body>
 <div>
@@ -142,8 +33,19 @@ input {
     <button onclick="show('operation5')" id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
     <button onclick="show('operation6')" id="Number" class="categorie" type="Number" value="Volume">Number</button>
 </div>
-<div id="main_place"><iframe src="https://giphy.com/embed/9V1wPJ5gK3sd6kcXAB" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
-    <div id=operation7 style="display: none;"><iframe src="https://giphy.com/embed/9V1wPJ5gK3sd6kcXAB" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
+<div id="main_place">
+
+    <div style="display:inline-block;">
+    <iframe src="https://giphy.com/embed/9V1wPJ5gK3sd6kcXAB" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
+    <div class="welcome"; style="display:inline-block;vertical-align:top;">
+        <p>Please select <br>one of the above<br> boxes to have the best<br> converter experience! </p></div>
+</div>
+    <div id=operation7 style="display: none;">
+        <div style="display:inline-block;">
+            <iframe src="https://giphy.com/embed/9V1wPJ5gK3sd6kcXAB" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
+    <div class="welcome"; style="display:inline-block;vertical-align:top;">
+        <p>Please select <br>one of the above<br> boxes to have the best<br> converter experience! </p></div>
+    </div>
 <div id=operation1 style="display: none;">
 <h5 class= "header5"> Temperature </h5>
 <div style="display:inline-block;">
