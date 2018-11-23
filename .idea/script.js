@@ -637,7 +637,7 @@ function convertVolume() {
     var conversionTbS;
     var conversionTeaS;
 
-    if (lastEditedArea === "cubicMeter") {
+    if (lastEditedVolume === "cubicMeter") {
         conversionD3AndL = cubicMeter * 1000;
         conversionC3AndMl = cubicMeter * 1000000;
         conversionGl = cubicMeter * 264.172052;
@@ -654,7 +654,7 @@ function convertVolume() {
         document.getElementById("tablespoon").value = conversionTbS;
         document.getElementById("teaspoon").value = conversionTeaS;
     }
-    else if (lastEditedArea === "cubicCentimeterAndMilliliter") {
+    else if (lastEditedVolume === "cubicCentimeterAndMilliliter") {
         conversionD3AndL = cubicCentimeterAndMilliliter * 0.001;
         conversionM3 = cubicCentimeterAndMilliliter * 0.000001;
         conversionGl = cubicCentimeterAndMilliliter * 0.000264172052;
@@ -671,7 +671,7 @@ function convertVolume() {
         document.getElementById("tablespoon").value = conversionTbS;
         document.getElementById("teaspoon").value = conversionTeaS;
     }
-    else if (lastEditedArea === "gallon") {
+    else if (lastEditedVolume === "gallon") {
         conversionM3 = gallon * 0.00378541178;
         conversionD3AndL = gallon * 3.78541178;
         conversionC3AndMl = gallon * 3785.41178;
@@ -688,7 +688,7 @@ function convertVolume() {
         document.getElementById("tablespoon").value = conversionTbS;
         document.getElementById("teaspoon").value = conversionTeaS;
     }
-    else if (lastEditedArea === "megaliter") {
+    else if (lastEditedVolume === "megaliter") {
         conversionM3 = megaliter * 1000;
         conversionD3AndL = megaliter * 1000000;
         conversionC3AndMl = megaliter * 1000000000;
@@ -705,7 +705,7 @@ function convertVolume() {
         document.getElementById("tablespoon").value = conversionTbS;
         document.getElementById("teaspoon").value = conversionTeaS;
     }
-    else if (lastEditedArea === "cubicInch") {
+    else if (lastEditedVolume === "cubicInch") {
         conversionM3 = cubicInch * 1.6387064 * 0.00002;
         conversionD3AndL = cubicInch * 2.58999;
         conversionC3AndMl = cubicInch * 0.016387064;
@@ -722,7 +722,7 @@ function convertVolume() {
         document.getElementById("tablespoon").value = conversionTbS;
         document.getElementById("teaspoon").value = conversionTeaS;
     }
-    else if (lastEditedArea === "tablespoon") {
+    else if (lastEditedVolume === "tablespoon") {
         conversionM3 = tablespoon * 1.47867648 * 0.00001;
         conversionIN3 = tablespoon * 0.90234375;
         conversionC3AndMl = tablespoon * 14.7867648;
@@ -739,7 +739,7 @@ function convertVolume() {
         document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
         document.getElementById("teaspoon").value = conversionTeaS;
     }
-    else if (lastEditedArea === "teaspoon") {
+    else if (lastEditedVolume === "teaspoon") {
         conversionM3 = teaspoon * 4.92892159 * 0.000001;
         conversionIN3 = teaspoon * 0.30078125;
         conversionC3AndMl = teaspoon * 4.92892159;
@@ -761,10 +761,10 @@ function convertVolume() {
     document.getElementById("cubicDecimeterAndLiter").innerHTML = conversionD3AndL;
     document.getElementById("cubicCentimeterAndMilliliter").innerHTML = conversionC3AndMl;
     document.getElementById("cubicInch").innerHTML = conversionIN3;
-    document.getElementById("tablespoon").innerHTML = conversionTbS;
     document.getElementById("megaliter").innerHTML = conversionMgL;
     document.getElementById("gallon").innerHTML = conversionGl;
     document.getElementById("teaspoon").innerHTML = conversionTeaS;
+    document.getElementById("tablespoon").innerHTML = conversionTbS;
 }
 
 function convertNumber() {
@@ -791,25 +791,25 @@ function convertNumber() {
     var conversionOc;
     var str;
 
-    if (lastEditedTemp === "decimal") {
+    if (lastEditedNumber === "decimal") {
         str = "decimal";
         conversionBn = (+str).toString(2);
         conversionHx = (+str).toString(16);
         conversionOc = (+str).toString(8);
     }
-    else if (lastEditedTemp === "binary") {
+    else if (lastEditedNumber === "binary") {
         str = "binary";
         conversionDc = parseInt(+str, 2).toString(10);
         conversionHx = parseInt(+str, 2).toString(16);
         conversionOc = parseInt(+str, 2).toString(8);
     }
-    else if (lastEditedTemp === "hexadecimal") {
+    else if (llastEditedNumber === "hexadecimal") {
         str = "hexadecimal";
         conversionDc = parseInt(+str, 16).toString(10);
         conversionBn = parseInt(+str, 16).toString(2);
         conversionOc = parseInt(+str, 16).toString(8);
     }
-    else if (lastEditedTemp === "octal") {
+    else if (lastEditedNumber === "octal") {
         str = "octal";
         conversionDc = parseInt(+str, 8).toString(10);
         conversionBn = parseInt(+str, 8).toString(2);

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylessheetLadies.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="stylesheetLadies.css">
 
@@ -13,202 +13,144 @@
 <div>
 
 
-<header><div> SCOMRED Team project, 2018</div>
-    <div style="text-align:right;" > <button style="text-align:right;"  onclick="show('operation7')" id="myButton" class="homebutton"><i class="fa fa-home"> Home</i> </button> </div>
-
-    <script type="text/javascript">
-
-  function show(param_div_id) {
-    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
-  }
-    </script></header>
-<br>
-<br>
-<h3 class= "header3"> Measurement Converter </h3>
-<div id="categoriaS">
-    <button onclick="show('operation1')" id="Temperature" class="categorie" type="Temperature" value="Temperature">Temperature</button>
-    <button onclick="show('operation2')" id="Weight" class="categorie" type="Weight" value="Weight">Weight</button>
-    <button onclick="show('operation3')" id="Length" class="categorie" type="Length" value="Length">Length</button>
-    <button onclick="show('operation4')" id="Area" class="categorie" type="Area" value="Area">Area</button>
-    <button onclick="show('operation5')" id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
-    <button onclick="show('operation6')" id="Number" class="categorie" type="Number" value="Volume">Number</button>
-</div>
-<div id="main_place">
-
-    <div style="display:inline-block;">
-    <iframe src="https://media.giphy.com/media/9V1wPJ5gK3sd6kcXAB/giphy.gif" width="480" height="360" frameBorder="0" class="giphy" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
-    <div class="welcome"; style="display:inline-block;vertical-align:top;">
-        <p>Please select <br>one of the above<br> boxes to have the best<br> converter experience! </p></div>
-</div>
-    <div id=operation7 style="display: none;">
-        <div style="display:inline-block;">
-            <iframe src="https://media.giphy.com/media/9V1wPJ5gK3sd6kcXAB/giphy.gif" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
-    <div class="welcome"; style="display:inline-block;vertical-align:top;">
-        <p>Please select <br>one of the above<br> boxes to have the best<br> converter experience! </p></div>
-    </div>
-<div id=operation1 style="display: none;">
-<h5 class= "header5"> Temperature </h5>
-<div style="display:inline-block;">
-    <div class="wrapper">
-        <div class="card">
-
-            <div>
-                <div class="temp-fields">
-                    <h3 class="spacing" title="This temperature scale is used by almost all countries.">Celsius</h3>
-                    <input id="celsius" value="0" onchange="celsiusChanged();"/>
-                    </div>
-                <div class="temp-fields">
-                        <h3 class="spacing" title="Is an official temperature scale only in the United States.">Fahrenheit</h3>
-                    <input id="fahrenheit"value="0" onchange="fahrenheitChanged();"/>
-                </div>
-                <div class="temp-fields">
-                        <h3 class="spacing" title="Is the primary unit of temperature measurement in the physical sciences.">Kelvin</h3>
-                    <input id="kelvin"  value="0" onchange="kelvinChanged();"/>
-                </div>
-
-            <div>
-                <button id="submit" onclick="convertTemperature()" class="spacing" type="submit" value="submit">Convert</button>
-                <button id="reset" onclick="resetTemp()" class="spacing" type="reset" value="reset">Reset</button>
-            </div>
+    <header>
+        <div> SCOMRED
+        Team
+        project, 2018</div>
+        <div style="text-align:right;">
+            <button style="text-align:right;" onclick="show('operation7')" id="myButton" class="homebutton"><i
+                    class="fa fa-home"> Home</i></button>
         </div>
 
+        <script type="text/javascript">
+
+            function show(param_div_id) {
+                document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+            }
+        </script>
+    </header>
+    <br>
+    <br>
+    <h3 class="header3"> Measurement Converter </h3>
+    <div id="categoriaS">
+        <button onclick="show('operation1')" id="Temperature" class="categorie" type="Temperature" value="Temperature">
+            Temperature
+        </button>
+        <button onclick="show('operation2')" id="Weight" class="categorie" type="Weight" value="Weight">Weight</button>
+        <button onclick="show('operation3')" id="Length" class="categorie" type="Length" value="Length">Length</button>
+        <button onclick="show('operation4')" id="Area" class="categorie" type="Area" value="Area">Area</button>
+        <button onclick="show('operation5')" id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
+        <button onclick="show('operation6')" id="Number" class="categorie" type="Number" value="Volume">Number</button>
     </div>
-</div>
-</div>
+    <div id="main_place">
+
+        <div style="display:inline-block;">
+            <iframe src="https://media.giphy.com/media/9V1wPJ5gK3sd6kcXAB/giphy.gif" width="480" height="360"
+                    frameBorder="0" class="giphy" allowFullScreen></iframe>
+            <p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
+        <div class="welcome" ; style="display:inline-block;vertical-align:top;">
+            <p>Please select <br>one of the above<br> boxes to have the best<br> converter experience! </p></div>
+    </div>
+    <div id=operation7 style="display: none;">
+        <div style="display:inline-block;">
+            <iframe src="https://media.giphy.com/media/9V1wPJ5gK3sd6kcXAB/giphy.gif" width="480" height="360"
+                    frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <p><a href="https://giphy.com/gifs/9V1wPJ5gK3sd6kcXAB"></a></p></div>
+        <div class="welcome" ; style="display:inline-block;vertical-align:top;">
+            <p>Please select <br>one of the above<br> boxes to have the best<br> converter experience! </p></div>
+    </div>
+    <div id=operation1 style="display: none;">
+        <h5 class="header5"> Temperature </h5>
+        <div style="display:inline-block;">
+            <div class="wrapper">
+                <div class="card">
+
+                    <div>
+                        <div class="temp-fields">
+                            <h3 class="spacing" title="This temperature scale is used by almost all countries.">
+                                Celsius</h3>
+                            <input id="celsius" value="0" onchange="celsiusChanged();"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing" title="Is an official temperature scale only in the United States.">
+                                Fahrenheit</h3>
+                            <input id="fahrenheit" value="0" onchange="fahrenheitChanged();"/>
+                        </div>
+                        <div class="temp-fields">
+                            <h3 class="spacing"
+                                title="Is the primary unit of temperature measurement in the physical sciences.">
+                                Kelvin</h3>
+                            <input id="kelvin" value="0" onchange="kelvinChanged();"/>
+                        </div>
+
+                        <div>
+                            <button id="submit" onclick="convertTemperature()" class="spacing" type="submit"
+                                    value="submit">Convert
+                            </button>
+                            <button id="reset" onclick="resetTemp()" class="spacing" type="reset" value="reset">Reset
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <div style="display:inline-block;vertical-align:center;">
-    <img src="https://media1.tenor.com/images/3d825d31a5c3bbd2a7268549d49c4aca/tenor.gif?itemid=3574049" alt="img"/>
-    <p> It's so cold </p>
-</div>
-</div>
+            <img src="https://media1.tenor.com/images/3d825d31a5c3bbd2a7268549d49c4aca/tenor.gif?itemid=3574049"
+                 alt="img"/>
+            <p> It's so cold </p>
+        </div>
+    </div>
     <div id=operation2 style="display: none;">
-        <h5 class= "header5"> Weight </h5>
+        <h5 class="header5"> Weight </h5>
         <div style="display:inline-block;">
             <div class="wrapper">
                 <div class="card">
                     <div>
                         <div class="temp-fields">
-                            <h3 class="spacing" title="Is the base unit of mass in the International System of Units (SI).">Kilo</h3>
+                            <h3 class="spacing"
+                                title="Is the base unit of mass in the International System of Units (SI).">Kilo</h3>
                             <input id="kilos" value="0" onchange="kilosChanged();"/>
                         </div>
                         <div class="temp-fields">
-                            <h3 class="spacing" title="Is the most widely used unit of measurement for non-liquid ingredients in cooking and grocery shopping.">Grams</h3>
-                            <input id="grams"  value="0" onchange="gramsChanged();"/>
+                            <h3 class="spacing"
+                                title="Is the most widely used unit of measurement for non-liquid ingredients in cooking and grocery shopping.">
+                                Grams</h3>
+                            <input id="grams" value="0" onchange="gramsChanged();"/>
                         </div>
                         <div class="temp-fields">
-                            <h3 class="spacing" title="Is used in the imperial, United States customary and other systems of measurement.">Pounds</h3>
+                            <h3 class="spacing"
+                                title="Is used in the imperial, United States customary and other systems of measurement.">
+                                Pounds</h3>
                             <input id="pounds" value="0" onchange="poundsChanged();"/>
                         </div>
                         <div class="temp-fields">
-                            <h3 class="spacing" title="Is used in most British derived customary systems of measurement.">Ounces</h3>
+                            <h3 class="spacing"
+                                title="Is used in most British derived customary systems of measurement.">Ounces</h3>
                             <input id="ounces" value="0" onchange="ouncesChanged();"/>
                         </div>
                         <div class="temp-fields">
-                            <h3 class="spacing" title="is a customary use in Britain and Ireland used for measuring body weight">Stones</h3>
+                            <h3 class="spacing"
+                                title="is a customary use in Britain and Ireland used for measuring body weight">
+                                Stones</h3>
                             <input id="stones" value="0" onchange="stonesChanged();"/>
                         </div>
                     </div>
                     <div>
-                        <button id="submit" onClick="convertWeight();" class="spacing" type="submit" value="submit">Convert</button>
-                        <button id="reset" onclick="resetWeight();" class="spacing" type="reset" value="reset">Reset</button>
+                        <button id="submit" onClick="convertWeight();" class="spacing" type="submit" value="submit">
+                            Convert
+                        </button>
+                        <button id="reset" onclick="resetWeight();" class="spacing" type="reset" value="reset">Reset
+                        </button>
                     </div>
 
                 </div>
             </div>
-        </div></div></div>
-<div id=operation3 style="display: none;">
-        <h5 class= "header5"> Length </h5>
-        <div style="display:inline-block;">
-            <div class="wrapper">
-                <div class="card">
-
-                    <div>
-
-                        <div class="temp-fields">
-                            <h3 class="spacing" title="is the base unit of length in the International System of Units (SI).">Meters</h3>
-                            <input id="meters"  value="0" onchange="meterChanged()"/>
-                        </div>
-                        <div class="temp-fields">
-                            <h3 class="spacing" title="is used officially for expressing distances between geographical places on land in most of the world.">Km</h3>
-                            <input id="kilometers"  value="0" onchange="kilometersChanged()"/>
-                        </div>
-                        <div class="temp-fields">
-                            <h3 class="spacing" title="is a unit of length in the metric system, equal to one hundredth of a metre.">Cm</h3>
-                            <input id="centimeters"  value="0"  onchange="centimetersChanged()"/>
-                        </div>
-                        <div class="temp-fields">
-                            <h3 class="spacing" title="is a unit of length in the imperial and US customary systems of measurement.">Feet</h3>
-                            <input id="feet"  value="0"  onchange="feetChanged()"/>
-                        </div>
-                        <div class="temp-fields">
-                            <h3 class="spacing" title="is a unit of length in the (British) imperial and United States customary systems of measurement.">Inches</h3>
-                            <input id="inches" value="0" onchange="inchesChanged()"/>
-                        </div>
-                        <div class="temp-fields">
-                            <h3 class="spacing" title="is an English unit of length of linear measure.">Miles</h3>
-                            <input id="miles"  value="0" onchange="milesChanged()"/>
-                        </div>
-                        <div class="temp-fields">
-                            <h3 class="spacing" title="is an English unit of length, in both the British imperial and US customary systems of measurement.">Yards</h3>
-                            <input id="yards" value="0"  onchange="yardsChanged()"/>
-                        </div>
-                    </div>
-                    <div>
-                        <button id="submit" onclick="convertLength()" class="spacing" type="submit" value="submit">Convert</button>
-                        <button id="reset" onclick="resetLength()" class="spacing" type="reset" value="reset">Reset</button>
-                    </div></div> <div>
-
-            </div></div>
         </div>
+    </div>
 </div>
-<div id=operation4 style="display: none;">
-                    <h5 class= "header5"> Area </h5>
-                    <div style="display:inline-block;">
-                        <div class="wrapper">
-                            <div class="card">
-                                <div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Meters²</h3>
-                                        <input id="squaremeters" value="0" onchange="squaremetersChanged()"/>
-                                    </div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Km²</h3>
-                                        <input id="squarekilometers" value="0" onchange="squarekilometersChanged()"/>
-                                    </div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Cm²</h3>
-                                        <input id="squarecentimeters"   value="0" onchange="squarecentimetersChanged()"/>
-                                    </div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Feet²</h3>
-                                        <input id="squarefeet" placeholder="0"  value="0"  onchange="squarefeetChanged()"/>
-                                    </div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Inches²</h3>
-                                        <input id="squareinches"   value="0" onchange="squareinchesChanged()"/>
-                                    </div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Miles²</h3>
-                                        <input id="squaremiles" value="0"  onchange="squaremilesChanged()"/>
-                                    </div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Yards²</h3>
-                                        <input id="squareyards" value="0"  onchange="squareyardsChanged()"/>
-                                    </div>
-                                    <div class="temp-fields">
-                                        <h3 class="spacing">Hectare</h3>
-                                        <input id="hectare"  value="0" onchange="hectareChanged()"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <button id="submit" onClick="convertArea()" class="spacing" type="submit" value="submit">Convert</button>
-                                    <button id="reset" onclick="resetArea()" class="spacing" type="reset" value="reset">Reset</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-</div>
-<div id=operation5 style="display: none;">
-    <h5 class= "header5"> Volume </h5>
+<div id=operation3 style="display: none;">
+    <h5 class="header5"> Length </h5>
     <div style="display:inline-block;">
         <div class="wrapper">
             <div class="card">
@@ -216,13 +158,119 @@
                 <div>
 
                     <div class="temp-fields">
-                        <h3 class="spacing">Liter & Dm³</h3>
-                        <input id="cubicDecimeterAndLiter" value="0" onchange="cubicDecimeterAndLiterChanged()"/>
+                        <h3 class="spacing"
+                            title="is the base unit of length in the International System of Units (SI).">Meters</h3>
+                        <input id="meters" value="0" onchange="meterChanged()"/>
                     </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing"
+                            title="is used officially for expressing distances between geographical places on land in most of the world.">
+                            Km</h3>
+                        <input id="kilometers" value="0" onchange="kilometersChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing"
+                            title="is a unit of length in the metric system, equal to one hundredth of a metre.">Cm</h3>
+                        <input id="centimeters" value="0" onchange="centimetersChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing"
+                            title="is a unit of length in the imperial and US customary systems of measurement.">
+                            Feet</h3>
+                        <input id="feet" value="0" onchange="feetChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing"
+                            title="is a unit of length in the (British) imperial and United States customary systems of measurement.">
+                            Inches</h3>
+                        <input id="inches" value="0" onchange="inchesChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing" title="is an English unit of length of linear measure.">Miles</h3>
+                        <input id="miles" value="0" onchange="milesChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing"
+                            title="is an English unit of length, in both the British imperial and US customary systems of measurement.">
+                            Yards</h3>
+                        <input id="yards" value="0" onchange="yardsChanged()"/>
+                    </div>
+                </div>
+                <div>
+                    <button id="submit" onclick="convertLength()" class="spacing" type="submit" value="submit">Convert
+                    </button>
+                    <button id="reset" onclick="resetLength()" class="spacing" type="reset" value="reset">Reset</button>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id=operation4 style="display: none;">
+    <h5 class="header5"> Area </h5>
+    <div style="display:inline-block;">
+        <div class="wrapper">
+            <div class="card">
+                <div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Meters²</h3>
+                        <input id="squaremeters" value="0" onchange="squaremetersChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Km²</h3>
+                        <input id="squarekilometers" value="0" onchange="squarekilometersChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Cm²</h3>
+                        <input id="squarecentimeters" value="0" onchange="squarecentimetersChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Feet²</h3>
+                        <input id="squarefeet"  value="0" onchange="squarefeetChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Inches²</h3>
+                        <input id="squareinches" value="0" onchange="squareinchesChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Miles²</h3>
+                        <input id="squaremiles" value="0" onchange="squaremilesChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Yards²</h3>
+                        <input id="squareyards" value="0" onchange="squareyardsChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Hectare</h3>
+                        <input id="hectare" value="0" onchange="hectareChanged()"/>
+                    </div>
+                </div>
+                <div>
+                    <button id="submit" onClick="convertArea()" class="spacing" type="submit" value="submit">Convert
+                    </button>
+                    <button id="reset" onclick="resetArea()" class="spacing" type="reset" value="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id=operation5 style="display: none;">
+    <h5 class="header5"> Volume </h5>
+    <div style="display:inline-block;">
+        <div class="wrapper">
+            <div class="card">
+                <div>
                     <div class="temp-fields">
                         <h3 class="spacing">Meter³</h3>
                         <input id="cubicMeter" value="0" onchange="cubicMeterChanged()"/>
                     </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Liter & Dm³</h3>
+                        <input id="cubicDecimeterAndLiter" value="0" onchange="cubicDecimeterAndLiterChanged()"/>
+                    </div>
+
                     <div class="temp-fields">
                         <h3 class="spacing">Milliliter & Cm³</h3>
                         <input id="cubicCentimeterAndMilliliter" value="0" onchange="cubicCentimeterAndMilliliterChanged()"/>
@@ -249,23 +297,26 @@
                     </div>
                 </div>
                 <div>
-                    <button id="submit" onClick="convertVolume()" class="spacing" type="submit" value="submit">Convert</button>
+                    <button id="submit" onClick="convertVolume()" class="spacing" type="submit" value="submit">Convert
+                    </button>
                     <button id="reset" onClick="resetVolume()" class="spacing" type="reset" value="reset">Reset</button>
-                </div></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-                <br>
 <br>
 <br>
 <br>
-<footer><ul style="list-style-type:none" style= "font-size:80%;">
-    <li>Work developed by: Cárina Alas (1181695)</li>
-    <li> Daniel Oliveira (1181699) , Daniela Carvalho (1181701)
-    <li>João Silva (1181711) , Maria Meireles (1181716)
-    <li> Miguel Oliveira (1181718) , Nuno Azevedo (1181722)</li>
+<br>
+<footer>
+    <ul style="list-style-type:none" style="font-size:80%;">
+        <li>Work developed by: Cárina Alas (1181695)</li>
+        <li> Daniel Oliveira (1181699) , Daniela Carvalho (1181701)
+        <li>João Silva (1181711) , Maria Meireles (1181716)
+        <li> Miguel Oliveira (1181718) , Nuno Azevedo (1181722)</li>
 
-</ul>
+    </ul>
 </footer>
 </body>
 <script type="text/javascript" src="script.js"></script>
