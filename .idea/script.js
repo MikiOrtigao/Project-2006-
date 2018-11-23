@@ -13,16 +13,26 @@ var lastEditedArea = "squaremeters";
  * @type {convert} it will send the input to get the converted results on mouse click
  * @type {reset} it will reset the input and results on mouse click
  */
-document.getElementById("submit").onclick = convert;
-document.getElementById("reset").onclick = reset;
+//document.getElementById("submit").onclick = convert;
+//document.getElementById("reset").onclick = reset;
 
 //picks up on if and when an input field changes, then sets the lastEdited flag to the input field that was changed.
-document.getElementById("celsius").onchange = function () {
+function celsiusChanged() {
     lastEditedTemp = "celsius";
-};
-document.getElementById("fahrenheit").onchange = function () {
+}
+
+function fahrenheitChanged() {
     lastEditedTemp = "fahrenheit";
-};
+}
+
+// document.getElementById("celsius").onchange = function () {
+//     lastEditedTemp = "celsius";
+// };
+// document.getElementById("fahrenheit").onchange = function () {
+//     lastEditedTemp = "fahrenheit";
+// };
+// COMO RESOLVER issue de nao mudar valor -
+// TODO - ajeitar para TODOS!
 document.getElementById("kelvin").onchange = function () {
     lastEditedTemp = "kelvin";
 };

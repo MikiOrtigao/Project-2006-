@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <link rel='stylesheet_Ladies' type='text/css'>
     <style> stylesheet_Ladies.css</style>
-    <script type="text/javascript" src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -154,11 +153,11 @@ input {
             <div>
                 <div class="temp-fields">
                     <h3 class="spacing" title="This temperature scale is used by almost all countries.">Celsius</h3>
-                    <input id="celsius" placeholder="0"/>
+                    <input id="celsius" placeholder="0" value="0" onchange="celsiusChanged();"/>
                     </div>
                 <div class="temp-fields">
                         <h3 class="spacing" title="Is an official temperature scale only in the United States.">Fahrenheit</h3>
-                    <input id="fahrenheit" placeholder="0"/>
+                    <input id="fahrenheit" placeholder="0" value="0" onclick="fahrenheitChanged();"/>
                 </div>
                 <div class="temp-fields">
                         <h3 class="spacing" title="Is the primary unit of temperature measurement in the physical sciences.">Kelvin</h3>
@@ -361,4 +360,5 @@ input {
 </ul>
 </footer>
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>
