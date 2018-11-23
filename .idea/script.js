@@ -191,7 +191,7 @@ function convertWeight() {
         document.getElementById("grams").value = Math.round(conversionGrams);
         document.getElementById("pounds").value = Math.round(conversionPounds);
         document.getElementById("ounces").value = Math.round(conversionOunces);
-        document.getElementById("stones").value = Math.round(conversionOunces);
+        document.getElementById("stones").value = Math.round(conversionStones);
     }
 //if the grams field changes, convert the kilos, pounds, ouces and stone values;
     else if (lastEditedWeight === "grams") {
@@ -203,7 +203,7 @@ function convertWeight() {
         document.getElementById("kilos").value = Math.round(conversionKilos);
         document.getElementById("pounds").value = Math.round(conversionPounds);
         document.getElementById("ounces").value = Math.round(conversionOunces);
-        document.getElementById("stones").value = Math.round(conversionOunces);
+        document.getElementById("stones").value = Math.round(conversionStones);
     }
 //if the pounds field changes, convert the kilos, grams, ouces and stone values;
     else if (lastEditedWeight === "pounds") {
