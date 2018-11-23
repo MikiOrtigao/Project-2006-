@@ -1,11 +1,10 @@
 <html lang="en-us">
 <head>
-    <title><p>Temperature Converter</p></title>
+    <title>Converter</title>
     <meta charset="utf-8">
-    <link rel='stylesheet_Ladies' type='text/css'>
-    <style> stylesheet_Ladies.css</style>
+    <link rel="stylesheet" href="stylessheetLadies.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   //<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
     body, input, button {
     font-family: Helvetica, Georgia;
@@ -157,16 +156,16 @@ input {
                     </div>
                 <div class="temp-fields">
                         <h3 class="spacing" title="Is an official temperature scale only in the United States.">Fahrenheit</h3>
-                    <input id="fahrenheit" placeholder="0" value="0" onclick="fahrenheitChanged();"/>
+                    <input id="fahrenheit" placeholder="0" value="0" onchange="fahrenheitChanged();"/>
                 </div>
                 <div class="temp-fields">
                         <h3 class="spacing" title="Is the primary unit of temperature measurement in the physical sciences.">Kelvin</h3>
-                    <input id="kelvin" placeholder="0"/>
+                    <input id="kelvin" placeholder="0" value="0" onchange="kelvinChanged();"/>
                 </div>
 
             <div>
-                <button id="submit" onClick="convertTemperature()" class="spacing" type="submit" value="submit">Convert</button>
-                <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
+                <button id="submit" onclick="convertTemperature()" class="spacing" type="submit" value="submit">Convert</button>
+                <button id="reset" onclick="resetTemp()" class="spacing" type="reset" value="reset">Reset</button>
             </div>
         </div>
 
@@ -183,33 +182,31 @@ input {
         <div style="display:inline-block;">
             <div class="wrapper">
                 <div class="card">
-
                     <div>
-
                         <div class="temp-fields">
                             <h3 class="spacing" title="Is the base unit of mass in the International System of Units (SI).">Kilo</h3>
-                            <input id="kilos" placeholder="0"/>
+                            <input id="kilos" placeholder="0" value="0" onchange="kilosChanged();"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="Is the most widely used unit of measurement for non-liquid ingredients in cooking and grocery shopping.">Grams</h3>
-                            <input id="grams" placeholder="0"/>
+                            <input id="grams" placeholder="0" value="0" onchange="gramsChanged();"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="Is used in the imperial, United States customary and other systems of measurement.">Pounds</h3>
-                            <input id="pounds" placeholder="0"/>
+                            <input id="pounds" placeholder="0" value="0" onchange="poundsChanged();"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="Is used in most British derived customary systems of measurement.">Ounces</h3>
-                            <input id="ounces" placeholder="0"/>
+                            <input id="ounces" placeholder="0" value="0" onchange="poundsChanged();"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="is a customary use in Britain and Ireland used for measuring body weight">Stones</h3>
-                            <input id="stones" placeholder="0"/>
+                            <input id="stones" placeholder="0" value="0" onchange="stonesChanged();"/>
                         </div>
                     </div>
                     <div>
-                        <button id="submit" onClick="convertWeight()" class="spacing" type="submit" value="submit">Convert</button>
-                        <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
+                        <button id="submit" onClick="convertWeight();" class="spacing" type="submit" value="submit">Convert</button>
+                        <button id="reset" onclick="resetWeight();" class="spacing" type="reset" value="reset">Reset</button>
                     </div>
 
                 </div>
@@ -225,36 +222,36 @@ input {
 
                         <div class="temp-fields">
                             <h3 class="spacing" title="is the base unit of length in the International System of Units (SI).">Meters</h3>
-                            <input id="meters" placeholder="0"/>
+                            <input id="meters" placeholder="0"  value="0" onchange="meterChanged()"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="is used officially for expressing distances between geographical places on land in most of the world.">Km</h3>
-                            <input id="kilometers" placeholder="0"/>
+                            <input id="kilometers" placeholder="0"  value="0" onchange="kilometersChanged()"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="is a unit of length in the metric system, equal to one hundredth of a metre.">Cm</h3>
-                            <input id="centimeters" placeholder="0"/>
+                            <input id="centimeters" placeholder="0" value="0"  onchange="centimetersChanged()"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="is a unit of length in the imperial and US customary systems of measurement.">Feet</h3>
-                            <input id="feet" placeholder="0"/>
+                            <input id="feet" placeholder="0" value="0"  onchange="feetChanged()"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="is a unit of length in the (British) imperial and United States customary systems of measurement.">Inches</h3>
-                            <input id="inches" placeholder="0"/>
+                            <input id="inches" placeholder="0"  value="0" onchange="inchesChanged()"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="is an English unit of length of linear measure.">Miles</h3>
-                            <input id="miles" placeholder="0"/>
+                            <input id="miles" placeholder="0"  value="0" onchange="milesChanged()"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="is an English unit of length, in both the British imperial and US customary systems of measurement.">Yards</h3>
-                            <input id="yards" placeholder="0"/>
+                            <input id="yards" placeholder="0" value="0"  onchange="yardsChanged()"/>
                         </div>
                     </div>
                     <div>
                         <button id="submit" onclick="convertLength()" class="spacing" type="submit" value="submit">Convert</button>
-                        <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
+                        <button id="reset" onclick="resetLength()" class="spacing" type="reset" value="reset">Reset</button>
                     </div></div> <div>
 
             </div></div>
@@ -268,42 +265,42 @@ input {
                                 <div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Meters²</h3>
-                                        <input id="squaremeters" placeholder="0"/>
+                                        <input id="squaremeters" placeholder="0"  value="0" onchange="metersChanged()"/>
                                     </div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Km²</h3>
-                                        <input id="squarekilometers" placeholder="0"/>
+                                        <input id="squarekilometers" placeholder="0"  value="0" onchange="kilometersChanged()"/>
                                     </div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Cm²</h3>
-                                        <input id="squarecentimeters" placeholder="0"/>
+                                        <input id="squarecentimeters" placeholder="0"  value="0" onchange="centimetersChanged()"/>
                                     </div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Feet²</h3>
-                                        <input id="squarefeet" placeholder="0"/>
+                                        <input id="squarefeet" placeholder="0"  value="0"  onchange="feetChanged()"/>
                                     </div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Inches²</h3>
-                                        <input id="squareinches" placeholder="0"/>
+                                        <input id="squareinches" placeholder="0"  value="0" onchange="inchesChanged()"/>
                                     </div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Miles²</h3>
-                                        <input id="squaremiles" placeholder="0"/>
+                                        <input id="squaremiles" placeholder="0" value="0"  onchange="milesChanged()"/>
                                     </div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Yards²</h3>
-                                        <input id="squareyards" placeholder="0"/>
+                                        <input id="squareyards" placeholder="0" value="0"  onchange="squareyardsChanged()"/>
                                     </div>
                                     <div class="temp-fields">
                                         <h3 class="spacing">Hectare</h3>
-                                        <input id="hectare" placeholder="0"/>
+                                        <input id="hectare" placeholder="0"  value="0" onchange="hectareChanged()"/>
                                     </div>
                                 </div>
                                 <div>
                                     <button id="submit" onClick="convertArea()" class="spacing" type="submit" value="submit">Convert</button>
-                                    <button id="reset" class="spacing" type="reset" value="reset">Reset</button>
+                                    <button id="reset" onclick="resetArea()" class="spacing" type="reset" value="reset">Reset</button>
                                 </div>
-                            </div>
+                            </div
                         </div>
                     </div>
 </div>

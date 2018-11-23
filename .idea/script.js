@@ -25,50 +25,74 @@ function fahrenheitChanged() {
     lastEditedTemp = "fahrenheit";
 }
 
-// document.getElementById("celsius").onchange = function () {
-//     lastEditedTemp = "celsius";
-// };
-// document.getElementById("fahrenheit").onchange = function () {
-//     lastEditedTemp = "fahrenheit";
-// };
-// COMO RESOLVER issue de nao mudar valor -
-// TODO - ajeitar para TODOS!
-document.getElementById("kelvin").onchange = function () {
+function kelvinChanged () {
     lastEditedTemp = "kelvin";
-};
-document.getElementById("kilos").onchange = function () {
+}
+
+function kilosChanged () {
     lastEditedWeight = "kilos";
-};
-document.getElementById("grams").onchange = function () {
+}
+function gramsChanged () {
     lastEditedWeight = "grams";
-};
-document.getElementById("pounds").onchange = function () {
+}
+function poundsChanged() {
     lastEditedWeight = "pounds";
-};
-document.getElementById("ounces").onchange = function () {
+}
+function ouncesChanged() {
     lastEditedWeight = "ounces";
-};
-document.getElementById("stones").onchange = function () {
+}
+function stonesChanged () {
     lastEditedWeight = "stones";
-};
+}
+//LENGHT
+function meterChanged () {
+    lastEditedLength = "meters";
+}
+function kilometersChanged() {
+    lastEditedLength = "kilometers";
+}
 
-document.getElementById("meters").onchange = function () {lastEditedLength = "meters";};
-document.getElementById("kilometers").onchange = function () {lastEditedLength = "kilometers";};
-document.getElementById("centimeters").onchange = function () {lastEditedLength = "centimeters";};
-document.getElementById("feet").onchange = function () {lastEditedLength = "feet";};
-document.getElementById("inches").onchange = function () {lastEditedLength = "inches";};
-document.getElementById("miles").onchange = function () {lastEditedLength = "miles";};
-document.getElementById("yards").onchange = function () {lastEditedLength = "yards";};
+function centimetersChanged() {
+    lastEditedLength = "centimeters";
+}
+function feetChanged () {
+    lastEditedLength = "feet";
+}
+function inchesChanged() {
+    lastEditedLength = "inches";
+}
+function milesChanged() {
+    lastEditedLength = "miles";
+}
+function yardsChanged() {
+    lastEditedLength = "yards";
+}
 
-
-document.getElementById("squaremeters").onchange = function () {lastEditedArea = "meters";};
-document.getElementById("squarekilometers").onchange = function () {lastEditedArea = "kilometers";};
-document.getElementById("squarecentimeters").onchange = function () {lastEditedArea = "centimeters";};
-document.getElementById("squarefeet").onchange = function () {lastEditedArea = "feet";};
-document.getElementById("squareinches").onchange = function () {lastEditedArea = "inches";};
-document.getElementById("squaremiles").onchange = function () {lastEditedArea = "miles";};
-document.getElementById("squareyards").onchange = function () {lastEditedArea = "yards";};
-document.getElementById("hectare").onchange = function () {lastEditedArea = "hectare";};
+//AREA
+function metersChanged () {
+    lastEditedArea = "meters";
+}
+function kilometersChanged () {
+    lastEditedArea = "kilometers";
+}
+function centimetersChanged() {
+    lastEditedArea = "centimeters";
+}
+function feetChanged () {
+    lastEditedArea = "feet";
+}
+function inchesChanged () {
+    lastEditedArea = "inches";
+}
+function milesChanged () {
+    lastEditedArea = "miles";
+}
+function squareyardsChanged() {
+lastEditedArea = "squareyards";
+}
+function hectareChanged() {
+    lastEditedArea = "hectare";
+}
 
 /**
  * Converts Temperature - Unit values used: Celsius, Fahrenheit and Kelvin
@@ -529,21 +553,6 @@ function convertArea() {
     document.getElementById("hectare").value = conversionH;
 }
 /**
- * reset function for the reset button - will reset all current values by calling specific reset functions
- */
-function reset() {
-    resetTemp();
-    resetWeight();
-    resetLength();
-    resetArea();
-}
-
-/*
- se o botao reset for comum a todas as unidades chamo a funcao reset. Se o botao for especifico de cada unidade,
- chamo a funcao especifica e posso apagar a funcao reset acima (geral).
- */
-
-/**
  * reset temperature values
  */
 function resetTemp() {
@@ -581,5 +590,5 @@ function resetArea() {
     document.getElementById("squareyards").value = 0;
     document.getElementById("squareinches").value = 0;
     document.getElementById("squarefeet").value = 0;
-    document.getElementById("hectare").value = 0
+    document.getElementById("hectare").value = 0;
 }
