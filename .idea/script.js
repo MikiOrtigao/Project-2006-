@@ -46,7 +46,7 @@ function stonesChanged () {
     lastEditedWeight = "stones";
 }
 //LENGHT
-function meterChanged () {
+function metersChanged () {
     lastEditedLength = "meters";
 }
 function kilometersChanged() {
@@ -70,26 +70,26 @@ function yardsChanged() {
 }
 
 //AREA
-function metersChanged () {
-    lastEditedArea = "meters";
+function squaremetersChanged () {
+    lastEditedArea = "squaremeters";
 }
-function kilometersChanged () {
-    lastEditedArea = "kilometers";
+function squarekilometersChanged () {
+    lastEditedArea = "squarekilometers";
 }
-function centimetersChanged() {
-    lastEditedArea = "centimeters";
+function squarecentimetersChanged() {
+    lastEditedArea = "squarecentimeters";
 }
-function feetChanged () {
-    lastEditedArea = "feet";
+function squarefeetChanged () {
+    lastEditedArea = "squarefeet";
 }
-function inchesChanged () {
-    lastEditedArea = "inches";
+function squareinchesChanged () {
+    lastEditedArea = "squareinches";
 }
-function milesChanged () {
-    lastEditedArea = "miles";
+function squaremilesChanged () {
+    lastEditedArea = "squaremiles";
 }
 function squareyardsChanged() {
-lastEditedArea = "squareyards";
+    lastEditedArea = "squareyards";
 }
 function hectareChanged() {
     lastEditedArea = "hectare";
@@ -567,7 +567,7 @@ function convertArea() {
     document.getElementById("squareyards").innerHTML = conversionY2;
     document.getElementById("squareinches").innerHTML = conversionI2;
     document.getElementById("squarefeet").innerHTML = conversionF2;
-    document.getElementById("hectare").value = conversionH;
+    document.getElementById("hectare").innerHTML = conversionH;
 }
 /**
  * reset temperature values
