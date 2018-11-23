@@ -45,6 +45,12 @@ document.getElementById("decimal").onchange = function () {
 document.getElementById("binary").onchange = function () {
     lastEditedWeight = "binary";
 };
+document.getElementById("hexadecimal").onchange = function () {
+    lastEditedWeight = "hexadecimal";
+};
+document.getElementById("octal").onchange = function () {
+    lastEditedWeight = "octal";
+};
 
 /**
  * Converts Volume - Unit values used: Cubic Meters, Cubic Decimetre/Litre, Cubic Centimeters, Millilitre, Megalitre,
@@ -239,25 +245,50 @@ function convertNumber() {
     var binary = document.getElementById("binary").value;
     binary = parseFloat(binary);
 
+    var hexadecimal = document.getElementById("hexadecimal").value;
+    hexadecimal = parseFloat(hexadecimal);
+
+    var octal = document.getElementById("octal").value;
+    octal = parseFloat(octal);
+
     //number values, will be our "return" value after the method
     var conversionDc;
     var conversionBn;
+    var conversionHx;
+    var conversionOc;
+    var str;
+
 //Pessoal, não faço ideia se isto está funcionando
+    //Formulas funcionam todas à base desta função javascript "parseInt(num, baseFrom).toString(baseTo)"
+    //Sendo que a baseFrom e To é o TIPO de numero, sendo:
+    //binario = 2
+    //octal = 8
+    //decimal = 10
+    //hexadecimal = 16
     if (lastEditedTemp === "decimal") {
-        var str = "decimal";
-        var bin = (+str).toString(2);
-        conversionBn = console.log(bin);
+        str = "decimal";
+        conversionBn = (+str).toString(2);
+        conversionHx = (+str).toString(16);
+        conversionOc = (+str).toString(8);
     }
 //Idem idem aspas aspas
     else if (lastEditedTemp === "binary") {
-        p = 0;
-        while (binary > 0) {
-            ultimoDigito = binary % 10;
-            conversionDc += ultimoDigito * Math.pow(2, p);
-            binary = binary / 10;
-            p++;
-        }
-        return conversionDc;
+        str = "binary";
+        conversionDc = parseInt(+str, 2).toString(10);
+        conversionHx = parseInt(+str, 2).toString(16);
+        conversionOc = parseInt(+str, 2).toString(8);
+    }
+    else if (lastEditedTemp === "hexadecimal") {
+        str = "hexadecimal";
+        conversionDc = parseInt(+str, 16).toString(10);
+        conversionBn = parseInt(+str, 16).toString(2);
+        conversionOc = parseInt(+str, 16).toString(8);
+    }
+    else if (lastEditedTemp === "octal") {
+        str = "octal";
+        conversionDc = parseInt(+str, 8).toString(10);
+        conversionBn = parseInt(+str, 8).toString(2);
+        conversionHx = parseInt(+str, 8).toString(16);
     }
 
     /**
@@ -266,6 +297,8 @@ function convertNumber() {
 
     document.getElementById("decimal").innerHTML = conversionDc;
     document.getElementById("binary").innerHTML = conversionBn;
+    document.getElementById("octal").innerHTML = conversionOc;
+    document.getElementById("hexadecimal").innerHTML = conversionHx;
 }
 
 function reset() {
@@ -286,4 +319,6 @@ function resetVolume() {
 function resetNumber() {
     document.getElementById("decimal").value = 0;
     document.getElementById("binary").value = 0;
+    document.getElementById("octal").value = 0;
+    document.getElementById("hexadecimal").value = 0;
 }
