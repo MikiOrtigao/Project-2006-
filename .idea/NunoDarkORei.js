@@ -2,55 +2,51 @@
  * initializes de lastEdited flag to anything that the user inputs.
  * The default type is chosen by the programmer.
  */
-var lastEditedArea = "cubicmetre";
+var lastEditedVolume = "cubicMeter";
 /*
 var lastEditedWeight = "kilos";
  */
-
-document.getElementById("submit").onclick = convert;
-document.getElementById("reset").onclick = reset;
-
 /**
  * Certifies when and where the input field is changed to, then it sets de lastEdited flad to whatever it is.
  */
 //Volume
-document.getElementById("cubicMeter").onchange = function () {
-    lastEditedArea = "meter";
-};
-document.getElementById("cubicDecimeterAndLiter").onchange = function () {
-    lastEditedArea = "decimeterAndLiter";
-};
-document.getElementById("cubicCentimeterAndMilliliter").onchange = function () {
-    lastEditedArea = "centimeterAndMilliliter";
-};
-document.getElementById("gallon").onchange = function () {
-    lastEditedArea = "gallon";
-};
-document.getElementById("megaliter").onchange = function () {
-    lastEditedArea = "megaliter";
-};
-document.getElementById("cubicInch").onchange = function () {
-    lastEditedArea = "inch";
-};
-document.getElementById("tablespoon").onchange = function () {
-    lastEditedArea = "tablespoon";
-};
-document.getElementById("teaspoon").onchange = function () {
-    lastEditedArea = "teaspoon";
-};
+function cubicMeterChanged() {
+    lastEditedVolume = "cubicMeter";
+}
+function cubicDecimeterAndLiterChanged() {
+    lastEditedVolume = "cubicDecimeterAndLiter";
+}
+function cubicCentimeterAndMilliliterChanged() {
+    lastEditedVolume = "cubicCentimeterAndMilliliter";
+}
+function gallonChanged() {
+    lastEditedVolume = "gallon";
+}
+function megaliterChanged() {
+    lastEditedVolume = "megaliter";
+}
+function cubicInchChanged() {
+    lastEditedVolume = "cubicInch";
+}
+function tablespoonChanged() {
+    lastEditedVolume = "tablespoon";
+}
+function teaspoonChanged() {
+    lastEditedVolume = "teaspoon";
+}
 //Numeros
-document.getElementById("decimal").onchange = function () {
-    lastEditedWeight = "decimal";
-};
-document.getElementById("binary").onchange = function () {
-    lastEditedWeight = "binary";
-};
-document.getElementById("hexadecimal").onchange = function () {
-    lastEditedWeight = "hexadecimal";
-};
-document.getElementById("octal").onchange = function () {
-    lastEditedWeight = "octal";
-};
+function decimalChanged() {
+    lastEditedNumber = "decimal";
+}
+function binaryChanged() {
+    lastEditedNumber = "binary";
+}
+function hexadecimalChanged() {
+    lastEditedNumber = "hexadecimal";
+}
+function octalChanged() {
+    lastEditedNumber = "octal";
+}
 
 /**
  * Converts Volume - Unit values used: Cubic Meters, Cubic Decimetre/Litre, Cubic Centimeters, Millilitre, Megalitre,
@@ -172,23 +168,6 @@ function convertVolume() {
         document.getElementById("tablespoon").value = conversionTbS;
         document.getElementById("teaspoon").value = conversionTeaS;
     }
-    else if (lastEditedArea === "cubicDecimeterAndLiter") {
-        conversionM3 = cubicDecimeterAndLiter * 0.001;
-        conversionIN3 = cubicDecimeterAndLiter * 61.0237441;
-        conversionC3AndMl = cubicDecimeterAndLiter * 1000;
-        conversionGl = cubicDecimeterAndLiter * 0.264172052;
-        conversionMgL = cubicDecimeterAndLiter * 0.000001;
-        conversionTbS = cubicDecimeterAndLiter * 67.6280454;
-        conversionTeaS = cubicDecimeterAndLiter * 202.884136;
-
-        document.getElementById("cubicMeter").value = conversionM3;
-        document.getElementById("cubicInch").value = conversionIN3;
-        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl;
-        document.getElementById("gallon").value = conversionGl;
-        document.getElementById("megaliter").value = conversionMgL;
-        document.getElementById("tablespoon").value = conversionTbS;
-        document.getElementById("teaspoon").value = conversionTeaS;
-    }
     else if (lastEditedArea === "tablespoon") {
         conversionM3 = tablespoon * 1.47867648 * 0.00001;
         conversionIN3 = tablespoon * 0.90234375;
@@ -231,7 +210,7 @@ function convertVolume() {
     document.getElementById("tablespoon").innerHTML = conversionTbS;
     document.getElementById("megaliter").innerHTML = conversionMgL;
     document.getElementById("gallon").innerHTML = conversionGl;
-    document.getElementById("teaspoon").value = conversionTeaS;
+    document.getElementById("teaspoon").innerHTML = conversionTeaS;
 }
 
 function convertNumber() {
@@ -258,20 +237,12 @@ function convertNumber() {
     var conversionOc;
     var str;
 
-//Pessoal, não faço ideia se isto está funcionando
-    //Formulas funcionam todas à base desta função javascript "parseInt(num, baseFrom).toString(baseTo)"
-    //Sendo que a baseFrom e To é o TIPO de numero, sendo:
-    //binario = 2
-    //octal = 8
-    //decimal = 10
-    //hexadecimal = 16
     if (lastEditedTemp === "decimal") {
         str = "decimal";
         conversionBn = (+str).toString(2);
         conversionHx = (+str).toString(16);
         conversionOc = (+str).toString(8);
     }
-//Idem idem aspas aspas
     else if (lastEditedTemp === "binary") {
         str = "binary";
         conversionDc = parseInt(+str, 2).toString(10);
@@ -301,20 +272,24 @@ function convertNumber() {
     document.getElementById("hexadecimal").innerHTML = conversionHx;
 }
 
-function reset() {
-    resetArea();
-}
-
 function resetVolume() {
     document.getElementById("cubicMeter").value = 0;
     document.getElementById("cubicDecimeterAndLiter").value = 0;
-    document.getElementById("cubicCentimeter").value = 0;
-    document.getElementById("milliliter").value = 0;
+    document.getElementById("cubicCentimeterAndMilliliter").value = 0;
     document.getElementById("megaliter").value = 0;
     document.getElementById("cubicInch").value = 0;
     document.getElementById("tablespoon").value = 0;
-    document.getElementById("teaspoon").value = 0
+    document.getElementById("teaspoon").value = 0;
+    document.getElementById("gallon").value = 0;
 }
+document.getElementById("cubicMeter").value = 0;
+document.getElementById("cubicDecimeterAndLiter").value = 0;
+document.getElementById("cubicCentimeterAndMilliliter").value = 0;
+document.getElementById("megaliter").value = 0;
+document.getElementById("cubicInch").value = 0;
+document.getElementById("tablespoon").value = 0;
+document.getElementById("teaspoon").value = 0;
+document.getElementById("gallon").value = 0;
 
 function resetNumber() {
     document.getElementById("decimal").value = 0;
