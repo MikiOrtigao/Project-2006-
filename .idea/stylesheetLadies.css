@@ -98,6 +98,15 @@ input {
     border-radius: 6px;
     border: 1px solid #fcd87e;}
 
+#meters, #kilometers, #centimeters, #feet, #inches, #miles, #yards,
+#squaremeters, #squarekilometers, #squarecentimeters, #squarefeet, #squareinches, #squaremiles, #squareyards, #hectare{
+    background: #F8F8F8;
+    width: 110px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    border: 1px solid #fcd87e;}
+
+
 .card{
     background-color: white;
     max-width: 60%;
