@@ -1,8 +1,26 @@
 /**
+ * Defines global constants (do not change value) for Ids
+ * To be used in all of the code.
+ * Convention suggest constant values are written in uppercase and with underscores
+ * Ex: Instead of using "celsius", CELSIUS_ID shall be used. It prevents from typos
+ * @type {string}
+ */
+
+const CELSIUS_ID = "celsius"
+const FAHRENHEIT_ID = "fahrenheit"
+const KELVIN_ID = "kelvin"
+
+const KILOS_ID = "kilos"
+const GRAMS_ID = "grams"
+const POUNDS_ID = "pounds"
+const OUNCES_ID = "ounces"
+const STONES_ID = "stones"
+
+/**
  * @type {string} - initializes de lastEdited flag to any of the input fields, by  default I choosed one of the unit types for each diferent unit..
  */
-var lastEditedTemp = "celsius";
-var lastEditedWeight = "kilos";
+var lastEditedTemp = CELSIUS_ID;
+var lastEditedWeight = KILOS_ID;
 var lastEditedLength = "meters";
 var lastEditedArea = "squaremeters";
 var lastEditedVolume = "cubicMeter";
@@ -13,36 +31,36 @@ var lastEditedNumber = "decimal";
  */
 //TEMPERATURE
 function celsiusChanged() {
-    lastEditedTemp = "celsius";
+    lastEditedTemp = CELSIUS_ID;
 }
 
 function fahrenheitChanged() {
-    lastEditedTemp = "fahrenheit";
+    lastEditedTemp = FAHRENHEIT_ID;
 }
 
 function kelvinChanged() {
-    lastEditedTemp = "kelvin";
+    lastEditedTemp = KELVIN_ID;
 }
 
 //WEIGHT
 function kilosChanged() {
-    lastEditedWeight = "kilos";
+    lastEditedWeight = KILOS_ID;
 }
 
 function gramsChanged() {
-    lastEditedWeight = "grams";
+    lastEditedWeight = GRAMS_ID;
 }
 
 function poundsChanged() {
-    lastEditedWeight = "pounds";
+    lastEditedWeight = POUNDS_ID;
 }
 
 function ouncesChanged() {
-    lastEditedWeight = "ounces";
+    lastEditedWeight = OUNCES_ID;
 }
 
 function stonesChanged() {
-    lastEditedWeight = "stones";
+    lastEditedWeight = STONES_ID;
 }
 
 //LENGHT
@@ -168,72 +186,43 @@ function convertTemperature() {
 
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
     //temperature values, will be our "return" value after the method
-    var celsius = document.getElementById("celsius").value;
+    var celsius = document.getElementById(CELSIUS_ID).value;
     celsius = parseFloat(celsius);
 
-    var fahrenheit = document.getElementById("fahrenheit").value;
+    var fahrenheit = document.getElementById(FAHRENHEIT_ID).value;
     fahrenheit = parseFloat(fahrenheit);
 
-    var kelvin = document.getElementById("kelvin").value;
+    var kelvin = document.getElementById(KELVIN_ID).value;
     kelvin = parseFloat(kelvin);
 
     //if the celsius field changes, convert the fahrenheit and kelvin values
-    if (lastEditedTemp === "celsius") {
+    if (lastEditedTemp === CELSIUS_ID) {
         conversionF = normalizeOutput((celsius * 9 / 5 + 32), decimalPlacesTemp);
         conversionK = normalizeOutput((celsius + 273), decimalPlacesTemp);
 
-        attributeNumberValue("fahrenheit", conversionF); //recebe ID mete no HTML um valor
-        attributeNumberValue("kelvin", conversionK);
+        attributeNumberValueArray([FAHRENHEIT_ID, KELVIN_ID], [conversionF, conversionK]);
     }
     //if the fahrenheit field changes, convert the celsius and kelvin values
-    else if (lastEditedTemp === "fahrenheit") {
+    else if (lastEditedTemp === FAHRENHEIT_ID) {
         conversionC = normalizeOutput(((fahrenheit - 32) * 5 / 9), decimalPlacesTemp);
         conversionK = normalizeOutput((conversionC + 273), decimalPlacesTemp)
 
-        attributeNumberValue("celsius", conversionC);
-        attributeNumberValue("kelvin", conversionK)
+        attributeNumberValueArray([CELSIUS_ID, KELVIN_ID], [conversionC, conversionK]);
     }
     //if the kelvin field changes, convert the celsius and fahrenheit values
-    else if (lastEditedTemp === "kelvin") {
+    else if (lastEditedTemp === KELVIN_ID) {
         conversionC = normalizeOutput((kelvin - 273), decimalPlacesTemp);
         conversionF = normalizeOutput((conversionC * 9 / 5 + 32), decimalPlacesTemp);
 
-        attributeNumberValue("celsius", conversionC);
-        attributeNumberValue("fahrenheit", conversionF)
+        attributeNumberValueArray([CELSIUS_ID, FAHRENHEIT_ID], [conversionC, conversionF]);
     }
-
-    /**
-     * get the current conversion temperature values and store them in the input fields
-     */
-
- /*   document.getElementById("celsius").innerHTML = conversionC;
-    document.getElementById("fahrenheit").innerHTML = conversionF;
-    document.getElementById("kelvin").innerHTML = conversionK;*/
 }
 
 /**
  * Converts Weight - Unit values used: Kilograms, Grams, Pounds, Ounces and Stones
  */
 function convertWeight() {
-
     //initialize local variables
-    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
-    var kilos = document.getElementById("kilos").value;
-    kilos = parseFloat(kilos);
-
-    var grams = document.getElementById("grams").value;
-    grams = parseFloat(grams);
-
-    var pounds = document.getElementById("pounds").value;
-    pounds = parseFloat(pounds);
-
-    var ounces = document.getElementById("ounces").value;
-    ounces = parseFloat(ounces);
-
-    var stones = document.getElementById("stones").value;
-    stones = parseFloat(stones);
-
-    //weight values
     var decimalPlacesWeight = 2;
     var conversionKilos;
     var conversionGrams;
@@ -241,73 +230,66 @@ function convertWeight() {
     var conversionOunces;
     var conversionStones;
 
+    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+    var kilos = document.getElementById(KILOS_ID).value;
+    kilos = parseFloat(kilos);
+
+    var grams = document.getElementById(GRAMS_ID).value;
+    grams = parseFloat(grams);
+
+    var pounds = document.getElementById(POUNDS_ID).value;
+    pounds = parseFloat(pounds);
+
+    var ounces = document.getElementById(OUNCES_ID).value;
+    ounces = parseFloat(ounces);
+
+    var stones = document.getElementById(STONES_ID).value;
+    stones = parseFloat(stones);
 
     //if the kilos field changes, convert the grams, pounds, ouces and stone values;
-    if (lastEditedWeight === "kilos") {
-        conversionGrams = kilos * 1000;
-        conversionPounds = kilos * 2.2046;
-        conversionOunces = kilos * 35.274;
-        conversionStones = kilos * 0.15747;
-        //round the converted weight values
-        document.getElementById("grams").value = conversionGrams;
-        document.getElementById("pounds").value = conversionPounds;
-        document.getElementById("ounces").value = conversionOunces;
-        document.getElementById("stones").value = conversionStones;
+    if (lastEditedWeight === KILOS_ID) {
+        conversionGrams = normalizeOutput((kilos * 1000), decimalPlacesWeight);
+        conversionPounds = normalizeOutput((kilos * 2.2046), decimalPlacesWeight);
+        conversionOunces = normalizeOutput((kilos * 35.274), decimalPlacesWeight);
+        conversionStones = normalizeOutput((kilos * 0.15747), decimalPlacesWeight);
+
+        attributeNumberValueArray([GRAMS_ID, POUNDS_ID, OUNCES_ID, STONES_ID], [conversionGrams, conversionPounds, conversionOunces, conversionStones]);
     }
 //if the grams field changes, convert the kilos, pounds, ouces and stone values;
-    else if (lastEditedWeight === "grams") {
-        conversionKilos = grams / 1000;
-        conversionPounds = grams / 453.59237;
-        conversionOunces = grams / 28.34952;
-        conversionStones = grams * 0.00015747;
-        //round the converted weight values
-        document.getElementById("kilos").value = conversionKilos;
-        document.getElementById("pounds").value = conversionPounds;
-        document.getElementById("ounces").value = conversionOunces;
-        document.getElementById("stones").value = conversionStones;
+    else if (lastEditedWeight === GRAMS_ID) {
+        conversionKilos = normalizeOutput((grams / 1000), decimalPlacesWeight);
+        conversionPounds = normalizeOutput((grams / 453.59237), decimalPlacesWeight);
+        conversionOunces = normalizeOutput((grams / 28.34952), decimalPlacesWeight);
+        conversionStones = normalizeOutput((grams * 0.00015747), decimalPlacesWeight);
+
+        attributeNumberValueArray([KILOS_ID, POUNDS_ID, OUNCES_ID, STONES_ID], [conversionKilos, conversionPounds, conversionOunces, conversionStones]);
     }
 //if the pounds field changes, convert the kilos, grams, ouces and stone values;
-    else if (lastEditedWeight === "pounds") {
-        conversionKilos = pounds / 2.2046;
-        conversionGrams = pounds * 453.59237;
-        conversionOunces = pounds * 16;
-        conversionStones = pounds * 0.071429;
-        //round the converted weight values
-        document.getElementById("kilos").value = conversionKilos;
-        document.getElementById("grams").value = conversionGrams;
-        document.getElementById("ounces").value = conversionOunces;
-        document.getElementById("stones").value = conversionStones;
+    else if (lastEditedWeight === POUNDS_ID) {
+        conversionKilos = normalizeOutput((pounds / 2.2046), decimalPlacesWeight);
+        conversionGrams = normalizeOutput((pounds * 453.59237), decimalPlacesWeight);
+        conversionOunces = normalizeOutput((pounds * 16), decimalPlacesWeight);
+        conversionStones = normalizeOutput((pounds * 0.071429), decimalPlacesWeight);
+
+        attributeNumberValueArray([KILOS_ID, GRAMS_ID, OUNCES_ID, STONES_ID], [conversionKilos, conversionGrams, conversionOunces, conversionStones]);
     }
 //if the ounces field changes, convert the kilos, grams, pounds and stone values;
-    else if (lastEditedWeight === "ounces") {
-        conversionKilos = ounces * 0.02834952;
-        conversionGrams = ounces * 28.34952;
-        conversionPounds = ounces / 16;
-        conversionStones = ounces * 0.0044643;
-        document.getElementById("kilos").value = conversionKilos;
-        document.getElementById("grams").value = conversionGrams;
-        document.getElementById("pounds").value = conversionPounds;
-        document.getElementById("stones").value = conversionStones;
-        //round the converted weight values
+    else if (lastEditedWeight === OUNCES_ID) {
+        conversionKilos = normalizeOutput((ounces * 0.02834952), decimalPlacesWeight);
+        conversionGrams = normalizeOutput((ounces * 28.34952), decimalPlacesWeight);
+        conversionPounds = normalizeOutput((ounces / 16), decimalPlacesWeight);
+        conversionStones = normalizeOutput((ounces * 0.0044643), decimalPlacesWeight);
+
+        attributeNumberValueArray([KILOS_ID, GRAMS_ID, POUNDS_ID, STONES_ID], [conversionKilos, conversionGrams, conversionPounds, conversionStones]);
     }
-    else if (lastEditedWeight === "stones") {
-        conversionKilos = stones / 0.15747;
-        conversionGrams = stones / 0.00015747;
-        conversionPounds = stones * 14.000;
-        conversionOunces = stones * 224.00;
-        document.getElementById("kilos").value = conversionKilos;
-        document.getElementById("grams").value = conversionGrams;
-        document.getElementById("pounds").value = conversionPounds;
-        document.getElementById("ounces").value = conversionOunces;
+    else if (lastEditedWeight === STONES_ID) {
+        conversionKilos = normalizeOutput((stones / 0.15747), decimalPlacesWeight);
+        conversionGrams = normalizeOutput((stones / 0.00015747), decimalPlacesWeight);
+        conversionPounds = normalizeOutput((stones * 14.000), decimalPlacesWeight);
+        conversionOunces = normalizeOutput((stones * 224.00), decimalPlacesWeight);
+
+        attributeNumberValueArray([KILOS_ID, GRAMS_ID, POUNDS_ID, OUNCES_ID], [conversionKilos, conversionGrams, conversionPounds, conversionOunces]);
     }
-    /**
-     * get the current conversion weight values and store them in the input fields
-     */
-    document.getElementById("kilos").innerHTML = conversionKilos;
-    document.getElementById("grams").innerHTML = conversionGrams;
-    document.getElementById("pounds").innerHTML = conversionPounds;
-    document.getElementById("ounces").innerHTML = conversionOunces;
-    document.getElementById("stones").innerHTML = conversionStones;
 }
 
 function convertLength() {
@@ -440,20 +422,10 @@ function convertLength() {
         document.getElementById("inches").value = conversionI;
         document.getElementById("kilometers").value = conversionK;
     }
-
-    document.getElementById("meters").innerHTML = conversionM;
-    document.getElementById("kilometers").innerHTML = conversionK;
-    document.getElementById("centimeters").innerHTML = conversionC;
-    document.getElementById("miles").innerHTML = conversionMi;
-    document.getElementById("yards").innerHTML = conversionY;
-    document.getElementById("inches").innerHTML = conversionI;
-    document.getElementById("feet").innerHTML = conversionF;
 }
 
 function convertArea() {
-
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
-
     var squaremeters = document.getElementById("squaremeters").value;
     squaremeters = parseFloat(squaremeters);
     var squarekilometers = document.getElementById("squarekilometers").value;
@@ -617,19 +589,9 @@ function convertArea() {
         document.getElementById("squarekilometers").value = conversionK2;
         document.getElementById("squareyards").value = conversionY2;
     }
-
-    document.getElementById("squaremeters").innerHTML = conversionM2;
-    document.getElementById("squarekilometers").innerHTML = conversionK2;
-    document.getElementById("squarecentimeters").innerHTML = conversionC2;
-    document.getElementById("squaremiles").innerHTML = conversionMi2;
-    document.getElementById("squareyards").innerHTML = conversionY2;
-    document.getElementById("squareinches").innerHTML = conversionI2;
-    document.getElementById("squarefeet").innerHTML = conversionF2;
-    document.getElementById("hectare").innerHTML = conversionH;
 }
 
 function convertVolume() {
-
     // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
 
     var cubicMeter = document.getElementById("cubicMeter").value;
@@ -668,13 +630,13 @@ function convertVolume() {
         conversionTbS = cubicMeter * 67628.0454;
         conversionTeaS = cubicMeter * 202884.136;
 
-        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL.toExponential();
-        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl.toExponential();
-        document.getElementById("gallon").value = conversionGl.toExponential();
-        document.getElementById("megaliter").value = conversionMgL.toExponential();
-        document.getElementById("cubicInch").value = conversionIN3.toExponential();
-        document.getElementById("tablespoon").value = conversionTbS.toExponential();
-        document.getElementById("teaspoon").value = conversionTeaS.toExponential();
+        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
+        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl;
+        document.getElementById("gallon").value = conversionGl;
+        document.getElementById("megaliter").value = conversionMgL;
+        document.getElementById("cubicInch").value = conversionIN3;
+        document.getElementById("tablespoon").value = conversionTbS;
+        document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedVolume === "cubicCentimeterAndMilliliter") {
         conversionD3AndL = cubicCentimeterAndMilliliter * 0.001;
@@ -685,13 +647,13 @@ function convertVolume() {
         conversionTbS = cubicCentimeterAndMilliliter * 0.0676280454;
         conversionTeaS = cubicCentimeterAndMilliliter * 0.202884136;
 
-        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL.toExponential();
-        document.getElementById("cubicMeter").value = conversionM3.toExponential();
-        document.getElementById("gallon").value = conversionGl.toExponential();
-        document.getElementById("megaliter").value = conversionMgL.toExponential();
-        document.getElementById("cubicInch").value = conversionIN3.toExponential();
-        document.getElementById("tablespoon").value = conversionTbS.toExponential();
-        document.getElementById("teaspoon").value = normalizeOutput(conversionTeaS);
+        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
+        document.getElementById("cubicMeter").value = conversionM3;
+        document.getElementById("gallon").value = conversionGl;
+        document.getElementById("megaliter").value = conversionMgL;
+        document.getElementById("cubicInch").value = conversionIN3;
+        document.getElementById("tablespoon").value = conversionTbS;
+        document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedVolume === "gallon") {
         conversionM3 = gallon * 0.00378541178;
@@ -702,13 +664,13 @@ function convertVolume() {
         conversionTbS = gallon * 256;
         conversionTeaS = gallon * 768;
 
-        document.getElementById("cubicMeter").value = conversionM3.toExponential();
-        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL.toExponential();
-        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl.toExponential();
-        document.getElementById("megaliter").value = conversionMgL.toExponential();
-        document.getElementById("cubicInch").value = conversionIN3.toExponential();
-        document.getElementById("tablespoon").value = conversionTbS.toExponential();
-        document.getElementById("teaspoon").value = conversionTeaS.toExponential();
+        document.getElementById("cubicMeter").value = conversionM3;
+        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
+        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl;
+        document.getElementById("megaliter").value = conversionMgL;
+        document.getElementById("cubicInch").value = conversionIN3;
+        document.getElementById("tablespoon").value = conversionTbS;
+        document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedVolume === "megaliter") {
         conversionM3 = megaliter * 1000;
@@ -719,13 +681,13 @@ function convertVolume() {
         conversionTbS = megaliter * 67628045.4;
         conversionTeaS = megaliter * 202884136;
 
-        document.getElementById("cubicMeter").value = conversionM3.toExponential();
-        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL.toExponential();
-        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl.toExponential();
-        document.getElementById("gallon").value = conversionGl.toExponential();
-        document.getElementById("cubicInch").value = conversionIN3.toExponential();
-        document.getElementById("tablespoon").value = conversionTbS.toExponential();
-        document.getElementById("teaspoon").value = conversionTeaS.toExponential();
+        document.getElementById("cubicMeter").value = conversionM3;
+        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
+        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl;
+        document.getElementById("gallon").value = conversionGl;
+        document.getElementById("cubicInch").value = conversionIN3;
+        document.getElementById("tablespoon").value = conversionTbS;
+        document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedVolume === "cubicInch") {
         conversionM3 = cubicInch * 1.6387064 * 0.00002;
@@ -736,13 +698,13 @@ function convertVolume() {
         conversionTbS = cubicInch * 1.10822511;
         conversionTeaS = cubicInch * 3.32467532;
 
-        document.getElementById("cubicMeter").value = conversionM3.toExponential();
-        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL.toExponential();
-        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl.toExponential();
-        document.getElementById("gallon").value = conversionGl.toExponential();
-        document.getElementById("megaliter").value = conversionMgL.toExponential();
-        document.getElementById("tablespoon").value = conversionTbS.toExponential();
-        document.getElementById("teaspoon").value = conversionTeaS.toExponential();
+        document.getElementById("cubicMeter").value = conversionM3;
+        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
+        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl;
+        document.getElementById("gallon").value = conversionGl;
+        document.getElementById("megaliter").value = conversionMgL;
+        document.getElementById("tablespoon").value = conversionTbS;
+        document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedVolume === "tablespoon") {
         conversionM3 = tablespoon * 1.47867648 * 0.00001;
@@ -753,13 +715,13 @@ function convertVolume() {
         conversionD3AndL = tablespoon * 0.014786764;
         conversionTeaS = tablespoon * 3;
 
-        document.getElementById("cubicMeter").value = conversionM3.toExponential();
-        document.getElementById("cubicInch").value = conversionIN3.toExponential();
-        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl.toExponential();
-        document.getElementById("gallon").value = conversionGl.toExponential();
-        document.getElementById("megaliter").value = conversionMgL.toExponential();
-        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL.toExponential();
-        document.getElementById("teaspoon").value = conversionTeaS.toExponential();
+        document.getElementById("cubicMeter").value = conversionM3;
+        document.getElementById("cubicInch").value = conversionIN3;
+        document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl;
+        document.getElementById("gallon").value = conversionGl;
+        document.getElementById("megaliter").value = conversionMgL;
+        document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL;
+        document.getElementById("teaspoon").value = conversionTeaS;
     }
     else if (lastEditedVolume === "teaspoon") {
         conversionM3 = teaspoon * 4.92892159 * 0.000001;
@@ -770,25 +732,15 @@ function convertVolume() {
         conversionD3AndL = teaspoon * 0.00492892159;
         conversionTbS = teaspoon * 0.333333333;
 
-        attributeNumberValue("cubicMeter", conversionM3);
-        //document.getElementById("cubicMeter").value = conversionM3.toExponential();
-        attributeNumberValue("cubicInch", conversionIN3)
-        // document.getElementById("cubicInch").value = conversionIN3.toExponential();
+
+        document.getElementById("cubicMeter").value = conversionM3.toExponential();
+        document.getElementById("cubicInch").value = conversionIN3.toExponential();
         document.getElementById("cubicCentimeterAndMilliliter").value = conversionC3AndMl();
         document.getElementById("gallon").value = conversionGl();
         document.getElementById("megaliter").value = conversionMgL();
         document.getElementById("cubicDecimeterAndLiter").value = conversionD3AndL();
         document.getElementById("tablespoon").value = conversionTbS();
     }
-
-    document.getElementById("cubicMeter").innerHTML = conversionM3;
-    document.getElementById("cubicDecimeterAndLiter").innerHTML = conversionD3AndL;
-    document.getElementById("cubicCentimeterAndMilliliter").innerHTML = conversionC3AndMl;
-    document.getElementById("cubicInch").innerHTML = conversionIN3;
-    document.getElementById("megaliter").innerHTML = conversionMgL;
-    document.getElementById("gallon").innerHTML = conversionGl;
-    document.getElementById("teaspoon").innerHTML = conversionTeaS;
-    document.getElementById("tablespoon").innerHTML = conversionTbS;
 }
 
 function convertNumber() {
@@ -839,35 +791,20 @@ function convertNumber() {
         conversionBn = parseInt(+str, 8).toString(2);
         conversionHx = parseInt(+str, 8).toString(16);
     }
-
-    /**
-     * get the current conversion number values and store them in the input fields
-     */
-
-    document.getElementById("decimal").innerHTML = conversionDc;
-    document.getElementById("binary").innerHTML = conversionBn;
-    document.getElementById("octal").innerHTML = conversionOc;
-    document.getElementById("hexadecimal").innerHTML = conversionHx;
 }
 
 /**
  * reset temperature values
  */
 function resetTemp() {
-    resetNumberValue("celsius");
-    resetNumberValue("fahrenheit");
-    resetNumberValue("kelvin");
+    resetNumberValueArray([CELSIUS_ID, FAHRENHEIT_ID, KELVIN_ID])
 }
 
 /**
  * reset weight values
  */
 function resetWeight() {
-    resetNumberValue("kilos");
-    resetNumberValue("grams");
-    resetNumberValue("pounds");
-    resetNumberValue("ounces");
-    resetNumberValue("stones");
+    resetNumberValueArray([KILOS_ID, GRAMS_ID, POUNDS_ID, OUNCES_ID, STONES_ID])
 }
 
 function resetLength() {
@@ -915,16 +852,32 @@ function resetNumber() {
 
 function normalizeOutput(value, decimalPlaces) {
     value = parseFloat(value.toFixed(decimalPlaces));
+
     if (value >= 10000) { //só vai fazer a parte do exponencial se o valor for superior a este, podemos mudar
         value = value.toExponential();
     }
     return value;
 }
 
-function attributeNumberValue(id, value) {
-    document.getElementById(id).value = value;
+/**
+ * Method works because arrays are the same size and values are ordered in the same position as ids
+ * example: attributeNumberValueArray([FAHRENHEIT_ID, KELVIN_ID], [conversionF, conversionK]);
+ * position 0 of valuesArray has the value for fahrenheit.
+ * @param idsArray
+ * @param valuesArray
+ */
+function attributeNumberValueArray(idsArray, valuesArray) {
+    for (i = 0; i < idsArray.length; i++) {
+        document.getElementById(idsArray[i]).value = valuesArray[i];
+    }
 }
 
-function resetNumberValue(id) {
-    document.getElementById(id).value = 0;
+/**
+ * Method to reset the input values.
+ * @param idsArray - array of Ids from the unit we want to reset
+ */
+function resetNumberValueArray(idsArray) {
+    for (i = 0; i < idsArray.length; i++) {
+        document.getElementById(idsArray[i]).value = 0;
+    }
 }
