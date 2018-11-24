@@ -302,6 +302,40 @@
         </div>
     </div>
 </div>
+<div id=operation6 style="display: none;">
+    <h5 class="header5"> Numbers </h5>
+    <div style="display:inline-block;">
+        <div class="wrapper">
+            <div class="card">
+                <div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Decimal</h3>
+                        <input id="decimal" value="0" onchange="decimalChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Binary</h3>
+                        <input id="binary" value="0" onchange="cubicDecimeterAndLiterChanged()"/>
+                    </div>
+
+                    <div class="temp-fields">
+                        <h3 class="spacing">Hexadecimal</h3>
+                        <input id="hexadecimal" value="0"
+                               onchange="hexadecimalChanged()"/>
+                    </div>
+                    <div class="temp-fields">
+                        <h3 class="spacing">Octal</h3>
+                        <input id="octal" value="0" onchange="octalChanged()"/>
+                    </div>
+                </div>
+                <div>
+                    <button id="submit" onClick="convertNumber()" class="spacing" type="submit" value="submit">Convert
+                    </button>
+                    <button id="reset" onClick="resetNumber()" class="spacing" type="reset" value="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <br>
 <br>
 <br>
