@@ -91,6 +91,13 @@ input {
     border: 1px solid #fcd87e;
 }
 
+#decimal, #binary, #hexadecimal, #octal{
+    background: #F8F8F8;
+    width: 170px;
+    padding: 10px 10px;
+    border-radius: 6px;
+    border: 1px solid #fcd87e;}
+
 .card{
     background-color: white;
     max-width: 60%;
