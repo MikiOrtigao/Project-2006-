@@ -9,7 +9,6 @@
 const CELSIUS_ID = "celsius"
 const FAHRENHEIT_ID = "fahrenheit"
 const KELVIN_ID = "kelvin"
-
 const KILOS_ID = "kilos"
 const GRAMS_ID = "grams"
 const POUNDS_ID = "pounds"
@@ -197,9 +196,17 @@ function convertTemperature() {
 
     //if the celsius field changes, convert the fahrenheit and kelvin values
     if (lastEditedTemp === CELSIUS_ID) {
+        if(document.getElementById("celsius").value > 50){
+            document.getElementById("weatherImage").src = "https://media.giphy.com/media/mbTRlJ2AwBZMk/200w_d.gif";
+            document.getElementById("weatherText").innerHTML = "I'm melting!"
+        }
+
+        if(document.getElementById("celsius").value < -50){
+            document.getElementById("weatherImage").src = "https://www.thirsty.co/wp-content/uploads/2018/01/freeze-2.gif";
+            document.getElementById("weatherText").innerHTML = "I think our website is gonna f-freeze..."
+        }
         conversionF = normalizeOutput((celsius * 9 / 5 + 32), decimalPlacesTemp);
         conversionK = normalizeOutput((celsius + 273), decimalPlacesTemp);
-
         attributeNumberValueArray([FAHRENHEIT_ID, KELVIN_ID], [conversionF, conversionK]);
     }
     //if the fahrenheit field changes, convert the celsius and kelvin values
