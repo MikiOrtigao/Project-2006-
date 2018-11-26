@@ -23,7 +23,7 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background: #fcd87e;
+    background: rgba(249, 133, 155, 0.55);
     cursor: pointer;
 }
 .categorie{
@@ -36,7 +36,7 @@ button:hover {
     transition: 0.3s;
 }
 .categorie:hover{
-    background: #6bb5a0;
+    background: rgba(212, 134, 74, 0.82);
     cursor: pointer;
 }
 
@@ -71,7 +71,8 @@ footer {
 }
 
 .header5{
-    color: #009588;
+    color: #da8d49;
+    font-weight:normal;
     font-size: 1.5em;
     margin: 10px 0 10px 0;
 }
