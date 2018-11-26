@@ -29,9 +29,9 @@ const SQUAREINCHES_ID = "squareinches"
 const SQUAREMILES_ID = "squaremiles"
 const SQUAREYARDS_ID = "squareyards"
 const HECTARE_ID = "hectare"
-const CUBICMETERS_ID = "cubicMeter"
+const CUBICMETER_ID = "cubicMeter"
 const CUBICDECIMETERANDLITER_ID = "cubicDecimeterAndLiter"
-const CUBICCENTIMITERANDMILLILITER = "cubicCentimiterAndMilliliter"
+const CUBICCENTIMITERANDMILLILITER_ID = "cubicCentimiterAndMilliliter"
 const GALLON_ID = "gallon"
 const MEGALITER_ID = "megaliter"
 const CUBICINCH_ID = "cubicInch"
@@ -553,11 +553,11 @@ function convertVolume() {
     var conversionTbS;
     var conversionTeaS;
 
-    var cubicMeter = document.getElementById(CUBICMETERS_ID).value;
+    var cubicMeter = document.getElementById(CUBICMETER_ID).value;
     cubicMeter = parseFloat(cubicMeter);
     var cubicDecimeterAndLiter = document.getElementById(CUBICDECIMETERANDLITER_ID).value;
     cubicDecimeterAndLiter = parseFloat(cubicDecimeterAndLiter);
-    var cubicCentimiterAndMilliliter = document.getElementById(CUBICCENTIMITERANDMILLILITER).value;
+    var cubicCentimiterAndMilliliter = document.getElementById(CUBICCENTIMITERANDMILLILITER_ID).value;
     cubicCentimiterAndMilliliter = parseFloat(cubicCentimiterAndMilliliter);
     var gallon = document.getElementById(GALLON_ID).value;
     gallon = parseFloat(gallon);
@@ -571,7 +571,7 @@ function convertVolume() {
     teaspoon = parseFloat(teaspoon);
 
     //length values, will be our "return" value after the method
-    if (lastEditedVolume === CUBICMETERS_ID) {
+    if (lastEditedVolume === CUBICMETER_ID) {
         conversionD3AndL = normalizeOutput((cubicMeter * 1000), decimalPlacesArea);
         conversionC3AndMl = normalizeOutput((cubicMeter * 1000000), decimalPlacesArea);
         conversionGl = normalizeOutput((cubicMeter * 264.172052), decimalPlacesArea);
@@ -580,7 +580,7 @@ function convertVolume() {
         conversionTbS = normalizeOutput((cubicMeter * 67628.0454), decimalPlacesArea);
         conversionTeaS = normalizeOutput((cubicMeter * 202884.136), decimalPlacesArea);
 
-        attributeNumberValueArray([CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
+        attributeNumberValueArray([CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
     else if (lastEditedVolume === CUBICDECIMETERANDLITER_ID) {
         conversionD3AndL = normalizeOutput((cubicCentimeterAndMilliliter * 0.001), decimalPlacesArea);
@@ -591,7 +591,7 @@ function convertVolume() {
         conversionTbS = normalizeOutput((cubicCentimeterAndMilliliter * 0.0676280454), decimalPlacesArea);
         conversionTeaS = normalizeOutput((cubicCentimeterAndMilliliter * 0.202884136), decimalPlacesArea);
 
-        attributeNumberValueArray([CUBICMETERS_ID, CUBICCENTIMITERANDMILLILITER, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
+        attributeNumberValueArray([CUBICMETER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
     else if (lastEditedVolume === GALLON_ID) {
         conversionM3 = normalizeOutput((gallon * 0.00378541178), decimalPlacesArea);
@@ -602,7 +602,7 @@ function convertVolume() {
         conversionTbS = normalizeOutput((gallon * 256), decimalPlacesArea);
         conversionTeaS = normalizeOutput((gallon * 768), decimalPlacesArea);
 
-        attributeNumberValueArray([CUBICMETERS_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
+        attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
     else if (lastEditedVolume === MEGALITER_ID) {
         conversionM3 = normalizeOutput((megaliter * 1000), decimalPlacesArea);
@@ -613,7 +613,7 @@ function convertVolume() {
         conversionTbS = normalizeOutput((megaliter * 67628045.4), decimalPlacesArea);
         conversionTeaS = normalizeOutput((megaliter * 202884136), decimalPlacesArea);
 
-        attributeNumberValueArray([CUBICMETERS_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER, GALLON_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionIN3, conversionTbS, conversionTeaS]);
+        attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionIN3, conversionTbS, conversionTeaS]);
     }
     else if (lastEditedVolume === CUBICINCH_ID) {
         conversionM3 = normalizeOutput((cubicInch * 1.6387064 * 0.00002), decimalPlacesArea);
@@ -624,7 +624,7 @@ function convertVolume() {
         conversionTbS = normalizeOutput((cubicInch * 1.10822511), decimalPlacesArea);
         conversionTeaS = normalizeOutput((cubicInch * 3.32467532), decimalPlacesArea);
 
-        attributeNumberValueArray([CUBICMETERS_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER, GALLON_ID, MEGALITER_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionTbS, conversionTeaS]);
+        attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionTbS, conversionTeaS]);
     }
     else if (lastEditedVolume === TABLESPOON_ID) {
         conversionM3 = normalizeOutput((tablespoon * 1.47867648 * 0.00001), decimalPlacesArea);
@@ -635,7 +635,7 @@ function convertVolume() {
         conversionD3AndL = normalizeOutput((tablespoon * 0.014786764), decimalPlacesArea);
         conversionTeaS = normalizeOutput((tablespoon * 3), decimalPlacesArea);
 
-        attributeNumberValueArray([CUBICMETERS_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTeaS]);
+        attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTeaS]);
     }
     else if (lastEditedVolume === TEASPOON_ID) {
         conversionM3 = normalizeOutput((teaspoon * 4.92892159 * 0.000001), decimalPlacesArea);
@@ -647,7 +647,7 @@ function convertVolume() {
         conversionTbS = normalizeOutput((teaspoon * 0.333333333), decimalPlacesArea);
 
 
-        attributeNumberValueArray([CUBICMETERS_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS]);
+        attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS]);
     }
 }
 
