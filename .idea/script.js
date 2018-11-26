@@ -433,6 +433,7 @@ function convertArea() {
     hectare = parseFloat(hectare);
 
     //length values, will be our "return" value after the method
+    var decimalPlacesArea = 12;
     var conversionM2;
     var conversionK2;
     var conversionC2;
@@ -517,7 +518,7 @@ function convertArea() {
         conversionK2 = normalizeOutput((squareyards * 0.00000083612736), decimalPlacesArea);
         conversionH = normalizeOutput((squareyards * 0.0000836127), decimalPlacesArea);
 
-        attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionF2, conversionI2, conversionH]);
+        attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREMILES_ID, SQUAREFEET_ID, SQUAREINCHES_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionMi2, conversionF2, conversionI2, conversionH]);
     }
     else if (lastEditedArea === HECTARE_ID) {
         conversionM2 = normalizeOutput((hectare * 10000), decimalPlacesArea);
