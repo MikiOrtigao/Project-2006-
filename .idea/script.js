@@ -15,15 +15,23 @@ const POUNDS_ID = "pounds"
 const OUNCES_ID = "ounces"
 const STONES_ID = "stones"
 
+const METERS_ID = "meters"
+const CENTIMETERS_ID = "centimeters"
+const KILOMETERS_ID = "kilometers"
+const FEET_ID = "feet"
+const INCHES_ID = "inches"
+const MILES_ID = "miles"
+const YARDS_ID = "yards"
+
 /**
  * @type {string} - initializes de lastEdited flag to any of the input fields, by  default I choosed one of the unit types for each diferent unit..
  */
 var lastEditedTemp = CELSIUS_ID;
 var lastEditedWeight = KILOS_ID;
-var lastEditedLength = "meters";
-var lastEditedArea = "squaremeters";
-var lastEditedVolume = "cubicMeter";
-var lastEditedNumber = "decimal";
+var lastEditedLength = METERS_ID;
+var lastEditedArea = SQUAREMETERS_ID;
+var lastEditedVolume = CUBICMETER_ID;
+var lastEditedNumber = DECIMAL_ID;
 
 /**
  * picks up on if and when an input field changes, then sets the lastEdited flag to the input field that was changed.
@@ -64,114 +72,114 @@ function stonesChanged() {
 
 //LENGHT
 function metersChanged() {
-    lastEditedLength = "meters";
+    lastEditedLength = METERS_ID;
 }
 
 function kilometersChanged() {
-    lastEditedLength = "kilometers";
+    lastEditedLength = KILOMETERS_ID;
 }
 
 function centimetersChanged() {
-    lastEditedLength = "centimeters";
+    lastEditedLength = CENTIMETERS_ID;
 }
 
 function feetChanged() {
-    lastEditedLength = "feet";
+    lastEditedLength = FEET_ID;
 }
 
 function inchesChanged() {
-    lastEditedLength = "inches";
+    lastEditedLength = INCHES_ID;
 }
 
 function milesChanged() {
-    lastEditedLength = "miles";
+    lastEditedLength = MILES_ID;
 }
 
 function yardsChanged() {
-    lastEditedLength = "yards";
+    lastEditedLength = YARDS_ID;
 }
 
 //AREA
 function squaremetersChanged() {
-    lastEditedArea = "squaremeters";
+    lastEditedArea = SQUAREMETERS_ID;
 }
 
 function squarekilometersChanged() {
-    lastEditedArea = "squarekilometers";
+    lastEditedArea = SQUAREKILOMETERS_ID;
 }
 
 function squarecentimetersChanged() {
-    lastEditedArea = "squarecentimeters";
+    lastEditedArea = SQUARECENTIMETERS_ID;
 }
 
 function squarefeetChanged() {
-    lastEditedArea = "squarefeet";
+    lastEditedArea = SQUAREFEET_ID;
 }
 
 function squareinchesChanged() {
-    lastEditedArea = "squareinches";
+    lastEditedArea = SQUAREINCHES_ID;
 }
 
 function squaremilesChanged() {
-    lastEditedArea = "squaremiles";
+    lastEditedArea = SQUAREMILES_ID;
 }
 
 function squareyardsChanged() {
-    lastEditedArea = "squareyards";
+    lastEditedArea = SQUAREYARDS_ID;
 }
 
 function hectareChanged() {
-    lastEditedArea = "hectare";
+    lastEditedArea = HECTARE_ID;
 }
 
 //VOLUME
 function cubicMeterChanged() {
-    lastEditedVolume = "cubicMeter";
+    lastEditedVolume = CUBICMETER_ID;
 }
 
 function cubicDecimeterAndLiterChanged() {
-    lastEditedVolume = "cubicDecimeterAndLiter";
+    lastEditedVolume = CUBICDECIMETERANDLITER_ID;
 }
 
 function cubicCentimeterAndMilliliterChanged() {
-    lastEditedVolume = "cubicCentimeterAndMilliliter";
+    lastEditedVolume = CUBICCENTIMETERANDMILLILITER_ID;
 }
 
 function gallonChanged() {
-    lastEditedVolume = "gallon";
+    lastEditedVolume = GALLON_ID;
 }
 
 function megaliterChanged() {
-    lastEditedVolume = "megaliter";
+    lastEditedVolume = MEGALITER_ID;
 }
 
 function cubicInchChanged() {
-    lastEditedVolume = "cubicInch";
+    lastEditedVolume = CUBICINCH_ID;
 }
 
 function tablespoonChanged() {
-    lastEditedVolume = "tablespoon";
+    lastEditedVolume = TABLESPOON_ID;
 }
 
 function teaspoonChanged() {
-    lastEditedVolume = "teaspoon";
+    lastEditedVolume = TEASPOON_ID;
 }
 
 //NUMBER
 function decimalChanged() {
-    lastEditedNumber = "decimal";
+    lastEditedNumber = DECIMAL_ID;
 }
 
 function binaryChanged() {
-    lastEditedNumber = "binary";
+    lastEditedNumber = BINARY_ID;
 }
 
 function hexadecimalChanged() {
-    lastEditedNumber = "hexadecimal";
+    lastEditedNumber = HEXADECIMAL_ID;
 }
 
 function octalChanged() {
-    lastEditedNumber = "octal";
+    lastEditedNumber = OCTAL_ID;
 }
 
 /**
@@ -300,22 +308,7 @@ function convertWeight() {
 }
 
 function convertLength() {
-    var meters = document.getElementById("meters").value;
-    meters = parseFloat(meters);
-    var kilometers = document.getElementById("kilometers").value;
-    kilometers = parseFloat(kilometers);
-    var centimeters = document.getElementById("centimeters").value;
-    centimeters = parseFloat(centimeters);
-    var feet = document.getElementById("feet").value;
-    feet = parseFloat(feet);
-    var inches = document.getElementById("inches").value;
-    inches = parseFloat(inches);
-    var miles = document.getElementById("miles").value;
-    miles = parseFloat(miles);
-    var yards = document.getElementById("yards").value;
-    yards = parseFloat(yards);
-
-    //length values, will be our "return" value after the method
+    var decimalPlacesLength = 3;
     var conversionM;
     var conversionK;
     var conversionC;
@@ -324,110 +317,92 @@ function convertLength() {
     var conversionMi;
     var conversionY;
 
-    if (lastEditedLength === "meters") {
-        conversionK = meters * 1000;
-        conversionC = meters / 100;
-        conversionF = meters * 0.3048;
-        conversionI = meters * 0.0254;
-        conversionMi = meters * 1609.344;
-        conversionY = meters * 0.9144;
+    var meters = document.getElementById(METERS_ID).value;
+    meters = parseFloat(meters);
+    var kilometers = document.getElementById(KILOMETERS_ID).value;
+    kilometers = parseFloat(kilometers);
+    var centimeters = document.getElementById(CENTIMETERS_ID).value;
+    centimeters = parseFloat(centimeters);
+    var feet = document.getElementById(FEET_ID).value;
+    feet = parseFloat(feet);
+    var inches = document.getElementById(INCHES_ID).value;
+    inches = parseFloat(inches);
+    var miles = document.getElementById(MILES_ID).value;
+    miles = parseFloat(miles);
+    var yards = document.getElementById(YARDS_ID).value;
+    yards = parseFloat(yards);
 
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+    //length values, will be our "return" value after the method
+
+    if (lastEditedLength === METERS_ID) {
+        conversionK = normalizeOutput((meters * 1000), decimalPlacesLength);
+        conversionC = normalizeOutput((meters / 100), decimalPlacesLength);
+        conversionF = normalizeOutput((meters * 0.3048), decimalPlacesLength);
+        conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
+        conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
+        conversionY = normalizeOutput((meters * 0.9144), decimalPlacesLength);
+
+        attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     }
-    else if (lastEditedLength === "centimeters") {
-        conversionM = centimeters * 100;
-        conversionK = centimeters * 100000;
-        conversionF = centimeters * 30.48;
-        conversionI = centimeters * 2.54;
-        conversionMi = centimeters * 160934.4;
-        conversionY = centimeters * 91.44;
+    else if (lastEditedLength === CENTIMETERS_ID) {
+        conversionM = normalizeOutput((centimeters * 100),decimalPlacesLength);
+        conversionK = normalizeOutput((centimeters * 100000),decimalPlacesLength);
+        conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
+        conversionI = normalizeOutput((centimeters * 2.54), decimalPlacesLength);
+        conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
+        conversionY = normalizeOutput((centimeters * 91.44), decimalPlacesLength);
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+        attributeNumberValueArray([KILOMETERS_ID, METERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionF, conversionI, conversionMi, conversionY]);
     }
-    else if (lastEditedLength === "feet") {
-        conversionM = feet * 3.280839895;
-        conversionK = feet * 3280.839895;
-        conversionC = feet * 0.032808399;
-        conversionI = feet * 0.0833333333;
-        conversionMi = feet * 5280;
-        conversionY = feet * 3;
+    else if (lastEditedLength === FEET_ID) {
+        conversionM = normalizeOutput((feet * 3.280839895), decimalPlacesLength);
+        conversionK = normalizeOutput((feet * 3280.839895), decimalPlacesLength);
+        conversionC = normalizeOutput((feet * 0.032808399), decimalPlacesLength);
+        conversionI = normalizeOutput((feet * 0.0833333333), decimalPlacesLength);
+        conversionMi = normalizeOutput((feet * 5280), decimalPlacesLength);
+        conversionY = normalizeOutput((feet * 3), decimalPlacesLength);
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+        attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionI, conversionMi, conversionY]);
     }
-    else if (lastEditedLength === "inches") {
-        conversionM = inches * 39.37007874;
-        conversionK = inches * 39370.07874;
-        conversionC = inches * 0.3937007874;
-        conversionF = inches * 12;
-        conversionMi = inches * 63360;
-        conversionY = inches * 36;
+    else if (lastEditedLength === INCHES_ID) {
+        conversionM = normalizeOutput((inches * 39.37007874), decimalPlacesLength);
+        conversionK = normalizeOutput((inches * 39370.07874), decimalPlacesLength);
+        conversionC = normalizeOutput((inches * 0.3937007874), decimalPlacesLength);
+        conversionF = normalizeOutput((inches * 12), decimalPlacesLength);
+        conversionMi = normalizeOutput((inches * 63360), decimalPlacesLength);
+        conversionY = normalizeOutput((inches * 36), decimalPlacesLength);
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("yards").value = conversionY;
+        attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionF, conversionMi, conversionY]);
     }
-    else if (lastEditedLength === "miles") {
-        conversionM = miles * 1609.344;
-        conversionK = miles * 1.609344;
-        conversionC = miles * 160934.4;
-        conversionF = miles * 5280;
-        conversionI = miles * 63360;
-        conversionY = miles * 1760;
+    else if (lastEditedLength === MILES_ID) {
+        conversionM = normalizeOutput((miles * 1609.344), decimalPlacesLength);
+        conversionK = normalizeOutput((miles * 1.609344), decimalPlacesLength);
+        conversionC = normalizeOutput((miles * 160934.4), decimalPlacesLength);
+        conversionF = normalizeOutput((miles * 5280), decimalPlacesLength);
+        conversionI = normalizeOutput((miles * 63360), decimalPlacesLength);
+        conversionY = normalizeOutput((miles * 1760), decimalPlacesLength);
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("kilometers").value = conversionK;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("yards").value = conversionY;
+        attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionF, conversionI, conversionY]);
     }
-    else if (lastEditedLength === "kilometers") {
-        conversionM = kilometers * 1000;
-        conversionMi = kilometers * 0.6213711922;
-        conversionC = kilometers * 100000;
-        conversionF = kilometers * 3280.839895;
-        conversionI = kilometers * 39370.07874;
-        conversionY = kilometers * 1093.6132983;
+    else if (lastEditedLength === KILOMETERS_ID) {
+        conversionM = normalizeOutput((kilometers * 1000), decimalPlacesLength);
+        conversionMi = normalizeOutput((kilometers * 0.6213711922), decimalPlacesLength);
+        conversionC = normalizeOutput((kilometers * 100000), decimalPlacesLength);
+        conversionF = normalizeOutput((kilometers * 3280.839895), decimalPlacesLength);
+        conversionI = normalizeOutput((kilometers * 39370.07874), decimalPlacesLength);
+        conversionY = normalizeOutput((kilometers * 1093.6132983), decimalPlacesLength);
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("yards").value = conversionY;
+        attributeNumberValueArray([MILES_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, YARDS_ID], [conversionMi, conversionM, conversionC, conversionF, conversionI, conversionY]);
     }
-    else if (lastEditedLength === "yards") {
-        conversionM = yards * 0.9144;
-        conversionMi = yards * 0.0005681818;
-        conversionC = yards * 91.44;
-        conversionF = yards * 3;
-        conversionI = yards * 36;
-        conversionK = yards * 0.0009144;
+    else if (lastEditedLength === YARDS_ID) {
+        conversionM = normalizeOutput((yards * 0.9144), decimalPlacesLength);
+        conversionMi = normalizeOutput((yards * 0.0005681818), decimalPlacesLength);
+        conversionC = normalizeOutput((yards * 91.44), decimalPlacesLength);
+        conversionF = normalizeOutput((yards * 3), decimalPlacesLength);
+        conversionI = normalizeOutput((yards * 36), decimalPlacesLength);
+        conversionK = normalizeOutput((yards * 0.0009144), decimalPlacesLength);
 
-        document.getElementById("meters").value = conversionM;
-        document.getElementById("miles").value = conversionMi;
-        document.getElementById("centimeters").value = conversionC;
-        document.getElementById("feet").value = conversionF;
-        document.getElementById("inches").value = conversionI;
-        document.getElementById("kilometers").value = conversionK;
+        attributeNumberValueArray([MILES_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, KILOMETERS_ID], [conversionMi, conversionM, conversionC, conversionF, conversionI, conversionK]);
     }
 }
 
