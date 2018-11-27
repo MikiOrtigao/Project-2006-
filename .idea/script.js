@@ -1,8 +1,7 @@
 /**
- * Defines global constants (do not change value) for Ids
- * To be used in all of the code.
- * Convention suggest constant values are written in uppercase and with underscores
- * Ex: Instead of using "celsius", CELSIUS_ID shall be used. It prevents from typos
+ * Defines global constants (do not change values) for IDs.
+ * Convention suggests constant values are written in uppercase and with underscores.
+ * Ex: Instead of using "celsius", CELSIUS_ID shall be used. This helps prevent typos.
  * @type {string}
  */
 
@@ -39,7 +38,7 @@ const TABLESPOON_ID = "tablespoon"
 const TEASPOON_ID = "teaspoon"
 
 /**
- * @type {string} - initializes de lastEdited flag to any of the input fields, by  default I choosed one of the unit types for each diferent unit..
+ * @type {string} - Initializes the lastEdited flag to any of the input fields. One unit type was chosen as default for each operation.
  */
 var lastEditedTemp = CELSIUS_ID;
 var lastEditedWeight = KILOS_ID;
@@ -49,7 +48,7 @@ var lastEditedVolume = CUBICMETER_ID;
 var lastEditedNumber = DECIMAL_ID;
 
 /**
- * picks up on if and when an input field changes, then sets the lastEdited flag to the input field that was changed.
+ * Picks up on if and when an input field changes, then sets the lastEdited flag to the input field that was changed.
  */
 //TEMPERATURE
 function celsiusChanged() {
@@ -205,9 +204,10 @@ function convertTemperature() {
     var conversionC;
     var conversionF;
     var conversionK;
+    var tempInCelsius;
 
-    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
-    //temperature values, will be our "return" value after the method
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
+    // the method will return updated temperature values.
     var celsius = document.getElementById(CELSIUS_ID).value;
     celsius = parseFloat(celsius);
 
@@ -219,32 +219,42 @@ function convertTemperature() {
 
     //if the celsius field changes, convert the fahrenheit and kelvin values
     if (lastEditedTemp === CELSIUS_ID) {
-        if(document.getElementById("celsius").value > 50){
-            document.getElementById("weatherImage").src = "https://media.giphy.com/media/mbTRlJ2AwBZMk/200w_d.gif";
-            document.getElementById("weatherText").innerHTML = "I'm melting!"
-        }
-
-        if(document.getElementById("celsius").value < -50){
-            document.getElementById("weatherImage").src = "https://www.thirsty.co/wp-content/uploads/2018/01/freeze-2.gif";
-            document.getElementById("weatherText").innerHTML = "I think our website is gonna f-freeze..."
-        }
+        tempInCelsius = document.getElementById("celsius").value;
         conversionF = normalizeOutput((celsius * 9 / 5 + 32), decimalPlacesTemp);
         conversionK = normalizeOutput((celsius + 273), decimalPlacesTemp);
         attributeNumberValueArray([FAHRENHEIT_ID, KELVIN_ID], [conversionF, conversionK]);
     }
+
     //if the fahrenheit field changes, convert the celsius and kelvin values
     else if (lastEditedTemp === FAHRENHEIT_ID) {
         conversionC = normalizeOutput(((fahrenheit - 32) * 5 / 9), decimalPlacesTemp);
-        conversionK = normalizeOutput((conversionC + 273), decimalPlacesTemp)
-
+        tempInCelsius = conversionC.valueOf();
+        conversionK = normalizeOutput((conversionC + 273), decimalPlacesTemp);
         attributeNumberValueArray([CELSIUS_ID, KELVIN_ID], [conversionC, conversionK]);
     }
+
     //if the kelvin field changes, convert the celsius and fahrenheit values
     else if (lastEditedTemp === KELVIN_ID) {
         conversionC = normalizeOutput((kelvin - 273), decimalPlacesTemp);
         conversionF = normalizeOutput((conversionC * 9 / 5 + 32), decimalPlacesTemp);
-
+        tempInCelsius = conversionC.valueOf();
         attributeNumberValueArray([CELSIUS_ID, FAHRENHEIT_ID], [conversionC, conversionF]);
+    }
+
+    //changes image and text
+    if (tempInCelsius.valueOf() < 0) {
+        document.getElementById("weatherImage").src = "https://media.giphy.com/media/1rM0Yhs1V9dFrySxXG/giphy.gif";
+        document.getElementById("weatherText").innerHTML = "I think our website is gonna f-freeze..."
+    }
+
+    else if (tempInCelsius.valueOf() > 30) {
+        document.getElementById("weatherImage").src = "https://media.giphy.com/media/g0ypOWq14CtmfLghkI/giphy.gif";
+        document.getElementById("weatherText").innerHTML = "I'm melting!";
+    }
+
+    else if (0 < tempInCelsius.valueOf() && tempInCelsius.valueOf() < 30) {
+        document.getElementById("weatherImage").src = "https://media.giphy.com/media/1Aeg7037dcxcSRPx8w/giphy.gif";
+        document.getElementById("weatherText").innerHTML = "Nice weather today.";
     }
 }
 
@@ -259,8 +269,9 @@ function convertWeight() {
     var conversionPounds;
     var conversionOunces;
     var conversionStones;
+    var weightInKg;
 
-    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var kilos = document.getElementById(KILOS_ID).value;
     kilos = parseFloat(kilos);
 
@@ -282,42 +293,47 @@ function convertWeight() {
         conversionPounds = normalizeOutput((kilos * 2.2046), decimalPlacesWeight);
         conversionOunces = normalizeOutput((kilos * 35.274), decimalPlacesWeight);
         conversionStones = normalizeOutput((kilos * 0.15747), decimalPlacesWeight);
-
+        weightInKg = document.getElementById("kilos").value;
         attributeNumberValueArray([GRAMS_ID, POUNDS_ID, OUNCES_ID, STONES_ID], [conversionGrams, conversionPounds, conversionOunces, conversionStones]);
     }
-//if the grams field changes, convert the kilos, pounds, ouces and stone values;
+
+    //if the grams field changes, convert the kilos, pounds, ouces and stone values;
     else if (lastEditedWeight === GRAMS_ID) {
         conversionKilos = normalizeOutput((grams / 1000), decimalPlacesWeight);
         conversionPounds = normalizeOutput((grams / 453.59237), decimalPlacesWeight);
         conversionOunces = normalizeOutput((grams / 28.34952), decimalPlacesWeight);
         conversionStones = normalizeOutput((grams * 0.00015747), decimalPlacesWeight);
-
+        weightInKg = KILOS_ID.valueOf();
         attributeNumberValueArray([KILOS_ID, POUNDS_ID, OUNCES_ID, STONES_ID], [conversionKilos, conversionPounds, conversionOunces, conversionStones]);
     }
-//if the pounds field changes, convert the kilos, grams, ouces and stone values;
+
+    //if the pounds field changes, convert the kilos, grams, ouces and stone values;
     else if (lastEditedWeight === POUNDS_ID) {
         conversionKilos = normalizeOutput((pounds / 2.2046), decimalPlacesWeight);
         conversionGrams = normalizeOutput((pounds * 453.59237), decimalPlacesWeight);
         conversionOunces = normalizeOutput((pounds * 16), decimalPlacesWeight);
         conversionStones = normalizeOutput((pounds * 0.071429), decimalPlacesWeight);
-
+        weightInKg = KILOS_ID.valueOf();
         attributeNumberValueArray([KILOS_ID, GRAMS_ID, OUNCES_ID, STONES_ID], [conversionKilos, conversionGrams, conversionOunces, conversionStones]);
     }
-//if the ounces field changes, convert the kilos, grams, pounds and stone values;
+
+    //if the ounces field changes, convert the kilos, grams, pounds and stone values;
     else if (lastEditedWeight === OUNCES_ID) {
         conversionKilos = normalizeOutput((ounces * 0.02834952), decimalPlacesWeight);
         conversionGrams = normalizeOutput((ounces * 28.34952), decimalPlacesWeight);
         conversionPounds = normalizeOutput((ounces / 16), decimalPlacesWeight);
         conversionStones = normalizeOutput((ounces * 0.0044643), decimalPlacesWeight);
-
+        weightInKg = KILOS_ID.valueOf();
         attributeNumberValueArray([KILOS_ID, GRAMS_ID, POUNDS_ID, STONES_ID], [conversionKilos, conversionGrams, conversionPounds, conversionStones]);
     }
+
+    //if the stones field changes, convert the kilos, grams, pounds and ounces values;
     else if (lastEditedWeight === STONES_ID) {
         conversionKilos = normalizeOutput((stones / 0.15747), decimalPlacesWeight);
         conversionGrams = normalizeOutput((stones / 0.00015747), decimalPlacesWeight);
         conversionPounds = normalizeOutput((stones * 14.000), decimalPlacesWeight);
         conversionOunces = normalizeOutput((stones * 224.00), decimalPlacesWeight);
-
+        weightInKg = KILOS_ID.valueOf();
         attributeNumberValueArray([KILOS_ID, GRAMS_ID, POUNDS_ID, OUNCES_ID], [conversionKilos, conversionGrams, conversionPounds, conversionOunces]);
     }
 }
@@ -348,7 +364,6 @@ function convertLength() {
     yards = parseFloat(yards);
 
     //length values, will be our "return" value after the method
-
     if (lastEditedLength === METERS_ID) {
         conversionK = normalizeOutput((meters * 1000), decimalPlacesLength);
         conversionC = normalizeOutput((meters / 100), decimalPlacesLength);
@@ -360,8 +375,8 @@ function convertLength() {
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     }
     else if (lastEditedLength === CENTIMETERS_ID) {
-        conversionM = normalizeOutput((centimeters * 100),decimalPlacesLength);
-        conversionK = normalizeOutput((centimeters * 100000),decimalPlacesLength);
+        conversionM = normalizeOutput((centimeters * 100), decimalPlacesLength);
+        conversionK = normalizeOutput((centimeters * 100000), decimalPlacesLength);
         conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
         conversionI = normalizeOutput((centimeters * 2.54), decimalPlacesLength);
         conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
@@ -422,7 +437,8 @@ function convertLength() {
 }
 
 function convertArea() {
-    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var squaremeters = document.getElementById(SQUAREMETERS_ID).value;
     squaremeters = parseFloat(squaremeters);
     var squarekilometers = document.getElementById(SQUAREKILOMETERS_ID).value;
@@ -542,7 +558,8 @@ function convertArea() {
 }
 
 function convertVolume() {
-    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not..
     var decimalPlacesVolume = 7;
     var conversionM3;
     var conversionD3AndL;
@@ -653,8 +670,7 @@ function convertVolume() {
 
 function convertNumber() {
 
-    //initialize local variables
-    // the parseFloat Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
 
     var decimal = document.getElementById("decimal").value;
     decimal = parseFloat(decimal);
@@ -668,7 +684,7 @@ function convertNumber() {
     var octal = document.getElementById("octal").value;
     octal = parseFloat(octal);
 
-    //number values, will be our "return" value after the method
+    //number values. These will be our "return" value after the method.
     var conversionDc;
     var conversionBn;
     var conversionHx;
@@ -768,7 +784,7 @@ function normalizeOutput(value, decimalPlaces) {
 }
 
 /**
- * Method works because arrays are the same size and values are ordered in the same position as ids
+ * Method works because arrays are the same size and values are ordered in the same position as ids.
  * example: attributeNumberValueArray([FAHRENHEIT_ID, KELVIN_ID], [conversionF, conversionK]);
  * position 0 of valuesArray has the value for fahrenheit.
  * @param idsArray
