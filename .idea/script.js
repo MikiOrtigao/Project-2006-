@@ -36,6 +36,10 @@ const MEGALITER_ID = "megaliter"
 const CUBICINCH_ID = "cubicInch"
 const TABLESPOON_ID = "tablespoon"
 const TEASPOON_ID = "teaspoon"
+const DECIMAL_ID = "decimal"
+const BINARY_ID = "binary"
+const HEXADECIMAL_ID = "hexadecimal"
+const OCTAL_ID = "octal"
 
 /**
  * @type {string} - Initializes the lastEdited flag to any of the input fields. One unit type was chosen as default for each operation.
@@ -560,7 +564,7 @@ function convertArea() {
 function convertVolume() {
 
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not..
-    var decimalPlacesVolume = 7;
+    var decimalPlacesVolume = 12;
     var conversionM3;
     var conversionD3AndL;
     var conversionC3AndMl;
@@ -600,15 +604,26 @@ function convertVolume() {
         attributeNumberValueArray([CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
     else if (lastEditedVolume === CUBICDECIMETERANDLITER_ID) {
-        conversionD3AndL = normalizeOutput((cubicCentimeterAndMilliliter * 0.001), decimalPlacesVolume);
-        conversionM3 = normalizeOutput((cubicCentimeterAndMilliliter * 0.000001), decimalPlacesVolume);
-        conversionGl = normalizeOutput((cubicCentimeterAndMilliliter * 0.000264172052), decimalPlacesVolume);
-        conversionMgL = normalizeOutput((cubicCentimeterAndMilliliter * 0.000000001), decimalPlacesVolume);
-        conversionIN3 = normalizeOutput((cubicCentimeterAndMilliliter * 0.0610237441), decimalPlacesVolume);
-        conversionTbS = normalizeOutput((cubicCentimeterAndMilliliter * 0.0676280454), decimalPlacesVolume);
-        conversionTeaS = normalizeOutput((cubicCentimeterAndMilliliter * 0.202884136), decimalPlacesVolume);
+        conversionC3AndMl = normalizeOutput((cubicDecimeterAndLiter * 1000), decimalPlacesVolume);
+        conversionM3 = normalizeOutput((cubicDecimeterAndLiter * 0.001), decimalPlacesVolume);
+        conversionGl = normalizeOutput((cubicDecimeterAndLiter * 0.2641720524), decimalPlacesVolume);
+        conversionMgL = normalizeOutput((cubicDecimeterAndLiter * 0.000001), decimalPlacesVolume);
+        conversionIN3 = normalizeOutput((cubicDecimeterAndLiter * 61.023744095), decimalPlacesVolume);
+        conversionTbS = normalizeOutput((cubicDecimeterAndLiter * 66.666666667), decimalPlacesVolume);
+        conversionTeaS = normalizeOutput((cubicDecimeterAndLiter * 200), decimalPlacesVolume);
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
+    }
+    else if (lastEditedVolume === CUBICCENTIMITERANDMILLILITER_ID) {
+        conversionD3AndL = normalizeOutput((cubicCentimiterAndMilliliter * 0.001), decimalPlacesVolume);
+        conversionM3 = normalizeOutput((cubicCentimiterAndMilliliter * 0.000001), decimalPlacesVolume);
+        conversionGl = normalizeOutput((cubicCentimiterAndMilliliter * 0.000264172052), decimalPlacesVolume);
+        conversionMgL = normalizeOutput((cubicCentimiterAndMilliliter * 0.000000001), decimalPlacesVolume);
+        conversionIN3 = normalizeOutput((cubicCentimiterAndMilliliter * 0.0610237441), decimalPlacesVolume);
+        conversionTbS = normalizeOutput((cubicCentimiterAndMilliliter * 0.0676280454), decimalPlacesVolume);
+        conversionTeaS = normalizeOutput((cubicCentimiterAndMilliliter * 0.202884136), decimalPlacesVolume);
+
+        attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
     else if (lastEditedVolume === GALLON_ID) {
         conversionM3 = normalizeOutput((gallon * 0.00378541178), decimalPlacesVolume);
@@ -672,16 +687,16 @@ function convertNumber() {
 
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
 
-    var decimal = document.getElementById("decimal").value;
+    var decimal = document.getElementById(DECIMAL_ID).value;
     decimal = parseFloat(decimal);
 
-    var binary = document.getElementById("binary").value;
+    var binary = document.getElementById(BINARY_ID).value;
     binary = parseFloat(binary);
 
-    var hexadecimal = document.getElementById("hexadecimal").value;
+    var hexadecimal = document.getElementById(HEXADECIMAL_ID).value;
     hexadecimal = parseFloat(hexadecimal);
 
-    var octal = document.getElementById("octal").value;
+    var octal = document.getElementById(OCTAL_ID).value;
     octal = parseFloat(octal);
 
     //number values. These will be our "return" value after the method.
@@ -691,25 +706,25 @@ function convertNumber() {
     var conversionOc;
     var str;
 
-    if (lastEditedNumber === "decimal") {
+    if (lastEditedNumber === DECIMAL_ID) {
         str = "decimal";
         conversionBn = (+str).toString(2);
         conversionHx = (+str).toString(16);
         conversionOc = (+str).toString(8);
     }
-    else if (lastEditedNumber === "binary") {
+    else if (lastEditedNumber === BINARY_ID) {
         str = "binary";
         conversionDc = parseInt(+str, 2).toString(10);
         conversionHx = parseInt(+str, 2).toString(16);
         conversionOc = parseInt(+str, 2).toString(8);
     }
-    else if (llastEditedNumber === "hexadecimal") {
+    else if (lastEditedNumber === HEXADECIMAL_ID) {
         str = "hexadecimal";
         conversionDc = parseInt(+str, 16).toString(10);
         conversionBn = parseInt(+str, 16).toString(2);
         conversionOc = parseInt(+str, 16).toString(8);
     }
-    else if (lastEditedNumber === "octal") {
+    else if (lastEditedNumber === OCTAL_ID) {
         str = "octal";
         conversionDc = parseInt(+str, 8).toString(10);
         conversionBn = parseInt(+str, 8).toString(2);
@@ -732,42 +747,19 @@ function resetWeight() {
 }
 
 function resetLength() {
-    document.getElementById("meters").value = 0;
-    document.getElementById("kilometers").value = 0;
-    document.getElementById("centimeters").value = 0;
-    document.getElementById("miles").value = 0;
-    document.getElementById("yards").value = 0;
-    document.getElementById("inches").value = 0;
-    document.getElementById("feet").value = 0;
+    resetNumberValueArray([METERS_ID, CENTIMETERS_ID, KILOMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID])
 }
 
 function resetArea() {
-    document.getElementById("squaremeters").value = 0;
-    document.getElementById("squarekilometers").value = 0;
-    document.getElementById("squarecentimeters").value = 0;
-    document.getElementById("squaremiles").value = 0;
-    document.getElementById("squareyards").value = 0;
-    document.getElementById("squareinches").value = 0;
-    document.getElementById("squarefeet").value = 0;
-    document.getElementById("hectare").value = 0;
+    resetNumberValueArray([SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREKILOMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID])
 }
 
 function resetVolume() {
-    document.getElementById("cubicMeter").value = 0;
-    document.getElementById("cubicDecimeterAndLiter").value = 0;
-    document.getElementById("cubicCentimiterAndMilliliter").value = 0;
-    document.getElementById("megaliter").value = 0;
-    document.getElementById("cubicInch").value = 0;
-    document.getElementById("tablespoon").value = 0;
-    document.getElementById("teaspoon").value = 0;
-    document.getElementById("gallon").value = 0;
+    resetNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID])
 }
 
 function resetNumber() {
-    document.getElementById("decimal").value = 0;
-    document.getElementById("binary").value = 0;
-    document.getElementById("octal").value = 0;
-    document.getElementById("hexadecimal").value = 0;
+    resetNumberValueArray([DECIMAL_ID, BINARY_ID, HEXADECIMAL_ID, OCTAL_ID])
 }
 
 /**
