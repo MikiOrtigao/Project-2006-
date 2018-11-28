@@ -707,28 +707,36 @@ function convertNumber() {
     var str;
 
     if (lastEditedNumber === DECIMAL_ID) {
-        str = "decimal";
+        str = decimal;
         conversionBn = (+str).toString(2);
         conversionHx = (+str).toString(16);
         conversionOc = (+str).toString(8);
+
+        attributeNumberValueArray([BINARY_ID, HEXADECIMAL_ID, OCTAL_ID], [conversionBn, conversionHx, conversionOc]);
     }
     else if (lastEditedNumber === BINARY_ID) {
-        str = "binary";
+        str = binary;
         conversionDc = parseInt(+str, 2).toString(10);
         conversionHx = parseInt(+str, 2).toString(16);
         conversionOc = parseInt(+str, 2).toString(8);
+
+        attributeNumberValueArray([DECIMAL_ID, HEXADECIMAL_ID, OCTAL_ID], [conversionDc, conversionHx, conversionOc]);
     }
     else if (lastEditedNumber === HEXADECIMAL_ID) {
-        str = "hexadecimal";
+        str = hexadecimal;
         conversionDc = parseInt(+str, 16).toString(10);
         conversionBn = parseInt(+str, 16).toString(2);
         conversionOc = parseInt(+str, 16).toString(8);
+
+        attributeNumberValueArray([DECIMAL_ID, BINARY_ID, OCTAL_ID], [conversionDc, conversionBn, conversionOc]);
     }
     else if (lastEditedNumber === OCTAL_ID) {
-        str = "octal";
+        str = octal;
         conversionDc = parseInt(+str, 8).toString(10);
         conversionBn = parseInt(+str, 8).toString(2);
         conversionHx = parseInt(+str, 8).toString(16);
+
+        attributeNumberValueArray([DECIMAL_ID, BINARY_ID, HEXADECIMAL_ID], [conversionDc, conversionBn, conversionHx]);
     }
 }
 
