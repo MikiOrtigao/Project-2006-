@@ -120,7 +120,7 @@ input {
 
 .card{
     background-color: white;
-    max-width: 60%;
+    max-width: 50%;
     min-width: 300px;
     margin: auto;
     padding: 25px;
@@ -130,7 +130,7 @@ input {
 }
 
 .spacing{
-    margin: 20px;
+    margin: 15px;
 }
 
 .temp-fields{
