@@ -340,6 +340,22 @@ function convertWeight() {
         weightInKg = KILOS_ID.valueOf();
         attributeNumberValueArray([KILOS_ID, GRAMS_ID, POUNDS_ID, OUNCES_ID], [conversionKilos, conversionGrams, conversionPounds, conversionOunces]);
     }
+
+    //changes images displayed
+    if (weightInKg.valueOf() < 40) {
+        document.getElementById("weightImage").src = "https://media.giphy.com/media/3dkZ6MkMkZWgSXeUjx/giphy.gif";
+        document.getElementById("weightText").innerHTML = "Light as a feather!"
+    }
+
+    else if (weightInKg.valueOf() >= 40 && weightInKg.valueOf() < 100) {
+        document.getElementById("weightImage").src = "https://media.giphy.com/media/Wy5lk7aavBlKFcxna3/giphy.gif";
+        document.getElementById("weightText").innerHTML = "Normal weight!"
+    }
+
+    else if (weightInKg.valueOf() >= 100) {
+        document.getElementById("weightImage").src = "https://media.giphy.com/media/1oF1IonCrH4fB3j6RW/giphy.gif";
+        document.getElementById("weightText").innerHTML = "That's pretty heavy..."
+    }
 }
 
 function convertLength() {
@@ -351,6 +367,7 @@ function convertLength() {
     var conversionI;
     var conversionMi;
     var conversionY;
+    var lengthInMeters;
 
     var meters = document.getElementById(METERS_ID).value;
     meters = parseFloat(meters);
@@ -375,6 +392,7 @@ function convertLength() {
         conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
         conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
         conversionY = normalizeOutput((meters * 0.9144), decimalPlacesLength);
+        lengthInMeters = document.getElementById("meters").value;
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     }
@@ -385,6 +403,7 @@ function convertLength() {
         conversionI = normalizeOutput((centimeters * 2.54), decimalPlacesLength);
         conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
         conversionY = normalizeOutput((centimeters * 91.44), decimalPlacesLength);
+        lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionF, conversionI, conversionMi, conversionY]);
     }
@@ -395,6 +414,7 @@ function convertLength() {
         conversionI = normalizeOutput((feet * 0.0833333333), decimalPlacesLength);
         conversionMi = normalizeOutput((feet * 5280), decimalPlacesLength);
         conversionY = normalizeOutput((feet * 3), decimalPlacesLength);
+        lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionI, conversionMi, conversionY]);
     }
@@ -405,6 +425,7 @@ function convertLength() {
         conversionF = normalizeOutput((inches * 12), decimalPlacesLength);
         conversionMi = normalizeOutput((inches * 63360), decimalPlacesLength);
         conversionY = normalizeOutput((inches * 36), decimalPlacesLength);
+        lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionF, conversionMi, conversionY]);
     }
@@ -415,6 +436,7 @@ function convertLength() {
         conversionF = normalizeOutput((miles * 5280), decimalPlacesLength);
         conversionI = normalizeOutput((miles * 63360), decimalPlacesLength);
         conversionY = normalizeOutput((miles * 1760), decimalPlacesLength);
+        lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionF, conversionI, conversionY]);
     }
@@ -425,6 +447,7 @@ function convertLength() {
         conversionF = normalizeOutput((kilometers * 3280.839895), decimalPlacesLength);
         conversionI = normalizeOutput((kilometers * 39370.07874), decimalPlacesLength);
         conversionY = normalizeOutput((kilometers * 1093.6132983), decimalPlacesLength);
+        lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([MILES_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, YARDS_ID], [conversionMi, conversionM, conversionC, conversionF, conversionI, conversionY]);
     }
@@ -435,8 +458,26 @@ function convertLength() {
         conversionF = normalizeOutput((yards * 3), decimalPlacesLength);
         conversionI = normalizeOutput((yards * 36), decimalPlacesLength);
         conversionK = normalizeOutput((yards * 0.0009144), decimalPlacesLength);
+        lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([MILES_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, KILOMETERS_ID], [conversionMi, conversionM, conversionC, conversionF, conversionI, conversionK]);
+    }
+
+    //changes images and inner text
+
+    if (lengthInMeters.valueOf() > 1.9) {
+        document.getElementById("lengthImage").src = "https://media.giphy.com/media/oVtwU0Ma5BJnofsMpY/giphy.gif";
+        document.getElementById("lengthText").innerHTML = "That's huge!"
+    }
+
+    else if (lengthInMeters.valueOf() < 1.5) {
+        document.getElementById("lengthImage").src = "https://media.giphy.com/media/psnHvuIx0Ldq2NM5wv/giphy.gif";
+        document.getElementById("lengthText").innerHTML = "That's nothing!"
+    }
+
+    else if (lengthInMeters.valueOf() >= 1.5 && lengthInMeters.valueOf() <= 1.9) {
+        document.getElementById("lengthImage").src = "https://media.giphy.com/media/yx65dkMmUo8LOhgNQc/giphy.gif";
+        document.getElementById("lengthText").innerHTML = "Average length."
     }
 }
 
@@ -470,6 +511,7 @@ function convertArea() {
     var conversionMi2;
     var conversionY2;
     var conversionH;
+    var areaInSquareKm;
 
     if (lastEditedArea === SQUAREMETERS_ID) {
         conversionK2 = normalizeOutput((squaremeters * 0.000001), decimalPlacesArea);
@@ -479,6 +521,7 @@ function convertArea() {
         conversionMi2 = normalizeOutput((squaremeters * 0.0000003861018768), decimalPlacesArea);
         conversionY2 = normalizeOutput((squaremeters * 1.1959900463), decimalPlacesArea);
         conversionH = normalizeOutput((squaremeters * 0.0001), decimalPlacesArea);
+        areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionC2, conversionF2, conversionI2, conversionMi2, conversionY2, conversionH]);
     }
@@ -490,6 +533,7 @@ function convertArea() {
         conversionMi2 = normalizeOutput((squarecentimeters * 0.00000000003861018768), decimalPlacesArea);
         conversionY2 = normalizeOutput((squarecentimeters * 0.000119599), decimalPlacesArea);
         conversionH = normalizeOutput((squarecentimeters * 0.00000001), decimalPlacesArea);
+        areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionF2, conversionI2, conversionMi2, conversionY2, conversionH]);
     }
@@ -501,6 +545,7 @@ function convertArea() {
         conversionMi2 = normalizeOutput((squarefeet * 0.0000000358700381), decimalPlacesArea);
         conversionY2 = normalizeOutput((squarefeet * 0.1111111111), decimalPlacesArea);
         conversionH = normalizeOutput((squarefeet * 0.0000092903), decimalPlacesArea);
+        areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREINCHES_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionI2, conversionMi2, conversionY2, conversionH]);
     }
@@ -512,6 +557,7 @@ function convertArea() {
         conversionMi2 = normalizeOutput((squareinches * 0.0000000002490974868), decimalPlacesArea);
         conversionY2 = normalizeOutput((squareinches * 0.0007716049), decimalPlacesArea);
         conversionH = normalizeOutput((squareinches * 0.000000064516), decimalPlacesArea);
+        areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionF2, conversionMi2, conversionY2, conversionH]);
     }
@@ -523,6 +569,7 @@ function convertArea() {
         conversionI2 = normalizeOutput((squaremiles * 4014492529), decimalPlacesArea);
         conversionY2 = normalizeOutput((squaremiles * 3097602.26), decimalPlacesArea);
         conversionH = normalizeOutput((squaremiles * 258.999), decimalPlacesArea);
+        areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionF2, conversionI2, conversionY2, conversionH]);
     }
@@ -534,6 +581,7 @@ function convertArea() {
         conversionI2 = normalizeOutput((squarekilometers * 1550003100), decimalPlacesArea);
         conversionY2 = normalizeOutput((squarekilometers * 1195990.0463), decimalPlacesArea);
         conversionH = normalizeOutput((squarekilometers * 100), decimalPlacesArea);
+        areaInSquareKm = document.getElementById("squarekilometers").value;
 
         attributeNumberValueArray([SQUAREYARDS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionY2, conversionM2, conversionC2, conversionF2, conversionI2, conversionY2, conversionH]);
     }
@@ -545,6 +593,7 @@ function convertArea() {
         conversionI2 = normalizeOutput((squareyards * 1296), decimalPlacesArea);
         conversionK2 = normalizeOutput((squareyards * 0.00000083612736), decimalPlacesArea);
         conversionH = normalizeOutput((squareyards * 0.0000836127), decimalPlacesArea);
+        areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREMILES_ID, SQUAREFEET_ID, SQUAREINCHES_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionMi2, conversionF2, conversionI2, conversionH]);
     }
@@ -556,8 +605,26 @@ function convertArea() {
         conversionI2 = normalizeOutput((hectare * 15500031), decimalPlacesArea);
         conversionK2 = normalizeOutput((hectare * 0.01), decimalPlacesArea);
         conversionY2 = normalizeOutput((hectare * 11959.900463), decimalPlacesArea);
+        areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREYARDS_ID, SQUAREYARDS_ID], [conversionK2, conversionM2, conversionC2, conversionF2, conversionI2, conversionY2, conversionY2]);
+    }
+
+    //changes images and text
+
+    if (areaInSquareKm.valueOf() < 15) {
+        document.getElementById("areaImage").src = "https://media.giphy.com/media/4NkqE4jUNa2lsackEi/giphy.gif";
+        document.getElementById("areaText").innerHTML = "That's a pretty small place...";
+    }
+
+    else if (areaInSquareKm.valueOf() >= 15 && areaInSquareKm.valueOf() <= 45) {
+        document.getElementById("areaImage").src = "https://media.giphy.com/media/OqBXKkH7qaFEhz29dr/giphy.gif";
+        document.getElementById("areaText").innerHTML = "Decently sized - not too big, not too small."
+    }
+
+    else if (areaInSquareKm.valueOf() > 45) {
+        document.getElementById("areaImage").src = "https://media.giphy.com/media/6CBpqtDAeoOZetnj6D/giphy.gif";
+        document.getElementById("areaText").innerHTML = "What a huge area!"
     }
 }
 
@@ -573,6 +640,7 @@ function convertVolume() {
     var conversionIN3;
     var conversionTbS;
     var conversionTeaS;
+    var volumeInLiters;
 
     var cubicMeter = document.getElementById(CUBICMETER_ID).value;
     cubicMeter = parseFloat(cubicMeter);
@@ -600,6 +668,7 @@ function convertVolume() {
         conversionIN3 = normalizeOutput((cubicMeter * 61023.7441), decimalPlacesVolume);
         conversionTbS = normalizeOutput((cubicMeter * 67628.0454), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((cubicMeter * 202884.136), decimalPlacesVolume);
+        volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
@@ -611,6 +680,7 @@ function convertVolume() {
         conversionIN3 = normalizeOutput((cubicDecimeterAndLiter * 61.023744095), decimalPlacesVolume);
         conversionTbS = normalizeOutput((cubicDecimeterAndLiter * 66.666666667), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((cubicDecimeterAndLiter * 200), decimalPlacesVolume);
+        volumeInLiters = document.getElementById("cubicDecimeterAndLiter").value;
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
@@ -622,6 +692,7 @@ function convertVolume() {
         conversionIN3 = normalizeOutput((cubicCentimiterAndMilliliter * 0.0610237441), decimalPlacesVolume);
         conversionTbS = normalizeOutput((cubicCentimiterAndMilliliter * 0.0676280454), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((cubicCentimiterAndMilliliter * 0.202884136), decimalPlacesVolume);
+        volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
@@ -633,6 +704,7 @@ function convertVolume() {
         conversionIN3 = normalizeOutput((gallon * 231), decimalPlacesVolume);
         conversionTbS = normalizeOutput((gallon * 256), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((gallon * 768), decimalPlacesVolume);
+        volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     }
@@ -644,6 +716,7 @@ function convertVolume() {
         conversionIN3 = normalizeOutput((megaliter * 61023744.1), decimalPlacesVolume);
         conversionTbS = normalizeOutput((megaliter * 67628045.4), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((megaliter * 202884136), decimalPlacesVolume);
+        volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionIN3, conversionTbS, conversionTeaS]);
     }
@@ -655,6 +728,7 @@ function convertVolume() {
         conversionMgL = normalizeOutput((cubicInch * 1.6387064 * 0.00000001), decimalPlacesVolume);
         conversionTbS = normalizeOutput((cubicInch * 1.10822511), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((cubicInch * 3.32467532), decimalPlacesVolume);
+        volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionTbS, conversionTeaS]);
     }
@@ -666,6 +740,7 @@ function convertVolume() {
         conversionMgL = normalizeOutput((tablespoon * 1.47867648 * 0.00000001), decimalPlacesVolume);
         conversionD3AndL = normalizeOutput((tablespoon * 0.014786764), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((tablespoon * 3), decimalPlacesVolume);
+        volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTeaS]);
     }
@@ -677,9 +752,26 @@ function convertVolume() {
         conversionMgL = normalizeOutput((teaspoon * 4.92892159 * 0.000000001), decimalPlacesVolume);
         conversionD3AndL = normalizeOutput((teaspoon * 0.00492892159), decimalPlacesVolume);
         conversionTbS = normalizeOutput((teaspoon * 0.333333333), decimalPlacesVolume);
-
+        volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS]);
+    }
+
+    //changes image and text
+
+    if (volumeInLiters.valueOf() < 1) {
+        document.getElementById("volumeImage").src = "https://media.giphy.com/media/KVFE3yGk7zRETOvNIp/giphy.gif";
+        document.getElementById("volumeText").innerHTML = "Can barely fill a bottle."
+    }
+
+    if (volumeInLiters.valueOf() >= 1 && volumeInLiters.valueOf() <= 5) {
+        document.getElementById("volumeImage").src = "https://media.giphy.com/media/njZbykq6IkRIe24JH6/giphy.gif";
+        document.getElementById("volumeText").innerHTML = "Enough to keep you hydrated."
+    }
+
+    if (volumeInLiters.valueOf() > 5) {
+        document.getElementById("volumeImage").src = "https://media.giphy.com/media/oOBZ58IK8omUywzmd8/giphy.gif";
+        document.getElementById("volumeText").innerHTML = "Don't drown!";
     }
 }
 
