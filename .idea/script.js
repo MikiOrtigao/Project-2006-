@@ -249,14 +249,10 @@ function convertTemperature() {
     if (tempInCelsius.valueOf() < 0) {
         document.getElementById("weatherImage").src = "https://media.giphy.com/media/1rM0Yhs1V9dFrySxXG/giphy.gif";
         document.getElementById("weatherText").innerHTML = "I think our website is gonna f-freeze..."
-    }
-
-    else if (tempInCelsius.valueOf() > 30) {
+    } else if (tempInCelsius.valueOf() > 30) {
         document.getElementById("weatherImage").src = "https://media.giphy.com/media/g0ypOWq14CtmfLghkI/giphy.gif";
         document.getElementById("weatherText").innerHTML = "I'm melting!";
-    }
-
-    else if (0 < tempInCelsius.valueOf() && tempInCelsius.valueOf() < 30) {
+    } else if (0 < tempInCelsius.valueOf() && tempInCelsius.valueOf() < 30) {
         document.getElementById("weatherImage").src = "https://media.giphy.com/media/1Aeg7037dcxcSRPx8w/giphy.gif";
         document.getElementById("weatherText").innerHTML = "Nice weather today.";
     }
@@ -345,14 +341,10 @@ function convertWeight() {
     if (weightInKg.valueOf() < 40) {
         document.getElementById("weightImage").src = "https://media.giphy.com/media/3dkZ6MkMkZWgSXeUjx/giphy.gif";
         document.getElementById("weightText").innerHTML = "Light as a feather!"
-    }
-
-    else if (weightInKg.valueOf() >= 40 && weightInKg.valueOf() < 100) {
+    } else if (weightInKg.valueOf() >= 40 && weightInKg.valueOf() < 100) {
         document.getElementById("weightImage").src = "https://media.giphy.com/media/Wy5lk7aavBlKFcxna3/giphy.gif";
         document.getElementById("weightText").innerHTML = "Normal weight!"
-    }
-
-    else if (weightInKg.valueOf() >= 100) {
+    } else if (weightInKg.valueOf() >= 100) {
         document.getElementById("weightImage").src = "https://media.giphy.com/media/1oF1IonCrH4fB3j6RW/giphy.gif";
         document.getElementById("weightText").innerHTML = "That's pretty heavy..."
     }
@@ -395,8 +387,7 @@ function convertLength() {
         lengthInMeters = document.getElementById("meters").value;
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
-    }
-    else if (lastEditedLength === CENTIMETERS_ID) {
+    } else if (lastEditedLength === CENTIMETERS_ID) {
         conversionM = normalizeOutput((centimeters * 100), decimalPlacesLength);
         conversionK = normalizeOutput((centimeters * 100000), decimalPlacesLength);
         conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
@@ -406,8 +397,7 @@ function convertLength() {
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionF, conversionI, conversionMi, conversionY]);
-    }
-    else if (lastEditedLength === FEET_ID) {
+    } else if (lastEditedLength === FEET_ID) {
         conversionM = normalizeOutput((feet * 3.280839895), decimalPlacesLength);
         conversionK = normalizeOutput((feet * 3280.839895), decimalPlacesLength);
         conversionC = normalizeOutput((feet * 0.032808399), decimalPlacesLength);
@@ -417,8 +407,7 @@ function convertLength() {
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionI, conversionMi, conversionY]);
-    }
-    else if (lastEditedLength === INCHES_ID) {
+    } else if (lastEditedLength === INCHES_ID) {
         conversionM = normalizeOutput((inches * 39.37007874), decimalPlacesLength);
         conversionK = normalizeOutput((inches * 39370.07874), decimalPlacesLength);
         conversionC = normalizeOutput((inches * 0.3937007874), decimalPlacesLength);
@@ -428,8 +417,7 @@ function convertLength() {
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionF, conversionMi, conversionY]);
-    }
-    else if (lastEditedLength === MILES_ID) {
+    } else if (lastEditedLength === MILES_ID) {
         conversionM = normalizeOutput((miles * 1609.344), decimalPlacesLength);
         conversionK = normalizeOutput((miles * 1.609344), decimalPlacesLength);
         conversionC = normalizeOutput((miles * 160934.4), decimalPlacesLength);
@@ -439,8 +427,7 @@ function convertLength() {
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionF, conversionI, conversionY]);
-    }
-    else if (lastEditedLength === KILOMETERS_ID) {
+    } else if (lastEditedLength === KILOMETERS_ID) {
         conversionM = normalizeOutput((kilometers * 1000), decimalPlacesLength);
         conversionMi = normalizeOutput((kilometers * 0.6213711922), decimalPlacesLength);
         conversionC = normalizeOutput((kilometers * 100000), decimalPlacesLength);
@@ -450,8 +437,7 @@ function convertLength() {
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([MILES_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, YARDS_ID], [conversionMi, conversionM, conversionC, conversionF, conversionI, conversionY]);
-    }
-    else if (lastEditedLength === YARDS_ID) {
+    } else if (lastEditedLength === YARDS_ID) {
         conversionM = normalizeOutput((yards * 0.9144), decimalPlacesLength);
         conversionMi = normalizeOutput((yards * 0.0005681818), decimalPlacesLength);
         conversionC = normalizeOutput((yards * 91.44), decimalPlacesLength);
@@ -468,14 +454,10 @@ function convertLength() {
     if (lengthInMeters.valueOf() > 1.9) {
         document.getElementById("lengthImage").src = "https://media.giphy.com/media/oVtwU0Ma5BJnofsMpY/giphy.gif";
         document.getElementById("lengthText").innerHTML = "That's huge!"
-    }
-
-    else if (lengthInMeters.valueOf() < 1.5) {
+    } else if (lengthInMeters.valueOf() < 1.5) {
         document.getElementById("lengthImage").src = "https://media.giphy.com/media/psnHvuIx0Ldq2NM5wv/giphy.gif";
         document.getElementById("lengthText").innerHTML = "That's nothing!"
-    }
-
-    else if (lengthInMeters.valueOf() >= 1.5 && lengthInMeters.valueOf() <= 1.9) {
+    } else if (lengthInMeters.valueOf() >= 1.5 && lengthInMeters.valueOf() <= 1.9) {
         document.getElementById("lengthImage").src = "https://media.giphy.com/media/yx65dkMmUo8LOhgNQc/giphy.gif";
         document.getElementById("lengthText").innerHTML = "Average length."
     }
@@ -524,8 +506,7 @@ function convertArea() {
         areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionC2, conversionF2, conversionI2, conversionMi2, conversionY2, conversionH]);
-    }
-    else if (lastEditedArea === SQUARECENTIMETERS_ID) {
+    } else if (lastEditedArea === SQUARECENTIMETERS_ID) {
         conversionK2 = normalizeOutput((squarecentimeters * 0.0000000001), decimalPlacesArea);
         conversionM2 = normalizeOutput((squarecentimeters * 0.0001), decimalPlacesArea);
         conversionF2 = normalizeOutput((squarecentimeters * 0.001076391), decimalPlacesArea);
@@ -536,8 +517,7 @@ function convertArea() {
         areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionF2, conversionI2, conversionMi2, conversionY2, conversionH]);
-    }
-    else if (lastEditedArea === SQUAREFEET_ID) {
+    } else if (lastEditedArea === SQUAREFEET_ID) {
         conversionM2 = normalizeOutput((squarefeet * 0.09290304), decimalPlacesArea);
         conversionK2 = normalizeOutput((squarefeet * 0.00000009290304), decimalPlacesArea);
         conversionC2 = normalizeOutput((squarefeet * 929.0304), decimalPlacesArea);
@@ -548,8 +528,7 @@ function convertArea() {
         areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREINCHES_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionI2, conversionMi2, conversionY2, conversionH]);
-    }
-    else if (lastEditedArea === SQUAREINCHES_ID) {
+    } else if (lastEditedArea === SQUAREINCHES_ID) {
         conversionM2 = normalizeOutput((squareinches * 0.00064516), decimalPlacesArea);
         conversionK2 = normalizeOutput((squareinches * 0.00000000064516), decimalPlacesArea);
         conversionC2 = normalizeOutput((squareinches * 6.4516), decimalPlacesArea);
@@ -560,8 +539,7 @@ function convertArea() {
         areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREMILES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionF2, conversionMi2, conversionY2, conversionH]);
-    }
-    else if (lastEditedArea === SQUAREMILES_ID) {
+    } else if (lastEditedArea === SQUAREMILES_ID) {
         conversionM2 = normalizeOutput((squaremiles * 2589990), decimalPlacesArea);
         conversionK2 = normalizeOutput((squaremiles * 2.58999), decimalPlacesArea);
         conversionC2 = normalizeOutput((squaremiles * 25899900000), decimalPlacesArea);
@@ -572,8 +550,7 @@ function convertArea() {
         areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionF2, conversionI2, conversionY2, conversionH]);
-    }
-    else if (lastEditedArea === SQUAREKILOMETERS_ID) {
+    } else if (lastEditedArea === SQUAREKILOMETERS_ID) {
         conversionM2 = normalizeOutput((squarekilometers * 1000000), decimalPlacesArea);
         conversionMi2 = normalizeOutput((squarekilometers * 0.3861018768), decimalPlacesArea);
         conversionC2 = normalizeOutput((squarekilometers * 10000000000), decimalPlacesArea);
@@ -584,8 +561,7 @@ function convertArea() {
         areaInSquareKm = document.getElementById("squarekilometers").value;
 
         attributeNumberValueArray([SQUAREYARDS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionY2, conversionM2, conversionC2, conversionF2, conversionI2, conversionY2, conversionH]);
-    }
-    else if (lastEditedArea === SQUAREYARDS_ID) {
+    } else if (lastEditedArea === SQUAREYARDS_ID) {
         conversionM2 = normalizeOutput((squareyards * 0.83612736), decimalPlacesArea);
         conversionMi2 = normalizeOutput((squareyards * 0.0000003228303429), decimalPlacesArea);
         conversionC2 = normalizeOutput((squareyards * 8361.2736), decimalPlacesArea);
@@ -596,8 +572,7 @@ function convertArea() {
         areaInSquareKm = conversionK2.valueOf();
 
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREMILES_ID, SQUAREFEET_ID, SQUAREINCHES_ID, HECTARE_ID], [conversionK2, conversionM2, conversionC2, conversionMi2, conversionF2, conversionI2, conversionH]);
-    }
-    else if (lastEditedArea === HECTARE_ID) {
+    } else if (lastEditedArea === HECTARE_ID) {
         conversionM2 = normalizeOutput((hectare * 10000), decimalPlacesArea);
         conversionMi2 = normalizeOutput((hectare * 0.0038610188), decimalPlacesArea);
         conversionC2 = normalizeOutput((hectare * 100000000), decimalPlacesArea);
@@ -615,14 +590,10 @@ function convertArea() {
     if (areaInSquareKm.valueOf() < 15) {
         document.getElementById("areaImage").src = "https://media.giphy.com/media/4NkqE4jUNa2lsackEi/giphy.gif";
         document.getElementById("areaText").innerHTML = "That's a pretty small place...";
-    }
-
-    else if (areaInSquareKm.valueOf() >= 15 && areaInSquareKm.valueOf() <= 45) {
+    } else if (areaInSquareKm.valueOf() >= 15 && areaInSquareKm.valueOf() <= 45) {
         document.getElementById("areaImage").src = "https://media.giphy.com/media/OqBXKkH7qaFEhz29dr/giphy.gif";
         document.getElementById("areaText").innerHTML = "Decently sized - not too big, not too small."
-    }
-
-    else if (areaInSquareKm.valueOf() > 45) {
+    } else if (areaInSquareKm.valueOf() > 45) {
         document.getElementById("areaImage").src = "https://media.giphy.com/media/6CBpqtDAeoOZetnj6D/giphy.gif";
         document.getElementById("areaText").innerHTML = "What a huge area!"
     }
@@ -671,8 +642,7 @@ function convertVolume() {
         volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
-    }
-    else if (lastEditedVolume === CUBICDECIMETERANDLITER_ID) {
+    } else if (lastEditedVolume === CUBICDECIMETERANDLITER_ID) {
         conversionC3AndMl = normalizeOutput((cubicDecimeterAndLiter * 1000), decimalPlacesVolume);
         conversionM3 = normalizeOutput((cubicDecimeterAndLiter * 0.001), decimalPlacesVolume);
         conversionGl = normalizeOutput((cubicDecimeterAndLiter * 0.2641720524), decimalPlacesVolume);
@@ -683,8 +653,7 @@ function convertVolume() {
         volumeInLiters = document.getElementById("cubicDecimeterAndLiter").value;
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
-    }
-    else if (lastEditedVolume === CUBICCENTIMITERANDMILLILITER_ID) {
+    } else if (lastEditedVolume === CUBICCENTIMITERANDMILLILITER_ID) {
         conversionD3AndL = normalizeOutput((cubicCentimiterAndMilliliter * 0.001), decimalPlacesVolume);
         conversionM3 = normalizeOutput((cubicCentimiterAndMilliliter * 0.000001), decimalPlacesVolume);
         conversionGl = normalizeOutput((cubicCentimiterAndMilliliter * 0.000264172052), decimalPlacesVolume);
@@ -695,8 +664,7 @@ function convertVolume() {
         volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
-    }
-    else if (lastEditedVolume === GALLON_ID) {
+    } else if (lastEditedVolume === GALLON_ID) {
         conversionM3 = normalizeOutput((gallon * 0.00378541178), decimalPlacesVolume);
         conversionD3AndL = normalizeOutput((gallon * 3.78541178), decimalPlacesVolume);
         conversionC3AndMl = normalizeOutput((gallon * 3785.41178), decimalPlacesVolume);
@@ -707,8 +675,7 @@ function convertVolume() {
         volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
-    }
-    else if (lastEditedVolume === MEGALITER_ID) {
+    } else if (lastEditedVolume === MEGALITER_ID) {
         conversionM3 = normalizeOutput((megaliter * 1000), decimalPlacesVolume);
         conversionD3AndL = normalizeOutput((megaliter * 1000000), decimalPlacesVolume);
         conversionC3AndMl = normalizeOutput((megaliter * 1000000000), decimalPlacesVolume);
@@ -719,8 +686,7 @@ function convertVolume() {
         volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionIN3, conversionTbS, conversionTeaS]);
-    }
-    else if (lastEditedVolume === CUBICINCH_ID) {
+    } else if (lastEditedVolume === CUBICINCH_ID) {
         conversionM3 = normalizeOutput((cubicInch * 1.6387064 * 0.00002), decimalPlacesVolume);
         conversionD3AndL = normalizeOutput((cubicInch * 2.58999), decimalPlacesVolume);
         conversionC3AndMl = normalizeOutput((cubicInch * 0.016387064), decimalPlacesVolume);
@@ -731,8 +697,7 @@ function convertVolume() {
         volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionTbS, conversionTeaS]);
-    }
-    else if (lastEditedVolume === TABLESPOON_ID) {
+    } else if (lastEditedVolume === TABLESPOON_ID) {
         conversionM3 = normalizeOutput((tablespoon * 1.47867648 * 0.00001), decimalPlacesVolume);
         conversionIN3 = normalizeOutput((tablespoon * 0.90234375), decimalPlacesVolume);
         conversionC3AndMl = normalizeOutput((tablespoon * 14.7867648), decimalPlacesVolume);
@@ -743,8 +708,7 @@ function convertVolume() {
         volumeInLiters = conversionD3AndL.valueOf();
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TEASPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTeaS]);
-    }
-    else if (lastEditedVolume === TEASPOON_ID) {
+    } else if (lastEditedVolume === TEASPOON_ID) {
         conversionM3 = normalizeOutput((teaspoon * 4.92892159 * 0.000001), decimalPlacesVolume);
         conversionIN3 = normalizeOutput((teaspoon * 0.30078125), decimalPlacesVolume);
         conversionC3AndMl = normalizeOutput((teaspoon * 4.92892159), decimalPlacesVolume);
@@ -805,24 +769,21 @@ function convertNumber() {
         conversionOc = (+str).toString(8);
 
         attributeNumberValueArray([BINARY_ID, HEXADECIMAL_ID, OCTAL_ID], [conversionBn, conversionHx, conversionOc]);
-    }
-    else if (lastEditedNumber === BINARY_ID) {
-        str = binary;
+    } else if (lastEditedNumber === BINARY_ID) {
+        str = checkIfNumberIsBinary(binary);
         conversionDc = parseInt(+str, 2).toString(10);
         conversionHx = parseInt(+str, 2).toString(16);
         conversionOc = parseInt(+str, 2).toString(8);
 
         attributeNumberValueArray([DECIMAL_ID, HEXADECIMAL_ID, OCTAL_ID], [conversionDc, conversionHx, conversionOc]);
-    }
-    else if (lastEditedNumber === HEXADECIMAL_ID) {
+    } else if (lastEditedNumber === HEXADECIMAL_ID) {
         str = hexadecimal;
         conversionDc = parseInt(+str, 16).toString(10);
         conversionBn = parseInt(+str, 16).toString(2);
         conversionOc = parseInt(+str, 16).toString(8);
 
         attributeNumberValueArray([DECIMAL_ID, BINARY_ID, OCTAL_ID], [conversionDc, conversionBn, conversionOc]);
-    }
-    else if (lastEditedNumber === OCTAL_ID) {
+    } else if (lastEditedNumber === OCTAL_ID) {
         str = octal;
         conversionDc = parseInt(+str, 8).toString(10);
         conversionBn = parseInt(+str, 8).toString(2);
@@ -896,4 +857,19 @@ function resetNumberValueArray(idsArray) {
     for (i = 0; i < idsArray.length; i++) {
         document.getElementById(idsArray[i]).value = 0;
     }
+}
+
+/** Method to see if a number has only 1s and 0s.
+ *
+ */
+
+function checkIfNumberIsBinary(number) {
+    var numberCopy = number;
+    while (numberCopy > 1) {
+        if (numberCopy % 10 != 0 && numberCopy % 10 != 1) {
+            return "a";
+        }
+        numberCopy = Math.floor(numberCopy / 10);
+    }
+    return number;
 }
