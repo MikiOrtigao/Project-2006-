@@ -223,7 +223,7 @@ function convertTemperature() {
 
     //if the celsius field changes, convert the fahrenheit and kelvin values
     if (lastEditedTemp === CELSIUS_ID) {
-        tempInCelsius = document.getElementById("celsius").value;
+        tempInCelsius = document.getElementById(CELSIUS_ID).value;
         conversionF = normalizeOutput((celsius * 9 / 5 + 32), decimalPlacesTemp);
         conversionK = normalizeOutput((celsius + 273), decimalPlacesTemp);
         attributeNumberValueArray([FAHRENHEIT_ID, KELVIN_ID], [conversionF, conversionK]);
@@ -293,7 +293,7 @@ function convertWeight() {
         conversionPounds = normalizeOutput((kilos * 2.2046), decimalPlacesWeight);
         conversionOunces = normalizeOutput((kilos * 35.274), decimalPlacesWeight);
         conversionStones = normalizeOutput((kilos * 0.15747), decimalPlacesWeight);
-        weightInKg = document.getElementById("kilos").value;
+        weightInKg = document.getElementById(KILOS_ID).value;
         attributeNumberValueArray([GRAMS_ID, POUNDS_ID, OUNCES_ID, STONES_ID], [conversionGrams, conversionPounds, conversionOunces, conversionStones]);
     }
 
@@ -384,7 +384,7 @@ function convertLength() {
         conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
         conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
         conversionY = normalizeOutput((meters * 0.9144), decimalPlacesLength);
-        lengthInMeters = document.getElementById("meters").value;
+        lengthInMeters = document.getElementById(METERS_ID).value;
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     } else if (lastEditedLength === CENTIMETERS_ID) {
@@ -558,7 +558,7 @@ function convertArea() {
         conversionI2 = normalizeOutput((squarekilometers * 1550003100), decimalPlacesArea);
         conversionY2 = normalizeOutput((squarekilometers * 1195990.0463), decimalPlacesArea);
         conversionH = normalizeOutput((squarekilometers * 100), decimalPlacesArea);
-        areaInSquareKm = document.getElementById("squarekilometers").value;
+        areaInSquareKm = document.getElementById(SQUAREKILOMETERS_ID).value;
 
         attributeNumberValueArray([SQUAREYARDS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREYARDS_ID, HECTARE_ID], [conversionY2, conversionM2, conversionC2, conversionF2, conversionI2, conversionY2, conversionH]);
     } else if (lastEditedArea === SQUAREYARDS_ID) {
@@ -650,7 +650,7 @@ function convertVolume() {
         conversionIN3 = normalizeOutput((cubicDecimeterAndLiter * 61.023744095), decimalPlacesVolume);
         conversionTbS = normalizeOutput((cubicDecimeterAndLiter * 66.666666667), decimalPlacesVolume);
         conversionTeaS = normalizeOutput((cubicDecimeterAndLiter * 200), decimalPlacesVolume);
-        volumeInLiters = document.getElementById("cubicDecimeterAndLiter").value;
+        volumeInLiters = document.getElementById(CUBICDECIMETERANDLITER_ID).value;
 
         attributeNumberValueArray([CUBICMETER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID, TEASPOON_ID], [conversionM3, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS, conversionTeaS]);
     } else if (lastEditedVolume === CUBICCENTIMITERANDMILLILITER_ID) {

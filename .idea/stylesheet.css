@@ -142,4 +142,11 @@ input {
     margin: auto;
 
 }
+#lengthbox, #areabox, #volumebox{
+    max-width: 60%;
+    padding: 5px;
+}
 
+#lengthgif, #operation3{
+    display: table-row;
+}
