@@ -50,6 +50,7 @@ var lastEditedLength = METERS_ID;
 var lastEditedArea = SQUAREMETERS_ID;
 var lastEditedVolume = CUBICMETER_ID;
 var lastEditedNumber = DECIMAL_ID;
+var convertf;
 
 /**
  * Picks up on if and when an input field changes, then sets the lastEdited flag to the input field that was changed.
@@ -378,7 +379,7 @@ function convertLength() {
 
     //length values, will be our "return" value after the method
     if (lastEditedLength === METERS_ID) {
-        conversionK = normalizeOutput((meters * 1000), decimalPlacesLength);
+        conversionK = normalizeOutput((meters / 1000), decimalPlacesLength);
         conversionC = normalizeOutput((meters / 100), decimalPlacesLength);
         conversionF = normalizeOutput((meters * 0.3048), decimalPlacesLength);
         conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
@@ -862,7 +863,6 @@ function resetNumberValueArray(idsArray) {
 /** Method to see if a number has only 1s and 0s.
  *
  */
-
 function checkIfNumberIsBinary(number) {
     var numberCopy = number;
     while (numberCopy > 1) {
@@ -872,4 +872,13 @@ function checkIfNumberIsBinary(number) {
         numberCopy = Math.floor(numberCopy / 10);
     }
     return number;
+}
+
+/**
+ * Method to convert on keypress - enter key
+ * @param e
+ */
+function functionEnter(e) {
+    if (e.keyCode === 13) convertf();
+
 }

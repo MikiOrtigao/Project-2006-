@@ -29,14 +29,14 @@
     <br>
     <h3 class="header3"> Measurement Converter </h3>
     <div id="categoriaS">
-        <button onclick="show('operation1')" id="Temperature" class="categorie" type="Temperature" value="Temperature">
+        <button onclick="{show('operation1'); convertf=convertTemperature}" id="Temperature" class="categorie" type="Temperature" value="Temperature">
             Temperature
         </button>
-        <button onclick="show('operation2')" id="Weight" class="categorie" type="Weight" value="Weight">Weight</button>
-        <button onclick="show('operation3')" id="Length" class="categorie" type="Length" value="Length">Length</button>
-        <button onclick="show('operation4')" id="Area" class="categorie" type="Area" value="Area">Area</button>
-        <button onclick="show('operation5')" id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
-        <button onclick="show('operation6')" id="Number" class="categorie" type="Number" value="Volume">Number</button>
+        <button onclick="{show('operation2'); convertf=convertWeight}" id="Weight" class="categorie" type="Weight" value="Weight">Weight</button>
+        <button onclick="{show('operation3'); convertf=convertLength}" id="Length" class="categorie" type="Length" value="Length">Length</button>
+        <button onclick="{show('operation4'); convertf=convertArea}" id="Area" class="categorie" type="Area" value="Area">Area</button>
+        <button onclick="{show('operation5'); convertf=convertVolume}" id="Volume" class="categorie" type="Volume" value="Volume">Volume</button>
+        <button onclick="{show('operation6'); convertf=convertNumber}" id="Number" class="categorie" type="Number" value="Volume">Number</button>
     </div>
     <div id="main_place">
 
@@ -63,22 +63,22 @@
                         <div class="temp-fields">
                             <h3 class="spacing" title="This temperature scale is used by almost all countries.">
                                 Celsius</h3>
-                            <input id="celsius" value="0" onchange="celsiusChanged();"/>
+                            <input id="celsius"  value="0" onchange="celsiusChanged();" onkeypress="celsiusChanged(); functionEnter(event);"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing" title="Is an official temperature scale only in the United States.">
                                 Fahrenheit</h3>
-                            <input id="fahrenheit" value="0" onchange="fahrenheitChanged();"/>
+                            <input id="fahrenheit"  value="0" onchange="fahrenheitChanged();" onkeypress="fahrenheitChanged(); functionEnter(event); "/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing"
                                 title="Is the primary unit of temperature measurement in the physical sciences.">
                                 Kelvin</h3>
-                            <input id="kelvin" value="0" onchange="kelvinChanged();"/>
+                            <input id="kelvin" value="0" onchange="kelvinChanged();" onkeypress="kelvinChanged(); functionEnter(event);" />
                         </div>
 
                         <div>
-                            <button id="submit" onclick="convertTemperature()" class="spacing" type="submit"
+                            <button id="submit"  onclick="convertTemperature()" class="spacing" type="submit"
                                     value="submit">Convert
                             </button>
                             <button id="reset" onclick="resetTemp()" class="spacing" type="reset" value="reset">Reset
@@ -104,30 +104,30 @@
                         <div class="temp-fields">
                             <h3 class="spacing"
                                 title="Is the base unit of mass in the International System of Units (SI).">Kilo</h3>
-                            <input id="kilos" value="0" onchange="kilosChanged();"/>
+                            <input id="kilos" value="0" onchange="kilosChanged();" onkeypress="kilosChanged(); functionEnter(event);"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing"
                                 title="Is the most widely used unit of measurement for non-liquid ingredients in cooking and grocery shopping.">
                                 Grams</h3>
-                            <input id="grams" value="0" onchange="gramsChanged();"/>
+                            <input id="grams"  value="0" onchange="gramsChanged();" onkeypress="gramsChanged(); functionEnter(event)"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing"
                                 title="Is used in the imperial, United States customary and other systems of measurement.">
                                 Pounds</h3>
-                            <input id="pounds" value="0" onchange="poundsChanged();"/>
+                            <input id="pounds"  value="0" onchange="poundsChanged();" onkeypress="poundsChanged(); functionEnter(event)"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing"
                                 title="Is used in most British derived customary systems of measurement.">Ounces</h3>
-                            <input id="ounces" value="0" onchange="ouncesChanged();"/>
+                            <input id="ounces"  value="0" onchange="ouncesChanged();" onkeypress="ouncesChanged(); functionEnter(event)"/>
                         </div>
                         <div class="temp-fields">
                             <h3 class="spacing"
                                 title="is a customary use in Britain and Ireland used for measuring body weight">
                                 Stones</h3>
-                            <input id="stones" value="0" onchange="stonesChanged();"/>
+                            <input id="stones"  value="0" onchange="stonesChanged();" onkeypress="stonesChanged(); functionEnter(event)"/>
                         </div>
                     </div>
                     <div>
@@ -159,40 +159,40 @@
                     <div class="temp-fields">
                         <h3 class="spacing"
                             title="is the base unit of length in the International System of Units (SI).">Meters</h3>
-                        <input id="meters" value="0" onchange="metersChanged()"/>
+                        <input id="meters" value="0" onchange="metersChanged();" onkeypress="metersChanged(); functionEnter(event)" />
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing"
                             title="is used officially for expressing distances between geographical places on land in most of the world.">
                             Km</h3>
-                        <input id="kilometers" value="0" onchange="kilometersChanged()"/>
+                        <input id="kilometers"   value="0" onchange="kilometersChanged();" onkeypress="kilometersChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing"
                             title="is a unit of length in the metric system, equal to one hundredth of a metre.">Cm</h3>
-                        <input id="centimeters" value="0" onchange="centimetersChanged()"/>
+                        <input id="centimeters"  value="0" onchange="centimetersChanged();" onkeypress="centimetersChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing"
                             title="is a unit of length in the imperial and US customary systems of measurement.">
                             Feet</h3>
-                        <input id="feet" value="0" onchange="feetChanged()"/>
+                        <input id="feet"  value="0" onchange="feetChanged();" onkeypress="feetChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing"
                             title="is a unit of length in the (British) imperial and United States customary systems of measurement.">
                             Inches</h3>
-                        <input id="inches" value="0" onchange="inchesChanged()"/>
+                        <input id="inches" value="0" onchange="inchesChanged();" onkeypress="inchesChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is an English unit of length of linear measure.">Miles</h3>
-                        <input id="miles" value="0" onchange="milesChanged()"/>
+                        <input id="miles" value="0" onchange="milesChanged();" onkeypress="milesChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing"
                             title="is an English unit of length, in both the British imperial and US customary systems of measurement.">
                             Yards</h3>
-                        <input id="yards" value="0" onchange="yardsChanged()"/>
+                        <input id="yards"  value="0" onchange="yardsChanged()" onkeypress="yardsChanged(); functionEnter(event)" />
                     </div>
                 </div>
                 <div>
@@ -220,35 +220,35 @@
                 <div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is the SI derived unit of area, with symbol m².">Meters²</h3>
-                        <input id="squaremeters" value="0" onchange="squaremetersChanged()"/>
+                        <input id="squaremeters"  value="0" onchange="squaremetersChanged();" onkeypress="squaremetersChanged(); functionEnter(event)" />
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="The Old City of Jerusalem is almost 1 square kilometer in area.">Km²</h3>
-                        <input id="squarekilometers" value="0" onchange="squarekilometersChanged()"/>
+                        <input id="squarekilometers"  value="0" onchange="squarekilometersChanged();" onkeypress="squarekilometersChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is used for measuring small areas such as on drawings.">Cm²</h3>
-                        <input id="squarecentimeters" value="0" onchange="squarecentimetersChanged()"/>
+                        <input id="squarecentimeters" value="0" onchange="squarecentimetersChanged();" onkeypress="squarecentimetersChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is an imperial unit and U.S. customary unit of area.">Feet²</h3>
-                        <input id="squarefeet" value="0" onchange="squarefeetChanged()"/>
+                        <input id="squarefeet"   value="0" onchange="squarefeetChanged();" onkeypress="squarefeetChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is a common unit of measurement in the U.S. and the U.K.">Inches²</h3>
-                        <input id="squareinches" value="0" onchange="squareinchesChanged()"/>
+                        <input id="squareinches"  value="0" onchange="squareinchesChanged();" onkeypress="squareinchesChanged(); functionEnter(event)" />
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="when applied to a portion of the earth's surface, 'square mile' is a synonym for 'section'.">Miles²</h3>
-                        <input id="squaremiles" value="0" onchange="squaremilesChanged()"/>
+                        <input id="squaremiles"  value="0" onchange="squaremilesChanged();" onkeypress="squaremilesChanged();functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is formerly used in most of the English-speaking world but now generally replaced by the square meter.">Yards²</h3>
-                        <input id="squareyards" value="0" onchange="squareyardsChanged()"/>
+                        <input id="squareyards"  value="0" onchange="squareyardsChanged();" onkeypress="squareyardsChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="the Trafalgar Square in London has an area of about one hectare.">Hectare</h3>
-                        <input id="hectare" value="0" onchange="hectareChanged()"/>
+                        <input id="hectare" value="0" onchange="hectareChanged();" onkeypress="hectareChanged(); functionEnter(event)" />
                     </div>
                 </div>
                 <div>
@@ -273,37 +273,36 @@
                 <div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is the SI derived unit of volume.">Meter³</h3>
-                        <input id="cubicMeter" value="0" onchange="cubicMeterChanged()"/>
+                        <input id="cubicMeter"  value="0" onchange="cubicMeterChanged();" onkeypress="cubicMeterChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="one litre is the volume of a cube with 10 cm sides.">Liter & Dm³</h3>
-                        <input id="cubicDecimeterAndLiter" value="0" onchange="cubicDecimeterAndLiterChanged()"/>
+                        <input id="cubicDecimeterAndLiter"  value="0" onchange="cubicDecimeterAndLiterChanged();" onkeypress="cubicDecimeterAndLiterChanged(); functionEnter(event)"/>
                     </div>
 
                     <div class="temp-fields">
                         <h3 class="spacing" title="a unit of capacity equal to one thousandth of a liter.">Milliliter & Cm³</h3>
-                        <input id="cubicCentimiterAndMilliliter" value="0"
-                               onchange="cubicCentimeterAndMilliliterChanged()"/>
+                        <input id="cubicCentimiterAndMilliliter" value="0" onchange="cubicCentimeterAndMilliliterChanged();" onkeypress="cubicCentimeterAndMilliliterChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title=" is a unit of measurement for volume in both the US and the British imperial systems of measurement.">Gallon</h3>
-                        <input id="gallon" value="0" onchange="gallonChanged()"/>
+                        <input id="gallon" value="0" onchange="gallonChanged();" onkeypress="gallonChanged(); functionEnter(event)" />
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="one megaliter is equal to one million liters.">Megaliter</h3>
-                        <input id="megaliter" value="0" onchange="megaliterChanged()"/>
+                        <input id="megaliter" value="0" onchange="megaliterChanged();" onkeypress="megaliterChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is a unit of measurement for volume in the Imperial units and United States customary units systems.">Inches³</h3>
-                        <input id="cubicInch" value="0" onchange="cubicInchChanged()"/>
+                        <input id="cubicInch"  value="0" onchange="cubicInchChanged();" onkeypress="cubicInchChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="the term is used as a measure of volume in cooking.">Tablespoon</h3>
-                        <input id="tablespoon" value="0" onchange="tablespoonChanged()"/>
+                        <input id="tablespoon"  value="0" onchange="tablespoonChanged();" onkeypress="tablespoonChanged(); functionEnter(event)" />
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="the term is also used as a measure of volume in cooking.">Teaspoon</h3>
-                        <input id="teaspoon" value="0" onchange="teaspoonChanged()"/>
+                        <input id="teaspoon"   value="0" onchange="teaspoonChanged();" onkeypress="teaspoonChanged(); functionEnter(event)"/>
                     </div>
                 </div>
                 <div>
@@ -330,21 +329,20 @@
                 <div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is the standard system for denoting integer and non-integer numbers.">Decimal</h3>
-                        <input id="decimal" value="0" onchange="decimalChanged()"/>
+                        <input id="decimal"  value="0" onchange="decimalChanged();" onkeypress="decimalChanged(); functionEnter(event)"/>
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is a number expressed in the base-2 numeral system or binary numeral system, which uses only two symbols: 0 (zero) and 1 (one).">Binary</h3>
-                        <input id="binary" value="0" onchange="binaryChanged()"/>
+                        <input id="binary"  value="0" onchange="binaryChanged();" onkeypress="binaryChanged(); functionEnter(event)"/>
                     </div>
 
                     <div class="temp-fields">
                         <h3 class="spacing" title="is a positional numeral system with a radix, or base, of 16.">Hexadecimal</h3>
-                        <input id="hexadecimal" value="0"
-                               onchange="hexadecimalChanged()"/>
+                        <input id="hexadecimal"  value="0" onchange="hexadecimalChanged();" onkeypress="hexadecimalChanged(); functionEnter(event)" />
                     </div>
                     <div class="temp-fields">
                         <h3 class="spacing" title="is the base-8 number system, and uses the digits 0 to 7.">Octal</h3>
-                        <input id="octal" value="0" onchange="octalChanged()"/>
+                        <input id="octal" value="0" onchange="octalChanged()" onkeypress="octalChanged(); functionEnter(event)" />
                     </div>
                 </div>
                 <div>
