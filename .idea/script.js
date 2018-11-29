@@ -253,7 +253,7 @@ function convertTemperature() {
     } else if (tempInCelsius.valueOf() > 30) {
         document.getElementById("weatherImage").src = "https://media.giphy.com/media/g0ypOWq14CtmfLghkI/giphy.gif";
         document.getElementById("weatherText").innerHTML = "I'm melting!";
-    } else if (0 < tempInCelsius.valueOf() && tempInCelsius.valueOf() < 30) {
+    } else if (0 <= tempInCelsius.valueOf() && tempInCelsius.valueOf() <= 30) {
         document.getElementById("weatherImage").src = "https://media.giphy.com/media/1Aeg7037dcxcSRPx8w/giphy.gif";
         document.getElementById("weatherText").innerHTML = "Nice weather today.";
     }
