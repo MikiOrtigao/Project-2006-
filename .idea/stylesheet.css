@@ -151,3 +151,18 @@ input {
 #lengthgif, #operation3{
     display: table-row;
 }
+
+#buttone {
+    border: 1px solid rgba(0,0,0,.2);
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 15px 0 15px 10px;
+    font-size: 10px;
+    background: rgba(246, 237, 226, 0.55);
+}
+
+#buttone:hover {
+    background: rgba(73, 122, 83, 0.55);
+    cursor: pointer;
+}
