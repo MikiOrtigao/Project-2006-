@@ -866,7 +866,7 @@ function resetNumberValueArray(idsArray) {
 function checkIfNumberIsBinary(number) {
     var numberCopy = number;
     while (numberCopy > 1) {
-        if (numberCopy % 10 != 0 && numberCopy % 10 != 1) {
+        if (number < 0 || (numberCopy % 10 != 0 && numberCopy % 10 != 1)) {
             return "a";
         }
         numberCopy = Math.floor(numberCopy / 10);
