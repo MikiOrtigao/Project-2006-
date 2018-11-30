@@ -143,7 +143,7 @@ input {
     margin: auto;
 
 }
-#lengthbox, #areabox, #volumebox{
+#lengthbox, #areabox, #volumebox, #numberbox{
     max-width: 60%;
     padding: 5px;
 }

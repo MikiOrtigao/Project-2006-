@@ -803,7 +803,7 @@ function convertNumber() {
 
     if(numInDecimal.valueOf() > 1000) {
         document.getElementById("numberImage").src = "https://media.giphy.com/media/tHW38w1sWRPVBv1xa7/giphy.gif";
-        document.getElementById("numberText").innerHTML = "If you had these in dollars, you could buy something nice for yourself."
+        document.getElementById("numberText").innerHTML = "If you had these in dollars, that would be sweet."
     }
 
     if(numInDecimal.valueOf() >= 100 && numInDecimal.valueOf() <= 1000) {
