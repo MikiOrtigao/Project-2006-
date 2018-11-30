@@ -389,12 +389,12 @@ function convertLength() {
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     } else if (lastEditedLength === CENTIMETERS_ID) {
-        conversionM = normalizeOutput((centimeters * 100), decimalPlacesLength);
-        conversionK = normalizeOutput((centimeters * 100000), decimalPlacesLength);
-        conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
-        conversionI = normalizeOutput((centimeters * 39370.07874), decimalPlacesLength);
-        conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
-        conversionY = normalizeOutput((centimeters * 91.44), decimalPlacesLength);
+        conversionM = normalizeOutput((centimeters * 0.01), decimalPlacesLength);
+        conversionK = normalizeOutput((centimeters * 0.00001), decimalPlacesLength);
+        conversionF = normalizeOutput((centimeters * 0.032808399), decimalPlacesLength);
+        conversionI = normalizeOutput((centimeters * 0.3937007874), decimalPlacesLength);
+        conversionMi = normalizeOutput((centimeters * 0.0000062137), decimalPlacesLength);
+        conversionY = normalizeOutput((centimeters * 0.010936133), decimalPlacesLength);
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionF, conversionI, conversionMi, conversionY]);
