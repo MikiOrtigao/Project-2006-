@@ -352,7 +352,7 @@ function convertWeight() {
 }
 
 function convertLength() {
-    var decimalPlacesLength = 3;
+    var decimalPlacesLength = 10;
     var conversionM;
     var conversionK;
     var conversionC;
