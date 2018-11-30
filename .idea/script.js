@@ -205,7 +205,7 @@ function octalChanged() {
  * Converts Temperature - Unit values used: Celsius, Fahrenheit and Kelvin
  */
 function convertTemperature() {
-    var decimalPlacesTemp = 0; //remove decimal places from temperature
+    var decimalPlacesTemp = 2; //remove decimal places from temperature
     var conversionC;
     var conversionF;
     var conversionK;
@@ -214,27 +214,27 @@ function convertTemperature() {
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     // the method will return updated temperature values.
     var celsius = document.getElementById(CELSIUS_ID).value;
-    celsius = parseFloat(celsius);
+    celsius = Number(celsius);
 
     var fahrenheit = document.getElementById(FAHRENHEIT_ID).value;
-    fahrenheit = parseFloat(fahrenheit);
+    fahrenheit = Number(fahrenheit);
 
     var kelvin = document.getElementById(KELVIN_ID).value;
-    kelvin = parseFloat(kelvin);
+    kelvin = Number(kelvin);
 
     //if the celsius field changes, convert the fahrenheit and kelvin values
     if (lastEditedTemp === CELSIUS_ID) {
-        tempInCelsius = document.getElementById(CELSIUS_ID).value;
         conversionF = normalizeOutput((celsius * 9 / 5 + 32), decimalPlacesTemp);
         conversionK = normalizeOutput((celsius + 273), decimalPlacesTemp);
+        tempInCelsius = document.getElementById(CELSIUS_ID).value;
         attributeNumberValueArray([FAHRENHEIT_ID, KELVIN_ID], [conversionF, conversionK]);
     }
 
     //if the fahrenheit field changes, convert the celsius and kelvin values
     else if (lastEditedTemp === FAHRENHEIT_ID) {
         conversionC = normalizeOutput(((fahrenheit - 32) * 5 / 9), decimalPlacesTemp);
-        tempInCelsius = conversionC.valueOf();
         conversionK = normalizeOutput((conversionC + 273), decimalPlacesTemp);
+        tempInCelsius = conversionC.valueOf();
         attributeNumberValueArray([CELSIUS_ID, KELVIN_ID], [conversionC, conversionK]);
     }
 
@@ -274,19 +274,19 @@ function convertWeight() {
 
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var kilos = document.getElementById(KILOS_ID).value;
-    kilos = parseNumbers(kilos);
+    kilos = Number(kilos);
 
     var grams = document.getElementById(GRAMS_ID).value;
-    grams = parseNumbers(grams);
+    grams = Number(grams);
 
     var pounds = document.getElementById(POUNDS_ID).value;
-    pounds = parseNumbers(pounds);
+    pounds = Number(pounds);
 
     var ounces = document.getElementById(OUNCES_ID).value;
-    ounces = parseNumbers(ounces);
+    ounces = Number(ounces);
 
     var stones = document.getElementById(STONES_ID).value;
-    stones = parseNumbers(stones);
+    stones = Number(stones);
 
     //if the kilos field changes, convert the grams, pounds, ouces and stone values;
     if (lastEditedWeight === KILOS_ID) {
@@ -363,19 +363,19 @@ function convertLength() {
     var lengthInMeters;
 
     var meters = document.getElementById(METERS_ID).value;
-    meters = parseNumbers(meters);
+    meters = Number(meters);
     var kilometers = document.getElementById(KILOMETERS_ID).value;
-    kilometers = parseNumbers(kilometers);
+    kilometers = Number(kilometers);
     var centimeters = document.getElementById(CENTIMETERS_ID).value;
-    centimeters = parseNumbers(centimeters);
+    centimeters = Number(centimeters);
     var feet = document.getElementById(FEET_ID).value;
-    feet = parseNumbers(feet);
+    feet = Number(feet);
     var inches = document.getElementById(INCHES_ID).value;
-    inches = parseNumbers(inches);
+    inches = Number(inches);
     var miles = document.getElementById(MILES_ID).value;
-    miles = parseNumbers(miles);
+    miles = Number(miles);
     var yards = document.getElementById(YARDS_ID).value;
-    yards = parseNumbers(yards);
+    yards = Number(yards);
 
     //length values, will be our "return" value after the method
     if (lastEditedLength === METERS_ID) {
@@ -468,21 +468,21 @@ function convertArea() {
 
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var squaremeters = document.getElementById(SQUAREMETERS_ID).value;
-    squaremeters = parseNumbers(squaremeters);
+    squaremeters = Number(squaremeters);
     var squarekilometers = document.getElementById(SQUAREKILOMETERS_ID).value;
-    squarekilometers = parseNumbers(squarekilometers);
+    squarekilometers = Number(squarekilometers);
     var squarecentimeters = document.getElementById(SQUARECENTIMETERS_ID).value;
-    squarecentimeters = parseNumbers(squarecentimeters);
+    squarecentimeters = Number(squarecentimeters);
     var squarefeet = document.getElementById(SQUAREFEET_ID).value;
-    squarefeet = parseNumbers(squarefeet);
+    squarefeet = Number(squarefeet);
     var squareinches = document.getElementById(SQUAREINCHES_ID).value;
-    squareinches = parseNumbers(squareinches);
+    squareinches = Number(squareinches);
     var squaremiles = document.getElementById(SQUAREMILES_ID).value;
-    squaremiles = parseNumbers(squaremiles);
+    squaremiles = Number(squaremiles);
     var squareyards = document.getElementById(SQUAREYARDS_ID).value;
-    squareyards = parseNumbers(squareyards);
+    squareyards = Number(squareyards);
     var hectare = document.getElementById(HECTARE_ID).value;
-    hectare = parseNumbers(hectare);
+    hectare = Number(hectare);
 
     //length values, will be our "return" value after the method
     var decimalPlacesArea = 12;
@@ -615,21 +615,21 @@ function convertVolume() {
     var volumeInLiters;
 
     var cubicMeter = document.getElementById(CUBICMETER_ID).value;
-    cubicMeter = parseNumbers(cubicMeter);
+    cubicMeter = Number(cubicMeter);
     var cubicDecimeterAndLiter = document.getElementById(CUBICDECIMETERANDLITER_ID).value;
-    cubicDecimeterAndLiter = parseNumbers(cubicDecimeterAndLiter);
+    cubicDecimeterAndLiter = Number(cubicDecimeterAndLiter);
     var cubicCentimiterAndMilliliter = document.getElementById(CUBICCENTIMITERANDMILLILITER_ID).value;
-    cubicCentimiterAndMilliliter = parseNumbers(cubicCentimiterAndMilliliter);
+    cubicCentimiterAndMilliliter = Number(cubicCentimiterAndMilliliter);
     var gallon = document.getElementById(GALLON_ID).value;
-    gallon = parseNumbers(gallon);
+    gallon = Number(gallon);
     var megaliter = document.getElementById(MEGALITER_ID).value;
-    megaliter = parseNumbers(megaliter);
+    megaliter = Number(megaliter);
     var cubicInch = document.getElementById(CUBICINCH_ID).value;
-    cubicInch = parseNumbers(cubicInch);
+    cubicInch = Number(cubicInch);
     var tablespoon = document.getElementById(TABLESPOON_ID).value;
-    tablespoon = parseNumbers(tablespoon);
+    tablespoon = Number(tablespoon);
     var teaspoon = document.getElementById(TEASPOON_ID).value;
-    teaspoon = parseNumbers(teaspoon);
+    teaspoon = Number(teaspoon);
 
     //length values, will be our "return" value after the method
     if (lastEditedVolume === CUBICMETER_ID) {
@@ -745,16 +745,16 @@ function convertNumber() {
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
 
     var decimal = document.getElementById(DECIMAL_ID).value;
-    decimal = parseNumbers(decimal);
+    decimal = Number(decimal);
 
     var binary = document.getElementById(BINARY_ID).value;
-    binary = parseNumbers(binary);
+    binary = Number(binary);
 
     var hexadecimal = document.getElementById(HEXADECIMAL_ID).value;
-    hexadecimal = parseNumbers(hexadecimal);
+    hexadecimal = hexadecimal;
 
     var octal = document.getElementById(OCTAL_ID).value;
-    octal = parseNumbers(octal);
+    octal = Number(octal);
 
     //number values. These will be our "return" value after the method.
     var conversionDc;
