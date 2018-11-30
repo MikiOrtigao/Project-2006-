@@ -274,19 +274,19 @@ function convertWeight() {
 
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var kilos = document.getElementById(KILOS_ID).value;
-    kilos = parseFloat(kilos);
+    kilos = parseNumbers(kilos);
 
     var grams = document.getElementById(GRAMS_ID).value;
-    grams = parseFloat(grams);
+    grams = parseNumbers(grams);
 
     var pounds = document.getElementById(POUNDS_ID).value;
-    pounds = parseFloat(pounds);
+    pounds = parseNumbers(pounds);
 
     var ounces = document.getElementById(OUNCES_ID).value;
-    ounces = parseFloat(ounces);
+    ounces = parseNumbers(ounces);
 
     var stones = document.getElementById(STONES_ID).value;
-    stones = parseFloat(stones);
+    stones = parseNumbers(stones);
 
     //if the kilos field changes, convert the grams, pounds, ouces and stone values;
     if (lastEditedWeight === KILOS_ID) {
@@ -352,7 +352,7 @@ function convertWeight() {
 }
 
 function convertLength() {
-    var decimalPlacesLength = 10;
+    var decimalPlacesLength = 3;
     var conversionM;
     var conversionK;
     var conversionC;
@@ -363,48 +363,48 @@ function convertLength() {
     var lengthInMeters;
 
     var meters = document.getElementById(METERS_ID).value;
-    meters = parseFloat(meters);
+    meters = parseNumbers(meters);
     var kilometers = document.getElementById(KILOMETERS_ID).value;
-    kilometers = parseFloat(kilometers);
+    kilometers = parseNumbers(kilometers);
     var centimeters = document.getElementById(CENTIMETERS_ID).value;
-    centimeters = parseFloat(centimeters);
+    centimeters = parseNumbers(centimeters);
     var feet = document.getElementById(FEET_ID).value;
-    feet = parseFloat(feet);
+    feet = parseNumbers(feet);
     var inches = document.getElementById(INCHES_ID).value;
-    inches = parseFloat(inches);
+    inches = parseNumbers(inches);
     var miles = document.getElementById(MILES_ID).value;
-    miles = parseFloat(miles);
+    miles = parseNumbers(miles);
     var yards = document.getElementById(YARDS_ID).value;
-    yards = parseFloat(yards);
+    yards = parseNumbers(yards);
 
     //length values, will be our "return" value after the method
     if (lastEditedLength === METERS_ID) {
         conversionK = normalizeOutput((meters / 1000), decimalPlacesLength);
         conversionC = normalizeOutput((meters * 100), decimalPlacesLength);
-        conversionF = normalizeOutput((meters * 3.280839895), decimalPlacesLength);
-        conversionI = normalizeOutput((meters * 39.37007874), decimalPlacesLength);
-        conversionMi = normalizeOutput((meters * 0.0006213712), decimalPlacesLength);
-        conversionY = normalizeOutput((meters * 1.0936132983), decimalPlacesLength);
+        conversionF = normalizeOutput((meters * 0.3048), decimalPlacesLength);
+        conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
+        conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
+        conversionY = normalizeOutput((meters * 0.9144), decimalPlacesLength);
         lengthInMeters = document.getElementById(METERS_ID).value;
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     } else if (lastEditedLength === CENTIMETERS_ID) {
-        conversionM = normalizeOutput((centimeters * 0.01), decimalPlacesLength);
-        conversionK = normalizeOutput((centimeters * 0.00001), decimalPlacesLength);
-        conversionF = normalizeOutput((centimeters * 0.032808399), decimalPlacesLength);
-        conversionI = normalizeOutput((centimeters * 0.3937007874), decimalPlacesLength);
-        conversionMi = normalizeOutput((centimeters * 0.0000062137), decimalPlacesLength);
-        conversionY = normalizeOutput((centimeters * 0.010936133), decimalPlacesLength);
+        conversionM = normalizeOutput((centimeters * 100), decimalPlacesLength);
+        conversionK = normalizeOutput((centimeters * 100000), decimalPlacesLength);
+        conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
+        conversionI = normalizeOutput((centimeters * 2.54), decimalPlacesLength);
+        conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
+        conversionY = normalizeOutput((centimeters * 91.44), decimalPlacesLength);
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionF, conversionI, conversionMi, conversionY]);
     } else if (lastEditedLength === FEET_ID) {
-        conversionM = normalizeOutput((feet * 0.3048), decimalPlacesLength);
-        conversionK = normalizeOutput((feet * 0.0003048), decimalPlacesLength);
-        conversionC = normalizeOutput((feet * 30.48), decimalPlacesLength);
-        conversionI = normalizeOutput((feet * 12), decimalPlacesLength);
-        conversionMi = normalizeOutput((feet * 0.0001893939), decimalPlacesLength);
-        conversionY = normalizeOutput((feet * 0.3333333333), decimalPlacesLength);
+        conversionM = normalizeOutput((feet * 3.280839895), decimalPlacesLength);
+        conversionK = normalizeOutput((feet * 3280.839895), decimalPlacesLength);
+        conversionC = normalizeOutput((feet * 0.032808399), decimalPlacesLength);
+        conversionI = normalizeOutput((feet * 0.0833333333), decimalPlacesLength);
+        conversionMi = normalizeOutput((feet * 5280), decimalPlacesLength);
+        conversionY = normalizeOutput((feet * 3), decimalPlacesLength);
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionI, conversionMi, conversionY]);
@@ -468,21 +468,21 @@ function convertArea() {
 
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var squaremeters = document.getElementById(SQUAREMETERS_ID).value;
-    squaremeters = parseFloat(squaremeters);
+    squaremeters = parseNumbers(squaremeters);
     var squarekilometers = document.getElementById(SQUAREKILOMETERS_ID).value;
-    squarekilometers = parseFloat(squarekilometers);
+    squarekilometers = parseNumbers(squarekilometers);
     var squarecentimeters = document.getElementById(SQUARECENTIMETERS_ID).value;
-    squarecentimeters = parseFloat(squarecentimeters);
+    squarecentimeters = parseNumbers(squarecentimeters);
     var squarefeet = document.getElementById(SQUAREFEET_ID).value;
-    squarefeet = parseFloat(squarefeet);
+    squarefeet = parseNumbers(squarefeet);
     var squareinches = document.getElementById(SQUAREINCHES_ID).value;
-    squareinches = parseFloat(squareinches);
+    squareinches = parseNumbers(squareinches);
     var squaremiles = document.getElementById(SQUAREMILES_ID).value;
-    squaremiles = parseFloat(squaremiles);
+    squaremiles = parseNumbers(squaremiles);
     var squareyards = document.getElementById(SQUAREYARDS_ID).value;
-    squareyards = parseFloat(squareyards);
+    squareyards = parseNumbers(squareyards);
     var hectare = document.getElementById(HECTARE_ID).value;
-    hectare = parseFloat(hectare);
+    hectare = parseNumbers(hectare);
 
     //length values, will be our "return" value after the method
     var decimalPlacesArea = 12;
@@ -615,21 +615,21 @@ function convertVolume() {
     var volumeInLiters;
 
     var cubicMeter = document.getElementById(CUBICMETER_ID).value;
-    cubicMeter = parseFloat(cubicMeter);
+    cubicMeter = parseNumbers(cubicMeter);
     var cubicDecimeterAndLiter = document.getElementById(CUBICDECIMETERANDLITER_ID).value;
-    cubicDecimeterAndLiter = parseFloat(cubicDecimeterAndLiter);
+    cubicDecimeterAndLiter = parseNumbers(cubicDecimeterAndLiter);
     var cubicCentimiterAndMilliliter = document.getElementById(CUBICCENTIMITERANDMILLILITER_ID).value;
-    cubicCentimiterAndMilliliter = parseFloat(cubicCentimiterAndMilliliter);
+    cubicCentimiterAndMilliliter = parseNumbers(cubicCentimiterAndMilliliter);
     var gallon = document.getElementById(GALLON_ID).value;
-    gallon = parseFloat(gallon);
+    gallon = parseNumbers(gallon);
     var megaliter = document.getElementById(MEGALITER_ID).value;
-    megaliter = parseFloat(megaliter);
+    megaliter = parseNumbers(megaliter);
     var cubicInch = document.getElementById(CUBICINCH_ID).value;
-    cubicInch = parseFloat(cubicInch);
+    cubicInch = parseNumbers(cubicInch);
     var tablespoon = document.getElementById(TABLESPOON_ID).value;
-    tablespoon = parseFloat(tablespoon);
+    tablespoon = parseNumbers(tablespoon);
     var teaspoon = document.getElementById(TEASPOON_ID).value;
-    teaspoon = parseFloat(teaspoon);
+    teaspoon = parseNumbers(teaspoon);
 
     //length values, will be our "return" value after the method
     if (lastEditedVolume === CUBICMETER_ID) {
@@ -745,16 +745,16 @@ function convertNumber() {
     // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
 
     var decimal = document.getElementById(DECIMAL_ID).value;
-    decimal = parseFloat(decimal);
+    decimal = parseNumbers(decimal);
 
     var binary = document.getElementById(BINARY_ID).value;
-    binary = parseFloat(binary);
+    binary = parseNumbers(binary);
 
     var hexadecimal = document.getElementById(HEXADECIMAL_ID).value;
-    hexadecimal = parseFloat(hexadecimal);
+    hexadecimal = parseNumbers(hexadecimal);
 
     var octal = document.getElementById(OCTAL_ID).value;
-    octal = parseFloat(octal);
+    octal = parseNumbers(octal);
 
     //number values. These will be our "return" value after the method.
     var conversionDc;
@@ -880,5 +880,16 @@ function checkIfNumberIsBinary(number) {
  */
 function functionEnter(e) {
     if (e.keyCode === 13) convertf();
+}
 
+/**
+ * Method to ensure a numeric value has no special characters besides numbers.
+ */
+
+function parseNumbers(input) {
+    var filter = new RegExp('^[0-9]$')
+    if (input.value = filter){
+        return input;
+    }
+    else return NaN;
 }
