@@ -381,10 +381,10 @@ function convertLength() {
     if (lastEditedLength === METERS_ID) {
         conversionK = normalizeOutput((meters / 1000), decimalPlacesLength);
         conversionC = normalizeOutput((meters * 100), decimalPlacesLength);
-        conversionF = normalizeOutput((meters * 0.3048), decimalPlacesLength);
-        conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
-        conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
-        conversionY = normalizeOutput((meters * 0.9144), decimalPlacesLength);
+        conversionF = normalizeOutput((meters * 3.280839895), decimalPlacesLength);
+        conversionI = normalizeOutput((meters * 39.37007874), decimalPlacesLength);
+        conversionMi = normalizeOutput((meters * 0.0006213712), decimalPlacesLength);
+        conversionY = normalizeOutput((meters * 1.0936132983), decimalPlacesLength);
         lengthInMeters = document.getElementById(METERS_ID).value;
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
