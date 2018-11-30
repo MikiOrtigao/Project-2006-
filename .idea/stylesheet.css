@@ -110,7 +110,8 @@ input {
 
 #meters, #kilometers, #centimeters, #feet, #inches, #miles, #yards,
 #squaremeters, #squarekilometers, #squarecentimeters, #squarefeet, #squareinches, #squaremiles, #squareyards, #hectare,
-#cubicMeter,#cubicDecimeterAndLiter,#cubicCentimiterAndMilliliter,#gallon,#megaliter,#cubicInch,#tablespoon,#teaspoon{
+#cubicMeter,#cubicDecimeterAndLiter,#cubicCentimiterAndMilliliter,#gallon,#megaliter,#cubicInch,#tablespoon,#teaspoon,
+#celsius, #fahrenheit, #kelvin, #kilos, #grams, #pounds, #ounces, #stones{
     background: #F8F8F8;
     width: 110px;
     padding: 10px 10px;
