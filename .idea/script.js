@@ -380,7 +380,7 @@ function convertLength() {
     //length values, will be our "return" value after the method
     if (lastEditedLength === METERS_ID) {
         conversionK = normalizeOutput((meters / 1000), decimalPlacesLength);
-        conversionC = normalizeOutput((meters / 100), decimalPlacesLength);
+        conversionC = normalizeOutput((meters * 100), decimalPlacesLength);
         conversionF = normalizeOutput((meters * 0.3048), decimalPlacesLength);
         conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
         conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
