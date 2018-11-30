@@ -352,7 +352,7 @@ function convertWeight() {
 }
 
 function convertLength() {
-    var decimalPlacesLength = 3;
+    var decimalPlacesLength = 10;
     var conversionM;
     var conversionK;
     var conversionC;
@@ -381,20 +381,20 @@ function convertLength() {
     if (lastEditedLength === METERS_ID) {
         conversionK = normalizeOutput((meters / 1000), decimalPlacesLength);
         conversionC = normalizeOutput((meters * 100), decimalPlacesLength);
-        conversionF = normalizeOutput((meters * 0.3048), decimalPlacesLength);
-        conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
-        conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
-        conversionY = normalizeOutput((meters * 0.9144), decimalPlacesLength);
+        conversionF = normalizeOutput((meters * 3.280839895), decimalPlacesLength);
+        conversionI = normalizeOutput((meters * 39.37007874), decimalPlacesLength);
+        conversionMi = normalizeOutput((meters * 0.0006213712), decimalPlacesLength);
+        conversionY = normalizeOutput((meters * 1.0936132983), decimalPlacesLength);
         lengthInMeters = document.getElementById(METERS_ID).value;
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     } else if (lastEditedLength === CENTIMETERS_ID) {
-        conversionM = normalizeOutput((centimeters * 100), decimalPlacesLength);
-        conversionK = normalizeOutput((centimeters * 100000), decimalPlacesLength);
-        conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
-        conversionI = normalizeOutput((centimeters * 2.54), decimalPlacesLength);
-        conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
-        conversionY = normalizeOutput((centimeters * 91.44), decimalPlacesLength);
+        conversionM = normalizeOutput((centimeters * 0.01), decimalPlacesLength);
+        conversionK = normalizeOutput((centimeters * 0.00001), decimalPlacesLength);
+        conversionF = normalizeOutput((centimeters * 0.032808399), decimalPlacesLength);
+        conversionI = normalizeOutput((centimeters * 0.3937007874), decimalPlacesLength);
+        conversionMi = normalizeOutput((centimeters * 0.0000062137), decimalPlacesLength);
+        conversionY = normalizeOutput((centimeters * 0.010936133), decimalPlacesLength);
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionF, conversionI, conversionMi, conversionY]);
