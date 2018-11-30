@@ -392,7 +392,7 @@ function convertLength() {
         conversionM = normalizeOutput((centimeters * 100), decimalPlacesLength);
         conversionK = normalizeOutput((centimeters * 100000), decimalPlacesLength);
         conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
-        conversionI = normalizeOutput((centimeters * 2.54), decimalPlacesLength);
+        conversionI = normalizeOutput((centimeters * 39370.07874), decimalPlacesLength);
         conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
         conversionY = normalizeOutput((centimeters * 91.44), decimalPlacesLength);
         lengthInMeters = conversionM.valueOf();
