@@ -211,16 +211,16 @@ function convertTemperature() {
     var conversionK;
     var tempInCelsius;
 
-    // the parseNumbers returns a floating point number if the input is a number, and NaN if it's not.
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     // the method will return updated temperature values.
     var celsius = document.getElementById(CELSIUS_ID).value;
-    celsius = parseNumbers(celsius);
+    celsius = parseFloat(celsius);
 
     var fahrenheit = document.getElementById(FAHRENHEIT_ID).value;
-    fahrenheit = parseNumbers(fahrenheit);
+    fahrenheit = parseFloat(fahrenheit);
 
     var kelvin = document.getElementById(KELVIN_ID).value;
-    kelvin = parseNumbers(kelvin);
+    kelvin = parseFloat(kelvin);
 
     //if the celsius field changes, convert the fahrenheit and kelvin values
     if (lastEditedTemp === CELSIUS_ID) {
@@ -272,7 +272,7 @@ function convertWeight() {
     var conversionStones;
     var weightInKg;
 
-    // the parseNumbers returns a floating point number if the input is a number, and NaN if it's not.
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var kilos = document.getElementById(KILOS_ID).value;
     kilos = parseNumbers(kilos);
 
@@ -352,7 +352,7 @@ function convertWeight() {
 }
 
 function convertLength() {
-    var decimalPlacesLength = 10;
+    var decimalPlacesLength = 3;
     var conversionM;
     var conversionK;
     var conversionC;
@@ -381,30 +381,30 @@ function convertLength() {
     if (lastEditedLength === METERS_ID) {
         conversionK = normalizeOutput((meters / 1000), decimalPlacesLength);
         conversionC = normalizeOutput((meters * 100), decimalPlacesLength);
-        conversionF = normalizeOutput((meters * 3.280839895), decimalPlacesLength);
-        conversionI = normalizeOutput((meters * 39.37007874), decimalPlacesLength);
-        conversionMi = normalizeOutput((meters * 0.0006213712), decimalPlacesLength);
-        conversionY = normalizeOutput((meters * 1.0936132983), decimalPlacesLength);
+        conversionF = normalizeOutput((meters * 0.3048), decimalPlacesLength);
+        conversionI = normalizeOutput((meters * 0.0254), decimalPlacesLength);
+        conversionMi = normalizeOutput((meters * 1609.344), decimalPlacesLength);
+        conversionY = normalizeOutput((meters * 0.9144), decimalPlacesLength);
         lengthInMeters = document.getElementById(METERS_ID).value;
 
         attributeNumberValueArray([KILOMETERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionC, conversionF, conversionI, conversionMi, conversionY]);
     } else if (lastEditedLength === CENTIMETERS_ID) {
-        conversionM = normalizeOutput((centimeters * 0.01), decimalPlacesLength);
-        conversionK = normalizeOutput((centimeters * 0.00001), decimalPlacesLength);
-        conversionF = normalizeOutput((centimeters * 0.032808399), decimalPlacesLength);
-        conversionI = normalizeOutput((centimeters * 0.3937007874), decimalPlacesLength);
-        conversionMi = normalizeOutput((centimeters * 0.0000062137), decimalPlacesLength);
-        conversionY = normalizeOutput((centimeters * 0.010936133), decimalPlacesLength);
+        conversionM = normalizeOutput((centimeters * 100), decimalPlacesLength);
+        conversionK = normalizeOutput((centimeters * 100000), decimalPlacesLength);
+        conversionF = normalizeOutput((centimeters * 30.48), decimalPlacesLength);
+        conversionI = normalizeOutput((centimeters * 2.54), decimalPlacesLength);
+        conversionMi = normalizeOutput((centimeters * 160934.4), decimalPlacesLength);
+        conversionY = normalizeOutput((centimeters * 91.44), decimalPlacesLength);
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, FEET_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionF, conversionI, conversionMi, conversionY]);
     } else if (lastEditedLength === FEET_ID) {
-        conversionM = normalizeOutput((feet * 0.3048), decimalPlacesLength);
-        conversionK = normalizeOutput((feet * 0.0003048), decimalPlacesLength);
-        conversionC = normalizeOutput((feet * 30.48), decimalPlacesLength);
-        conversionI = normalizeOutput((feet * 12), decimalPlacesLength);
-        conversionMi = normalizeOutput((feet * 0.0001893939), decimalPlacesLength);
-        conversionY = normalizeOutput((feet * 0.3333333333), decimalPlacesLength);
+        conversionM = normalizeOutput((feet * 3.280839895), decimalPlacesLength);
+        conversionK = normalizeOutput((feet * 3280.839895), decimalPlacesLength);
+        conversionC = normalizeOutput((feet * 0.032808399), decimalPlacesLength);
+        conversionI = normalizeOutput((feet * 0.0833333333), decimalPlacesLength);
+        conversionMi = normalizeOutput((feet * 5280), decimalPlacesLength);
+        conversionY = normalizeOutput((feet * 3), decimalPlacesLength);
         lengthInMeters = conversionM.valueOf();
 
         attributeNumberValueArray([KILOMETERS_ID, METERS_ID, CENTIMETERS_ID, INCHES_ID, MILES_ID, YARDS_ID], [conversionK, conversionM, conversionC, conversionI, conversionMi, conversionY]);
@@ -466,7 +466,7 @@ function convertLength() {
 
 function convertArea() {
 
-    // the parseNumbers returns a floating point number if the input is a number, and NaN if it's not.
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var squaremeters = document.getElementById(SQUAREMETERS_ID).value;
     squaremeters = parseNumbers(squaremeters);
     var squarekilometers = document.getElementById(SQUAREKILOMETERS_ID).value;
@@ -602,7 +602,7 @@ function convertArea() {
 
 function convertVolume() {
 
-    // the parseNumbers returns a floating point number if the input is a number, and NaN if it's not..
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not..
     var decimalPlacesVolume = 12;
     var conversionM3;
     var conversionD3AndL;
@@ -742,7 +742,7 @@ function convertVolume() {
 
 function convertNumber() {
 
-    // the parseNumbers returns a floating point number if the input is a number, and NaN if it's not.
+    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
 
     var decimal = document.getElementById(DECIMAL_ID).value;
     decimal = parseNumbers(decimal);
@@ -829,7 +829,7 @@ function resetNumber() {
  */
 
 function normalizeOutput(value, decimalPlaces) {
-    value = parseNumbers(value.toFixed(decimalPlaces));
+    value = parseFloat(value.toFixed(decimalPlaces));
 
     if (value >= 10000) { //só vai fazer a parte do exponencial se o valor for superior a este, podemos mudar
         value = value.toExponential();
@@ -887,7 +887,7 @@ function functionEnter(e) {
  */
 
 function parseNumbers(input) {
-    var filter = new RegExp('^[0-9]*$')
+    var filter = new RegExp('^[0-9]$')
     if (input.value = filter){
         return input;
     }
