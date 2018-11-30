@@ -762,20 +762,21 @@ function convertNumber() {
     var conversionHx;
     var conversionOc;
     var str;
+    var numInDecimal;
 
     if (lastEditedNumber === DECIMAL_ID) {
         str = decimal;
         conversionBn = (+str).toString(2);
         conversionHx = (+str).toString(16);
         conversionOc = (+str).toString(8);
-
+        numInDecimal = str.valueOf();
         attributeNumberValueArray([BINARY_ID, HEXADECIMAL_ID, OCTAL_ID], [conversionBn, conversionHx, conversionOc]);
     } else if (lastEditedNumber === BINARY_ID) {
         str = checkIfNumberIsBinary(binary);
         conversionDc = parseInt(+str, 2).toString(10);
         conversionHx = parseInt(+str, 2).toString(16);
         conversionOc = parseInt(+str, 2).toString(8);
-
+        numInDecimal = conversionDc.valueOf();
         attributeNumberValueArray([DECIMAL_ID, HEXADECIMAL_ID, OCTAL_ID], [conversionDc, conversionHx, conversionOc]);
     } else if (lastEditedNumber === HEXADECIMAL_ID) {
         str = hexadecimal;
@@ -789,8 +790,25 @@ function convertNumber() {
         conversionDc = parseInt(+str, 8).toString(10);
         conversionBn = parseInt(+str, 8).toString(2);
         conversionHx = parseInt(+str, 8).toString(16);
-
+        numInDecimal = conversionDc.valueOf();
         attributeNumberValueArray([DECIMAL_ID, BINARY_ID, HEXADECIMAL_ID], [conversionDc, conversionBn, conversionHx]);
+    }
+
+    // changes image and text
+
+    if(numInDecimal.valueOf() < 100) {
+        document.getElementById("numberImage").src = "https://media.giphy.com/media/xAStKGnV2q7gG39YOe/giphy.gif";
+        document.getElementById("numberText").innerHTML = "That's a tiny number. Come on, you can do better!"
+    }
+
+    if(numInDecimal.valueOf() > 1000) {
+        document.getElementById("numberImage").src = "https://media.giphy.com/media/tHW38w1sWRPVBv1xa7/giphy.gif";
+        document.getElementById("numberText").innerHTML = "If you had these in dollars, you could buy something nice for yourself."
+    }
+
+    if(numInDecimal.valueOf() >= 100 && numInDecimal.valueOf() <= 1000) {
+        document.getElementById("numberImage").src = "https://media.giphy.com/media/61ZccUuB3JyLeoDCB3/giphy.gif";
+        document.getElementById("numberText").innerHTML = "That's a moderate number."
     }
 }
 
