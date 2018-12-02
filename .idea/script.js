@@ -899,15 +899,3 @@ function checkIfNumberIsBinary(number) {
 function functionEnter(e) {
     if (e.keyCode === 13) convertf();
 }
-
-/**
- * Method to ensure a numeric value has no special characters besides numbers.
- */
-
-function parseNumbers(input) {
-    var filter = new RegExp('^[0-9]$')
-    if (input.value = filter){
-        return input;
-    }
-    else return NaN;
-}
