@@ -4,7 +4,6 @@
  * Ex: Instead of using "celsius", CELSIUS_ID shall be used. This helps prevent typos.
  * @type {string}
  */
-
 const CELSIUS_ID = "celsius"
 const FAHRENHEIT_ID = "fahrenheit"
 const KELVIN_ID = "kelvin"
@@ -205,7 +204,7 @@ function octalChanged() {
  * Converts Temperature - Unit values used: Celsius, Fahrenheit and Kelvin
  */
 function convertTemperature() {
-    var decimalPlacesTemp = 2; //remove decimal places from temperature
+    var decimalPlacesTemp = 2; //sets decimal places to 2, used on normalizeOutput function
     var conversionC;
     var conversionF;
     var conversionK;
@@ -487,7 +486,9 @@ function convertArea() {
     var hectare = document.getElementById(HECTARE_ID).value;
     hectare = Number(hectare);
 
-    //length values, will be our "return" value after the method
+    /**
+     * Variable definition, will store our return values after the method.
+     */
     var decimalPlacesArea = 12;
     var conversionM2;
     var conversionK2;
@@ -606,6 +607,9 @@ function convertArea() {
 
 function convertVolume() {
 
+    /**
+     * Variable definition, will store our return values after the method.
+     */
     var decimalPlacesVolume = 12;
     var conversionM3;
     var conversionD3AndL;
