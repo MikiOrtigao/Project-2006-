@@ -8,12 +8,13 @@ body, input, button {
 
 button {
     background: #CCC;
-    border: 1px solid rgba(0,0,0,.2);
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0), 0 1px 2px rgba(0, 0, 0, .25);
     border-radius: 5px;
     padding: 10px 20px;
     margin: 15px 0 15px 10px;
 }
+
 .homebutton {
     background-color: grey;
     border: none;
@@ -22,27 +23,30 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
 button:hover {
     background: rgba(249, 133, 155, 0.55);
     cursor: pointer;
 }
-.categorie{
+
+.categorie {
     background: #CCC;
-    border: 1px solid rgba(0,0,0,.2);
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0), 0 1px 2px rgba(0, 0, 0, .25);
     border-radius: 5px;
     padding: 10px 20px;
     margin: 15px 0 15px 10px;
     transition: 0.3s;
 }
-.categorie:hover{
+
+.categorie:hover {
     background: rgba(212, 134, 74, 0.82);
     cursor: pointer;
 }
 
 button:active {
     background: #BBB;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 header {
@@ -51,7 +55,7 @@ header {
     text-align: left;
     font-size: 20px;
     color: white;
-    background-image: linear-gradient(#009588, #00998c,#009588);
+    background-image: linear-gradient(#009588, #00998c, #009588);
     border-radius: 5px;
 }
 
@@ -63,16 +67,15 @@ footer {
     color: grey;
 }
 
-
-.header3{
+.header3 {
     color: #009588;
     font-size: 2em;
     margin: 10px 0 10px 0;
 }
 
-.header5{
+.header5 {
     color: #da8d49;
-    font-weight:normal;
+    font-weight: normal;
     font-size: 1.5em;
     margin: 10px 0 10px 0;
 }
@@ -85,7 +88,7 @@ input {
     border: 1px solid #fcd87e;
 }
 
-.welcome{
+.welcome {
     background-color: white;
     opacity: 0.7;
     color: #635f5f;
@@ -98,28 +101,29 @@ input {
     padding: 25px;
     margin-top: 9vh;
     border-radius: 10px;
-    box-shadow:  0px 1px 0 rgba(0,0,0,0),  1px 2px rgba(0,0,0,.25);
+    box-shadow: 0px 1px 0 rgba(0, 0, 0, 0), 1px 2px rgba(0, 0, 0, .25);
 }
 
-#decimal, #binary, #hexadecimal, #octal{
+#decimal, #binary, #hexadecimal, #octal {
     background: #F8F8F8;
     width: 170px;
     padding: 10px 10px;
     border-radius: 6px;
-    border: 1px solid #fcd87e;}
+    border: 1px solid #fcd87e;
+}
 
 #meters, #kilometers, #centimeters, #feet, #inches, #miles, #yards,
 #squaremeters, #squarekilometers, #squarecentimeters, #squarefeet, #squareinches, #squaremiles, #squareyards, #hectare,
-#cubicMeter,#cubicDecimeterAndLiter,#cubicCentimiterAndMilliliter,#gallon,#megaliter,#cubicInch,#tablespoon,#teaspoon,
-#celsius, #fahrenheit, #kelvin, #kilos, #grams, #pounds, #ounces, #stones{
+#cubicMeter, #cubicDecimeterAndLiter, #cubicCentimiterAndMilliliter, #gallon, #megaliter, #cubicInch, #tablespoon, #teaspoon,
+#celsius, #fahrenheit, #kelvin, #kilos, #grams, #pounds, #ounces, #stones {
     background: #F8F8F8;
     width: 110px;
     padding: 10px 10px;
     border-radius: 6px;
-    border: 1px solid #fcd87e;}
+    border: 1px solid #fcd87e;
+}
 
-
-.card{
+.card {
     background-color: white;
     max-width: 50%;
     min-width: 300px;
@@ -127,14 +131,14 @@ input {
     padding: 25px;
     margin-top: 5vh;
     border-radius: 10px;
-    box-shadow:  0px 1px 0 rgba(0,0,0,0),  1px 2px rgba(0,0,0,.25);
+    box-shadow: 0px 1px 0 rgba(0, 0, 0, 0), 1px 2px rgba(0, 0, 0, .25);
 }
 
-.spacing{
+.spacing {
     margin: 15px;
 }
 
-.temp-fields{
+.temp-fields {
     display: inline-block;
 }
 
@@ -143,18 +147,19 @@ input {
     margin: auto;
 
 }
-#lengthbox, #areabox, #volumebox, #numberbox{
+
+#lengthbox, #areabox, #volumebox, #numberbox {
     max-width: 60%;
     padding: 5px;
 }
 
-#lengthgif, #operation3{
+#lengthgif, #operation3 {
     display: table-row;
 }
 
 #buttone {
-    border: 1px solid rgba(0,0,0,.2);
-    box-shadow: inset 0 1px 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,.25);
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0), 0 1px 2px rgba(0, 0, 0, .25);
     border-radius: 5px;
     padding: 10px 10px;
     margin: 15px 0 15px 10px;
