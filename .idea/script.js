@@ -211,7 +211,6 @@ function convertTemperature() {
     var conversionK;
     var tempInCelsius;
 
-    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     // the method will return updated temperature values.
     var celsius = document.getElementById(CELSIUS_ID).value;
     celsius = Number(celsius);
@@ -246,7 +245,9 @@ function convertTemperature() {
         attributeNumberValueArray([CELSIUS_ID, FAHRENHEIT_ID], [conversionC, conversionF]);
     }
 
-    //changes image and text
+    /**
+     * Method to change images and text on web page
+     */
     if (tempInCelsius.valueOf() < 0) {
         document.getElementById("weatherImage").src = "https://media.giphy.com/media/1rM0Yhs1V9dFrySxXG/giphy.gif";
         document.getElementById("weatherText").innerHTML = "I think our website is gonna f-freeze..."
@@ -272,7 +273,6 @@ function convertWeight() {
     var conversionStones;
     var weightInKg;
 
-    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
     var kilos = document.getElementById(KILOS_ID).value;
     kilos = Number(kilos);
 
@@ -338,7 +338,9 @@ function convertWeight() {
         attributeNumberValueArray([KILOS_ID, GRAMS_ID, POUNDS_ID, OUNCES_ID], [conversionKilos, conversionGrams, conversionPounds, conversionOunces]);
     }
 
-    //changes images displayed
+    /**
+     * Method to change images and text on web page
+     */
     if (weightInKg.valueOf() < 40) {
         document.getElementById("weightImage").src = "https://media.giphy.com/media/3dkZ6MkMkZWgSXeUjx/giphy.gif";
         document.getElementById("weightText").innerHTML = "Light as a feather!"
@@ -450,8 +452,9 @@ function convertLength() {
         attributeNumberValueArray([MILES_ID, METERS_ID, CENTIMETERS_ID, FEET_ID, INCHES_ID, KILOMETERS_ID], [conversionMi, conversionM, conversionC, conversionF, conversionI, conversionK]);
     }
 
-    //changes images and inner text
-
+    /**
+     * Method to change images and text on web page
+     */
     if (lengthInMeters.valueOf() > 1.9) {
         document.getElementById("lengthImage").src = "https://media.giphy.com/media/oVtwU0Ma5BJnofsMpY/giphy.gif";
         document.getElementById("lengthText").innerHTML = "That's huge!"
@@ -586,8 +589,9 @@ function convertArea() {
         attributeNumberValueArray([SQUAREKILOMETERS_ID, SQUAREMETERS_ID, SQUARECENTIMETERS_ID, SQUAREFEET_ID, SQUAREINCHES_ID, SQUAREYARDS_ID, SQUAREYARDS_ID], [conversionK2, conversionM2, conversionC2, conversionF2, conversionI2, conversionY2, conversionY2]);
     }
 
-    //changes images and text
-
+    /**
+     * Method to change images and text on web page
+     */
     if (areaInSquareKm.valueOf() < 15) {
         document.getElementById("areaImage").src = "https://media.giphy.com/media/4NkqE4jUNa2lsackEi/giphy.gif";
         document.getElementById("areaText").innerHTML = "That's a pretty small place...";
@@ -602,7 +606,6 @@ function convertArea() {
 
 function convertVolume() {
 
-    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not..
     var decimalPlacesVolume = 12;
     var conversionM3;
     var conversionD3AndL;
@@ -631,7 +634,6 @@ function convertVolume() {
     var teaspoon = document.getElementById(TEASPOON_ID).value;
     teaspoon = Number(teaspoon);
 
-    //length values, will be our "return" value after the method
     if (lastEditedVolume === CUBICMETER_ID) {
         conversionD3AndL = normalizeOutput((cubicMeter * 1000), decimalPlacesVolume);
         conversionC3AndMl = normalizeOutput((cubicMeter * 1000000), decimalPlacesVolume);
@@ -722,8 +724,9 @@ function convertVolume() {
         attributeNumberValueArray([CUBICMETER_ID, CUBICDECIMETERANDLITER_ID, CUBICCENTIMITERANDMILLILITER_ID, GALLON_ID, MEGALITER_ID, CUBICINCH_ID, TABLESPOON_ID], [conversionM3, conversionD3AndL, conversionC3AndMl, conversionGl, conversionMgL, conversionIN3, conversionTbS]);
     }
 
-    //changes image and text
-
+    /**
+     * Method to change images and text on web page
+     */
     if (volumeInLiters.valueOf() < 1) {
         document.getElementById("volumeImage").src = "https://media.giphy.com/media/KVFE3yGk7zRETOvNIp/giphy.gif";
         document.getElementById("volumeText").innerHTML = "Can barely fill a bottle."
@@ -742,8 +745,6 @@ function convertVolume() {
 
 function convertNumber() {
 
-    // the parseFloat returns a floating point number if the input is a number, and NaN if it's not.
-
     var decimal = document.getElementById(DECIMAL_ID).value;
     decimal = Number(decimal);
 
@@ -756,7 +757,6 @@ function convertNumber() {
     var octal = document.getElementById(OCTAL_ID).value;
     octal = Number(octal);
 
-    //number values. These will be our "return" value after the method.
     var conversionDc;
     var conversionBn;
     var conversionHx;
@@ -794,8 +794,9 @@ function convertNumber() {
         attributeNumberValueArray([DECIMAL_ID, BINARY_ID, HEXADECIMAL_ID], [conversionDc, conversionBn, conversionHx]);
     }
 
-    // changes image and text
-
+    /**
+     * Method to change images and text on web page
+      */
     if(numInDecimal.valueOf() < 100) {
         document.getElementById("numberImage").src = "https://media.giphy.com/media/xAStKGnV2q7gG39YOe/giphy.gif";
         document.getElementById("numberText").innerHTML = "That's a tiny number. Come on, you can do better!"
@@ -849,7 +850,7 @@ function resetNumber() {
 function normalizeOutput(value, decimalPlaces) {
     value = parseFloat(value.toFixed(decimalPlaces));
 
-    if (value >= 10000) { //só vai fazer a parte do exponencial se o valor for superior a este, podemos mudar
+    if (value >= 10000) {
         value = value.toExponential();
     }
     return value;
